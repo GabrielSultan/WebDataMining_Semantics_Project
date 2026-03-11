@@ -37,8 +37,6 @@ The extraction pipeline follows four main stages: (1) source selection and crawl
 
 \textbf{Source selection.} As recommended in the instructions, we use APIs when anti-robot checking occurs. The primary source is the \textbf{Europeana API} (Search API at \texttt{api.europeana.eu}), which provides metadata and descriptions for cultural heritage objects (Local History domain). No scraping or trafilatura is needed for API-sourced content; text is extracted directly from the JSON response (title, dcDescription, year, country). A lower word threshold (100 words) is used for API items since descriptions are typically shorter than full web pages.
 
-\textbf{Fallback.} If the Europeana API key is not set, we use sample data (\texttt{--demo}) for pipeline testing.
-
 \textbf{Content extraction.} Text comes directly from the Europeana API response (title, dcDescription, year, country). Items with fewer than 80--100 words are discarded. The instructions suggest 500 words for scraped pages; we use a lower threshold for API-sourced content since Europeana descriptions are typically shorter than full web pages---a pragmatic choice documented in the config.
 
 \textbf{Storage.} Results are stored in JSONL format, with one JSON object per line containing \texttt{url}, \texttt{text}, \texttt{title}, and \texttt{word\_count}.

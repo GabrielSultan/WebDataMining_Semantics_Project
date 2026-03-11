@@ -1,6 +1,6 @@
 """
 Run the full Web Mining and Semantics pipeline.
-Phase 1: Europeana API (or --demo when no API key).
+Phase 1: Europeana API (requires EUROPEANA_API_KEY).
 Phase 2: Entity linking (Wikidata only for alignment), predicate alignment (SPARQL),
          KB expansion (SPARQL 1-Hop on Wikidata + Europeana complement).
 """
@@ -23,10 +23,8 @@ def run(cmd: list[str], desc: str) -> bool:
 
 def main():
     crawler_cmd = ["phase1_crawler.py"]
-    if not config.EUROPEANA_API_KEY:
-        crawler_cmd.append("--demo")
     steps = [
-        (crawler_cmd, "Phase 1: Crawling (Europeana API or demo)"),
+        (crawler_cmd, "Phase 1: Crawling (Europeana API)"),
         (["phase1_extraction.py"], "Phase 1: NER + Relation extraction"),
         (["phase2_build_kb.py"], "Phase 2: Build initial KB"),
         (["phase2_entity_linking.py"], "Phase 2: Entity linking (Wikidata)"),

@@ -27,7 +27,6 @@ python -m spacy download en_core_web_sm
    python phase1_crawler.py
    ```
    With `EUROPEANA_API_KEY` set, the crawler uses the Europeana API (no scraping, no 403).
-   Use `--demo` for sample data when the API key is not set.
 
 2. **Extraction (NER + relations):**
    ```bash
