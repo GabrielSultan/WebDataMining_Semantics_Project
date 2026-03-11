@@ -58,7 +58,24 @@ python -m spacy download en_core_web_sm
    Uses cursor-based pagination to fetch 700+ records. Target: 50k--200k triplets, 5k--30k entities.
    Options: `--quick` (500 records), `--target N` (custom record count).
 
-## Deliverables
+## Où sont les statistiques (triplets, entités, relations) ?
+
+Les chiffres **179 412 triplets, 6 728 entités, 22 relations** se trouvent dans **`livrable/kb_expanded.nt`** (un triplet par ligne). Voir `data/DATA_README.md` pour le détail.
+
+## Livrables (dossier `livrable/`)
+
+Les fichiers à rendre (InstructionPhase2) sont dans **`livrable/`** :
+
+| File | Description |
+|------|-------------|
+| `livrable/kb_expanded.nt` | Expanded KB (N-Triples) |
+| `livrable/ontology.ttl` | Ontology for new entities |
+| `livrable/alignment.ttl` | Entity and predicate alignments |
+| `livrable/mapping_table.csv` | Private entity → Europeana URI mapping |
+| `livrable/statistics_report.txt` | KB statistics |
+| `report/report.tex` | Lab report (Phase 1 + Phase 2) |
+
+## Données intermédiaires (dossier `data/`)
 
 | File | Description |
 |------|-------------|
@@ -66,12 +83,6 @@ python -m spacy download en_core_web_sm
 | `data/extracted_knowledge.csv` | Entities (entity, type, source_url) |
 | `data/extracted_triples.csv` | Subject-predicate-object triples |
 | `data/kb_initial.ttl` | Initial RDF KB |
-| `data/kb_expanded.nt` | Expanded KB (N-Triples) |
-| `data/ontology.ttl` | Ontology for new entities |
-| `data/alignment.ttl` | Entity and predicate alignments |
-| `data/mapping_table.csv` | Private entity → Europeana URI mapping |
-| `data/statistics_report.txt` | KB statistics |
-| `report/report.tex` | Lab report (Phase 1 + Phase 2) |
 
 ## Report
 

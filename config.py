@@ -52,12 +52,17 @@ EUROPEANA_EXPANSION_TARGET_RECORDS = 700
 
 # Output paths
 DATA_DIR = "data"
+LIVRABLE_DIR = "livrable"  # Fichiers à rendre (InstructionPhase2)
+os.makedirs(LIVRABLE_DIR, exist_ok=True)
+
 CRAWLER_OUTPUT = f"{DATA_DIR}/crawler_output.jsonl"
 EXTRACTED_KNOWLEDGE = f"{DATA_DIR}/extracted_knowledge.csv"
 EXTRACTED_TRIPLES = f"{DATA_DIR}/extracted_triples.csv"
 KB_INITIAL = f"{DATA_DIR}/kb_initial.ttl"
-KB_EXPANDED = f"{DATA_DIR}/kb_expanded.nt"
-ONTOLOGY_FILE = f"{DATA_DIR}/ontology.ttl"
-ALIGNMENT_FILE = f"{DATA_DIR}/alignment.ttl"
-MAPPING_TABLE = f"{DATA_DIR}/mapping_table.csv"
-STATISTICS_REPORT = f"{DATA_DIR}/statistics_report.txt"
+
+# Livrables Phase 2 (dans livrable/)
+KB_EXPANDED = f"{LIVRABLE_DIR}/kb_expanded.nt"
+ONTOLOGY_FILE = f"{LIVRABLE_DIR}/ontology.ttl"
+ALIGNMENT_FILE = f"{LIVRABLE_DIR}/alignment.ttl"
+MAPPING_TABLE = f"{LIVRABLE_DIR}/mapping_table.csv"
+STATISTICS_REPORT = f"{LIVRABLE_DIR}/statistics_report.txt"
