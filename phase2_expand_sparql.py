@@ -26,22 +26,20 @@ KEEP_PROPERTIES = {"P31", "P17", "P571", "P580", "P582", "P625", "P569", "P570"}
 # Max literal length for descriptions (filter verbose text)
 MAX_LITERAL_LENGTH = 200
 
+# InstructionPhase2 Step 4: 50-200 relations. Whitelist of Wikidata properties to keep.
+# Only triples with these predicates are included (avoids 1000+ relation types from 1-Hop).
+ALLOWED_WIKIDATA_PROPERTIES = {
+    "P31", "P17", "P571", "P580", "P582", "P625", "P569", "P570",  # KEEP
+    "P276", "P131", "P170", "P27", "P19", "P20", "P106", "P166", "P1412", "P937",
+    "P21", "P18", "P856", "P1448", "P373", "P1476", "P2048", "P112", "P159",
+    "P136", "P156", "P361", "P527", "P138", "P135", "P1366", "P39", "P102",
+    "P140", "P1343", "P1433", "P488", "P69", "P108",
+}
+
 # Wikidata properties for Predicate-Controlled Expansion (InstructionPhase2 Step 4)
-# These add many triples and increase relation diversity (target 50-200 relations)
 PREDICATE_CONTROLLED_PROPERTIES = {
-    "P276",   # location
-    "P131",   # located in administrative territory
-    "P170",   # creator
-    "P27",    # country of citizenship
-    "P19",    # place of birth
-    "P20",    # place of death
-    "P569",   # date of birth
-    "P570",   # date of death
-    "P31",    # instance of
-    "P106",   # occupation
-    "P166",   # award received
-    "P1412",  # languages spoken
-    "P937",   # work location
+    "P276", "P131", "P170", "P27", "P19", "P20", "P569", "P570",
+    "P31", "P106", "P166", "P1412", "P937",
 }
 
 
@@ -141,6 +139,11 @@ def sparql_1hop(qid: str, limit: int = 1000) -> list[tuple[str, str, str]]:
         if "prop/direct/" not in p_val:
             continue
 
+        # InstructionPhase2: 50-200 relations - only keep whitelisted predicates
+        m_prop = re.search(r"prop/direct/(P\d+)", p_val)
+        if m_prop and m_prop.group(1) not in ALLOWED_WIKIDATA_PROPERTIES:
+            continue
+
         o_type = o_bind.get("type", "")
         o_val = o_bind.get("value", "")
 
@@ -199,6 +202,9 @@ def sparql_2hop(qid: str, limit: int = 500) -> list[tuple[str, str, str]]:
         p_val = b.get("p", {}).get("value", "")
         o_bind = b.get("o", {})
         if "prop/direct/" not in p_val or not inter:
+            continue
+        m_prop = re.search(r"prop/direct/(P\d+)", p_val)
+        if m_prop and m_prop.group(1) not in ALLOWED_WIKIDATA_PROPERTIES:
             continue
         o_type = o_bind.get("type", "")
         o_val = o_bind.get("value", "")

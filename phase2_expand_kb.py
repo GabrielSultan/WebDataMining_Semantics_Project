@@ -151,8 +151,8 @@ def cleanup_malformed_literals(g: Graph) -> Graph:
 def extract_triples_from_record(item: dict, g: Graph) -> None:
     """
     Extract RDF triples from an Europeana record.
-    Uses entity URIs (not just literals) to increase entity count for KGE.
-    Extracts many metadata fields to reach 50k+ triplets target.
+    InstructionPhase2 Step 4: 50-200 relations. We use ONE canonical predicate per
+    semantic role (DC/DCTERMS/EDM standard) to avoid relation explosion.
     """
     item_id = item.get("id", "")
     if not item_id:
@@ -176,58 +176,48 @@ def extract_triples_from_record(item: dict, g: Graph) -> None:
         if entity_type:
             g.add((entity_uri, RDF.type, entity_type))
 
-    # Title (literal)
+    # Canonical predicates only (DC/DCTERMS/EDM) - target 50-200 relations total
     title = item.get("title", [])
     if isinstance(title, list) and title:
         add_literal(DC["title"], title[0])
     elif title:
         add_literal(DC["title"], title)
 
-    # Use distinct predicates per semantic role (target: 50-200 relations)
-    for creator in _flatten(item.get("dcCreator")):
+    for creator in _flatten(item.get("dcCreator")) + _flatten(item.get("dcContributor")):
         add_entity_triple(DC["creator"], creator, NS["Person"])
-        add_literal(NS["hasCreator"], creator)
 
-    for contrib in _flatten(item.get("dcContributor")):
-        add_entity_triple(DC["contributor"], contrib, NS["Person"])
-        add_literal(NS["hasContributor"], contrib)
+    for place_val in _flatten(item.get("country")) + _flatten(item.get("edmPlaceLabel")):
+        add_entity_triple(DCTERMS["spatial"], place_val, NS["Place"])
 
-    for country in _flatten(item.get("country")):
-        add_entity_triple(DCTERMS["spatial"], country, NS["Place"])
-        add_literal(NS["hasCountry"], country)
-
-    for year in _flatten(item.get("year")):
+    for year in _flatten(item.get("year")) + _flatten(item.get("dctermsIssued")):
         add_literal(DCTERMS["created"], year)
-        add_literal(NS["hasYear"], year)
 
-    for place in _flatten(item.get("edmPlaceLabel")):
-        add_entity_triple(NS["hasPlace"], place, NS["Place"])
-        add_literal(DCTERMS["spatial"], place)
-
-    for concept in _flatten(item.get("edmConceptLabel")):
-        add_entity_triple(DCTERMS["type"], concept, NS["Thing"])
-        add_literal(NS["hasConcept"], concept)
-
-    for subj in _flatten(item.get("dcSubject")):
-        add_literal(DC["subject"], subj)
-        add_literal(NS["hasSubject"], subj)
+    for concept in _flatten(item.get("edmConceptLabel")) + _flatten(item.get("dcSubject")):
+        add_entity_triple(DC["subject"], concept, NS["Thing"])
 
     for dtype in _flatten(item.get("dcType")):
         add_literal(DC["type"], dtype)
-        add_literal(NS["hasType"], dtype)
 
     for lang in _flatten(item.get("dcLanguage")) or _flatten(item.get("language")):
         add_literal(DC["language"], lang)
-        add_literal(NS["hasLanguage"], lang)
 
     for prov in _flatten(item.get("dataProvider")):
         add_literal(EDM["dataProvider"], prov)
-        add_literal(NS["hasDataProvider"], prov)
-
     for prov in _flatten(item.get("provider")):
         add_literal(EDM["provider"], prov)
-        add_literal(NS["hasProvider"], prov)
 
+    for alt in _flatten(item.get("dctermsAlternative")):
+        add_literal(DCTERMS["alternative"], alt)
+    for medium in _flatten(item.get("dctermsMedium")):
+        add_literal(DCTERMS["medium"], medium)
+    for temporal in _flatten(item.get("dctermsTemporal")):
+        add_literal(DCTERMS["temporal"], temporal)
+    for fmt in _flatten(item.get("dcFormat")):
+        add_literal(DC["format"], fmt)
+    for rights in _flatten(item.get("dcRights")):
+        add_literal(DC["rights"], rights)
+
+    # Additional predicates to reach 50+ relations (InstructionPhase2)
     ugc = item.get("ugc")
     if isinstance(ugc, list):
         for tag in ugc:
@@ -237,48 +227,29 @@ def extract_triples_from_record(item: dict, g: Graph) -> None:
             for tag in _flatten(v):
                 add_literal(NS["hasTag"], tag)
 
-    for alt in _flatten(item.get("dctermsAlternative")):
-        add_literal(DCTERMS["alternative"], alt)
-    for issued in _flatten(item.get("dctermsIssued")):
-        add_literal(DCTERMS["issued"], issued)
-    for medium in _flatten(item.get("dctermsMedium")):
-        add_literal(NS["hasMedium"], medium)
-    for temporal in _flatten(item.get("dctermsTemporal")):
-        add_literal(NS["hasTemporal"], temporal)
-    for fmt in _flatten(item.get("dcFormat")):
-        add_literal(NS["hasFormat"], fmt)
-    for rights in _flatten(item.get("dcRights")):
-        add_literal(NS["hasRights"], rights)
-
-    # Additional Europeana fields for more relations (target 50-200)
-    for coll in _flatten(item.get("edmCollectionName")):
-        add_literal(NS["inCollection"], coll)
-    for coll in _flatten(item.get("collectionName")):
+    for coll in _flatten(item.get("edmCollectionName")) + _flatten(item.get("collectionName")):
         add_literal(NS["inCollection"], coll)
     for ident in _flatten(item.get("dcIdentifier")):
-        add_literal(NS["hasIdentifier"], ident)
+        add_literal(DC["identifier"], ident)
     for src in _flatten(item.get("dcSource")):
-        add_literal(NS["hasSource"], src)
+        add_literal(DCTERMS["source"], src)
     for prov in _flatten(item.get("dctermsProvenance")):
-        add_literal(NS["hasProvenance"], prov)
+        add_literal(DCTERMS["provenance"], prov)
 
-    # Additional predicates for relation diversity (target 50-200, InstructionPhase2)
     for agent in _flatten(item.get("edmAgentLabel")):
-        add_entity_triple(NS["hasAgent"], agent, NS["Person"])
-        add_literal(NS["hasAgentLabel"], agent)
+        add_entity_triple(DC["creator"], agent, NS["Person"])
     for timespan in _flatten(item.get("edmTimespanLabel")):
-        add_literal(NS["hasTimespan"], timespan)
+        add_literal(DCTERMS["temporal"], timespan)
     for concept in _flatten(item.get("skosConceptLabel")) or _flatten(item.get("skosConceptPrefLabel")):
-        add_entity_triple(NS["hasSkosConcept"], concept, NS["Thing"])
-        add_literal(NS["hasConceptLabel"], concept)
+        add_entity_triple(DC["subject"], concept, NS["Thing"])
     for isPartOf in _flatten(item.get("edmIsPartOf")):
-        add_literal(NS["isPartOf"], isPartOf)
+        add_literal(DCTERMS["isPartOf"], isPartOf)
     for current in _flatten(item.get("edmCurrentLocation")):
-        add_literal(NS["currentLocation"], current)
+        add_literal(EDM["currentLocation"], current)
     for hasView in _flatten(item.get("edmHasView")):
-        add_literal(NS["hasView"], hasView)
+        add_literal(EDM["hasView"], hasView)
     for isRelatedTo in _flatten(item.get("edmIsRelatedTo")):
-        add_literal(NS["isRelatedTo"], isRelatedTo)
+        add_literal(EDM["isRelatedTo"], isRelatedTo)
 
 
 def main():
@@ -308,8 +279,9 @@ def main():
             g.add((s, p, o))
         print(f"  Merged {len(g_sparql)} triplets from Wikidata")
 
-    # 2. Europeana complement if volume < 50k
+    # 2. Europeana complement if volume < 50k (InstructionPhase2: 50k-200k triplets)
     target_triples = 50_000
+    max_triples = 200_000
     if len(g) < target_triples and config.EUROPEANA_API_KEY:
         queries = getattr(
             config, "EUROPEANA_EXPANSION_QUERIES",
@@ -318,10 +290,13 @@ def main():
         target = args.target or getattr(config, "EUROPEANA_EXPANSION_TARGET_RECORDS", 700)
         if args.quick:
             target = 500
-        print(f"Step 2: Europeana complement (target {target} records)...")
+        print(f"Step 2: Europeana complement (target {target} records, max {max_triples} triplets)...")
         records = fetch_europeana_records_cursor(queries, target, rows_per_request=100)
         print(f"  Fetched {len(records)} Europeana records")
         for item in records:
+            if len(g) >= max_triples:
+                print(f"  Stopping: reached {max_triples} triplets (InstructionPhase2 cap)")
+                break
             extract_triples_from_record(item, g)
 
     # 3. Cleanup malformed literals (JSON artifacts)
@@ -336,6 +311,14 @@ def main():
         if key not in seen:
             seen.add(key)
             g_clean.add((s, p, o))
+
+    # 5. Cap triplets at 200k (InstructionPhase2 Step 4)
+    if len(g_clean) > max_triples:
+        triples_list = list(g_clean)
+        g_clean = Graph()
+        for s, p, o in triples_list[:max_triples]:
+            g_clean.add((s, p, o))
+        print(f"  Capped at {max_triples} triplets (was {len(triples_list)})")
 
     g_clean.serialize(destination=config.KB_EXPANDED, format="nt")
     n_triples = len(g_clean)
