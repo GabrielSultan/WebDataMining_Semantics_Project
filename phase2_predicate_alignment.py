@@ -22,7 +22,32 @@ DC = Namespace("http://purl.org/dc/elements/1.1/")
 
 WIKIDATA_SPARQL = "https://query.wikidata.org/sparql"
 
-# Keywords for SPARQL search per predicate (used to find Wikidata properties)
+# Manual Wikidata mapping (priority over SPARQL) - key predicates for expansion
+PREDICATE_TO_WIKIDATA = {
+    "locatedIn": WDT["P276"],   # location
+    "locate": WDT["P276"],
+    "occupy": WDT["P276"],
+    "storm": WDT["P276"],
+    "settle": WDT["P276"],
+    "flow": WDT["P276"],
+    "conquer": WDT["P276"],
+    "imprison": WDT["P276"],
+    "build": WDT["P170"],      # creator
+    "design": WDT["P170"],
+    "construct": WDT["P170"],
+    "paint": WDT["P170"],
+    "make": WDT["P170"],
+    "commission": WDT["P170"],
+    "crown": WDT["P166"],      # award received
+    "complete": WDT["P571"],   # inception
+    "establish": WDT["P571"],
+    "sign": WDT["P580"],       # start time
+    "pledge": WDT["P580"],
+    "choose": WDT["P580"],
+    "designate": WDT["P31"],   # instance of
+}
+
+# Keywords for SPARQL search per predicate (used when no manual mapping)
 PREDICATE_SEARCH_TERMS = {
     "locate": "location",
     "locatedIn": "location",
@@ -125,16 +150,28 @@ def main():
     alignment.bind("owl", OWL)
     alignment.bind("rdfs", RDFS)
 
+    # Load alignment; filter out any Europeana URIs (InstructionPhase2: DBpedia/Wikidata only)
     if Path(config.ALIGNMENT_FILE).exists():
-        alignment.parse(config.ALIGNMENT_FILE)
+        temp = Graph()
+        temp.parse(config.ALIGNMENT_FILE)
+        for s, p, o in temp:
+            if p == OWL.sameAs and isinstance(o, URIRef):
+                if "europeana.eu" in str(o).lower():
+                    continue  # Skip Europeana - not SPARQL-queryable
+            alignment.add((s, p, o))
 
     # Per instructions: use SPARQL on Wikidata to find equivalent predicates
+    # Priority: 1) Manual Wikidata mapping, 2) SPARQL query, 3) EDM/DC fallback
     for pred, search_term in PREDICATE_SEARCH_TERMS.items():
         lh_pred = URIRef(NS[pred])
-        wikidata_uris = sparql_wikidata_property(search_term, limit=5)
-        if wikidata_uris:
-            # Use first SPARQL result (manual validation in practice)
-            wd_uri = URIRef(wikidata_uris[0])
+        wd_uri = None
+        if pred in PREDICATE_TO_WIKIDATA:
+            wd_uri = PREDICATE_TO_WIKIDATA[pred]
+        else:
+            wikidata_uris = sparql_wikidata_property(search_term, limit=5)
+            if wikidata_uris and "prop/direct/" in wikidata_uris[0]:
+                wd_uri = URIRef(wikidata_uris[0])
+        if wd_uri:
             alignment.add((lh_pred, OWL.equivalentProperty, wd_uri))
         elif pred in PREDICATE_ALIGNMENT_FALLBACK:
             # Fallback to EDM/DC when SPARQL returns nothing

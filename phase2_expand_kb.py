@@ -1,13 +1,16 @@
 """
-Phase 2 Step 4: KB Expansion via Europeana API
+Phase 2 Step 4: KB Expansion (SPARQL on Wikidata + Europeana complement)
 
-Expand by fetching many records from Europeana Search API and extracting triples
-from metadata (dcCreator, country, year, edmPlaceLabel, etc.).
-Target: 50,000-200,000 triplets, 5,000-30,000 entities, 50-200 relations.
-Uses cursor-based pagination to fetch >1000 records per query.
+Per InstructionPhase2: "extend it via SPARQL queries"
+1. SPARQL 1-Hop expansion on Wikidata for aligned entities (primary)
+2. Europeana API complement if volume < 50k triplets
+3. Cleanup malformed literals (JSON artifacts)
+4. Deduplicate and export
 """
 
 import argparse
+import re
+from pathlib import Path
 
 from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import RDF
@@ -15,6 +18,12 @@ from rdflib.namespace import RDF
 import httpx
 
 import config
+
+# Try importing SPARQL expansion (may fail if alignment not yet run)
+try:
+    from phase2_expand_sparql import expand_via_sparql
+except ImportError:
+    expand_via_sparql = None
 
 EDM = Namespace("http://www.europeana.eu/schemas/edm/")
 DCTERMS = Namespace("http://purl.org/dc/terms/")
@@ -81,9 +90,62 @@ def fetch_europeana_records_cursor(
 
 
 def _flatten(val):
+    """Flatten Europeana API values. Handle dict like {'def': ['x']} -> ['x'], extract strings only."""
     if val is None:
         return []
-    return val if isinstance(val, list) else [val]
+    if isinstance(val, dict):
+        out = []
+        for v in val.values():
+            out.extend(_flatten(v))
+        return out
+    if isinstance(val, list):
+        out = []
+        for x in val:
+            if isinstance(x, str):
+                out.append(x)
+            else:
+                out.extend(_flatten(x))
+        return out
+    if isinstance(val, str):
+        return [val]
+    return []
+
+
+def _is_url_literal(val: str) -> bool:
+    """Return True if value looks like an HTTP/HTTPS URL (not useful as literal for KGE)."""
+    s = str(val).strip()
+    return s.startswith("http://") or s.startswith("https://")
+
+
+def _clean_literal(obj):
+    """
+    Fix malformed literals that look like JSON/Python dict reprs.
+    e.g. "{'def': 'Roménia'}" -> Literal("Roménia")
+    Filter out URL literals (e.g. "http://id.worldcat.org/...") - not useful for KGE.
+    Returns (cleaned_obj, keep) - keep=False to drop the triple.
+    """
+    if not isinstance(obj, Literal):
+        return obj, True
+    s = str(obj)
+    # Filter URL literals (Europeana sometimes returns URLs as text values)
+    if _is_url_literal(s):
+        return None, False
+    if not (s.startswith("{") and ("'def'" in s or '"def"' in s)):
+        return obj, True
+    m = re.search(r"['\"]def['\"]\s*:\s*['\"]([^'\"]*)['\"]", s)
+    if m:
+        return Literal(m.group(1)), True
+    return None, False
+
+
+def cleanup_malformed_literals(g: Graph) -> Graph:
+    """Remove or fix triples with malformed literal objects."""
+    out = Graph()
+    for s, p, o in g:
+        obj, keep = _clean_literal(o)
+        if keep and obj is not None:
+            out.add((s, p, obj))
+    return out
 
 
 def extract_triples_from_record(item: dict, g: Graph) -> None:
@@ -99,12 +161,12 @@ def extract_triples_from_record(item: dict, g: Graph) -> None:
     record_uri = URIRef(f"https://www.europeana.eu/item/{item_id}")
 
     def add_literal(pred, val):
-        if val:
+        if val and not _is_url_literal(str(val)):
             g.add((record_uri, pred, Literal(str(val))))
 
     def add_entity_triple(pred, val, entity_type=None):
         """Add (record, pred, entity_uri) and optionally (entity, rdf:type, type)."""
-        if not val:
+        if not val or _is_url_literal(str(val)):
             return
         safe = to_uri_safe(str(val))
         if not safe:
@@ -200,11 +262,30 @@ def extract_triples_from_record(item: dict, g: Graph) -> None:
     for prov in _flatten(item.get("dctermsProvenance")):
         add_literal(NS["hasProvenance"], prov)
 
+    # Additional predicates for relation diversity (target 50-200, InstructionPhase2)
+    for agent in _flatten(item.get("edmAgentLabel")):
+        add_entity_triple(NS["hasAgent"], agent, NS["Person"])
+        add_literal(NS["hasAgentLabel"], agent)
+    for timespan in _flatten(item.get("edmTimespanLabel")):
+        add_literal(NS["hasTimespan"], timespan)
+    for concept in _flatten(item.get("skosConceptLabel")) or _flatten(item.get("skosConceptPrefLabel")):
+        add_entity_triple(NS["hasSkosConcept"], concept, NS["Thing"])
+        add_literal(NS["hasConceptLabel"], concept)
+    for isPartOf in _flatten(item.get("edmIsPartOf")):
+        add_literal(NS["isPartOf"], isPartOf)
+    for current in _flatten(item.get("edmCurrentLocation")):
+        add_literal(NS["currentLocation"], current)
+    for hasView in _flatten(item.get("edmHasView")):
+        add_literal(NS["hasView"], hasView)
+    for isRelatedTo in _flatten(item.get("edmIsRelatedTo")):
+        add_literal(NS["isRelatedTo"], isRelatedTo)
+
 
 def main():
-    parser = argparse.ArgumentParser(description="Expand KB via Europeana API")
-    parser.add_argument("--target", type=int, default=None, help="Target number of records (default: from config)")
-    parser.add_argument("--quick", action="store_true", help="Quick test: 500 records only")
+    parser = argparse.ArgumentParser(description="Expand KB via SPARQL (Wikidata) + Europeana")
+    parser.add_argument("--target", type=int, default=None, help="Target Europeana records (default: from config)")
+    parser.add_argument("--quick", action="store_true", help="Quick test: 500 records only, skip SPARQL")
+    parser.add_argument("--no-sparql", action="store_true", help="Skip SPARQL expansion (Europeana only)")
     args = parser.parse_args()
 
     g = Graph()
@@ -219,23 +300,35 @@ def main():
     for s, p, o in g_initial:
         g.add((s, p, o))
 
-    # Expansion: fetch many Europeana records (cursor pagination for >1000/query)
-    if config.EUROPEANA_API_KEY:
+    # 1. SPARQL expansion on Wikidata (per InstructionPhase2)
+    if expand_via_sparql and not args.no_sparql and not args.quick:
+        print("Step 1: SPARQL 1-Hop expansion on Wikidata...")
+        g_sparql = expand_via_sparql()
+        for s, p, o in g_sparql:
+            g.add((s, p, o))
+        print(f"  Merged {len(g_sparql)} triplets from Wikidata")
+
+    # 2. Europeana complement if volume < 50k
+    target_triples = 50_000
+    if len(g) < target_triples and config.EUROPEANA_API_KEY:
         queries = getattr(
-            config, "EUROPEANA_EXPANSION_QUERIES", config.EUROPEANA_QUERIES + ["Paris", "France", "monument", "museum"]
+            config, "EUROPEANA_EXPANSION_QUERIES",
+            config.EUROPEANA_QUERIES + ["Paris", "France", "monument", "museum"],
         )
-        target = args.target if args.target is not None else getattr(config, "EUROPEANA_EXPANSION_TARGET_RECORDS", 15_000)
+        target = args.target or getattr(config, "EUROPEANA_EXPANSION_TARGET_RECORDS", 700)
         if args.quick:
             target = 500
-        print(f"Fetching up to {target} records from Europeana (cursor pagination)...")
+        print(f"Step 2: Europeana complement (target {target} records)...")
         records = fetch_europeana_records_cursor(queries, target, rows_per_request=100)
-        print(f"Fetched {len(records)} Europeana records for expansion")
+        print(f"  Fetched {len(records)} Europeana records")
         for item in records:
             extract_triples_from_record(item, g)
-    else:
-        print("No Europeana API key; using initial KB only.")
 
-    # Deduplicate
+    # 3. Cleanup malformed literals (JSON artifacts)
+    print("Step 3: Cleaning malformed literals...")
+    g = cleanup_malformed_literals(g)
+
+    # 4. Deduplicate
     seen = set()
     g_clean = Graph()
     for s, p, o in g:

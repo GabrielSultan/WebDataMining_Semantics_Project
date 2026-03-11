@@ -12,8 +12,9 @@ load_dotenv()  # Load .env file so EUROPEANA_API_KEY is available
 # Minimum word count for a page to be considered "useful" (Phase 1 requirement)
 MIN_WORD_COUNT = 500
 
-# Lower threshold for API-sourced content (Europeana descriptions are often shorter)
-# 80 allows more items while filtering very short metadata
+# Lower threshold for API-sourced content (InstructionPhase1 suggests 500 for scraped pages).
+# Europeana descriptions are typically shorter; 80 allows more items while filtering
+# very short metadata. Documented in report as pragmatic choice.
 MIN_WORD_COUNT_API = 80
 
 # User agent for crawling - identifiable as requested for web ethics
@@ -50,6 +51,11 @@ EUROPEANA_EXPANSION_QUERIES = [
 # Target records for expansion (InstructionPhase2: 50k-200k triplets, 5k-30k entities)
 # ~280 triples/record → 700 records ≈ 150k triplets (within 50k-200k)
 EUROPEANA_EXPANSION_TARGET_RECORDS = 700
+
+# SPARQL expansion on Wikidata (InstructionPhase2: "extend it via SPARQL queries")
+WIKIDATA_SPARQL_ENDPOINT = "https://query.wikidata.org/sparql"
+SPARQL_EXPANSION_LIMIT_PER_ENTITY = 1000  # 1-Hop: LIMIT per entity
+SPARQL_EXPANSION_MIN_CONFIDENCE = 0.85  # Only expand from confidently aligned entities
 
 # Output paths
 DATA_DIR = "data"

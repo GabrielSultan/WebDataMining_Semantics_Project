@@ -6,6 +6,8 @@
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{parskip}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
 \geometry{margin=2.5cm}
 
 \title{Web Mining and Semantics\\Lab Report: From Unstructured Web to Knowledge Base}
@@ -14,6 +16,16 @@
 
 \begin{document}
 \maketitle
+
+%=============================================================================
+\section{Introduction}
+%=============================================================================
+
+This report describes a two-phase pipeline for building a Knowledge Base (KB) in the domain of \textbf{Local History}, from raw web data to a structured RDF graph aligned with Linked Open Data (LOD). The objective is to transform unstructured text into triples suitable for Knowledge Graph Embedding (KGE).
+
+\textbf{Domain and sources.} We focus on cultural heritage objects (monuments, historical figures, places) using the \textbf{Europeana API} as the primary data source. Europeana provides metadata for millions of digitized cultural items; we extract text from the Search API JSON response rather than scraping HTML, which avoids anti-robot issues and simplifies content extraction.
+
+\textbf{Scope.} Phase~1 covers crawling, cleaning, Named Entity Recognition (NER), and Relation Extraction (RE). Phase~2 covers KB construction, entity and predicate alignment with Wikidata/DBpedia, and expansion via SPARQL to reach the target volume (50k--200k triplets, 5k--30k entities, 50--200 relations).
 
 %=============================================================================
 \section{Phase 1: From Unstructured Web to Structured Entities}
@@ -27,13 +39,62 @@ The extraction pipeline follows four main stages: (1) source selection and crawl
 
 \textbf{Fallback.} If the Europeana API key is not set, we use sample data (\texttt{--demo}) for pipeline testing.
 
-\textbf{Content extraction.} Text comes directly from the Europeana API response (title, dcDescription, year, country). Items with fewer than 100 words are discarded.
+\textbf{Content extraction.} Text comes directly from the Europeana API response (title, dcDescription, year, country). Items with fewer than 80--100 words are discarded. The instructions suggest 500 words for scraped pages; we use a lower threshold for API-sourced content since Europeana descriptions are typically shorter than full web pages---a pragmatic choice documented in the config.
 
 \textbf{Storage.} Results are stored in JSONL format, with one JSON object per line containing \texttt{url}, \texttt{text}, \texttt{title}, and \texttt{word\_count}.
 
 \textbf{NER.} We use spaCy with the \texttt{en\_core\_web\_trf} model (transformer-based) to extract entities of type PERSON, ORG, GPE, and DATE. Common nouns and generic terms are filtered out.
 
 \textbf{Relations.} For each sentence containing at least two entities, we use dependency tags (\texttt{nsubj}, \texttt{dobj}, \texttt{pobj}) to find a verb connecting them. The verb lemma is used as the predicate for triples of the form (subject, predicate, object).
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  node distance=0.6cm,
+  box/.style={rectangle, draw, minimum width=1.8cm, minimum height=0.5cm, font=\small},
+  arrow/.style={-Stealth}
+]
+  \node[box] (api) {Europeana API};
+  \node[box, right=of api] (extract) {Extraction};
+  \node[box, right=of extract] (ner) {spaCy NER};
+  \node[box, right=of ner] (re) {Relation Ext.};
+  \node[box, right=of re] (kb) {KB initiale};
+  \node[box, right=of kb] (el) {Entity Link};
+  \node[box, right=of el] (pa) {Pred. Align};
+  \node[box, right=of pa] (exp) {Expansion};
+  \draw[arrow] (api) -- (extract) -- (ner) -- (re) -- (kb) -- (el) -- (pa) -- (exp);
+\end{tikzpicture}
+\caption{Pipeline global du projet : Phase~1 (Crawling $\rightarrow$ NER $\rightarrow$ RE) et Phase~2 (KB $\rightarrow$ alignement $\rightarrow$ expansion).}
+\end{figure}
+
+\subsection{Choix méthodologique NER}
+
+We use spaCy's \texttt{en\_core\_web\_trf} model, a transformer-based approach. Compared to rule-based methods or CRF (Conditional Random Fields), transformer-based NER offers several advantages (information\_retrieval.pdf): (1) no manual feature engineering---the model learns representations from raw text; (2) context-aware encoding (e.g., ``Paris'' in ``Paris Hilton'' vs.\ ``Paris, France''); (3) end-to-end learning for entity labels. The lemmatizer integrated in spaCy normalizes verb forms (e.g., ``built'' $\rightarrow$ ``build'') for consistent predicate naming in triples.
+
+\subsection{Relation Extraction}
+
+Relation extraction follows the dependency-based approach (information\_retrieval.pdf): for each sentence with at least two entities, we use dependency tags \texttt{nsubj} (subject), \texttt{dobj} (direct object), and \texttt{pobj} (prepositional object) to find a verb connecting them. Example: ``Marie Curie discovered Polonium'' yields the triple \texttt{(Marie Curie, discovered, Polonium)}. When no verb is found but exactly two entities co-occur, we use \texttt{relatedTo} as fallback; we avoid co-occurrence-only pairs in longer lists to reduce noise.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  node distance=0.5cm,
+  box/.style={rectangle, draw, minimum width=1.6cm, minimum height=0.45cm, font=\footnotesize},
+  arrow/.style={-Stealth}
+]
+  \node[box] (text) {Texte};
+  \node[box, right=of text] (spacy) {spaCy};
+  \node[box, right=of spacy] (ents) {Entités};
+  \node[box, below=0.4cm of spacy] (deps) {Dépendances};
+  \node[box, right=1.2cm of ents] (triples) {Triples};
+  \draw[arrow] (text) -- (spacy);
+  \draw[arrow] (spacy) -- (ents);
+  \draw[arrow] (spacy) -- (deps);
+  \draw[arrow] (ents) -- (triples);
+  \draw[arrow] (deps) -| (triples);
+\end{tikzpicture}
+\caption{Architecture NER/RE : le texte est traité par spaCy (transformer + lemmatizer) pour produire entités (PERSON, ORG, GPE, DATE) et dépendances (nsubj, dobj, pobj), puis les triples (s, p, o).}
+\end{figure}
 
 \subsection{Entity Ambiguity Analysis}
 
@@ -46,6 +107,8 @@ Three examples of entity ambiguity:
 
 \item \textbf{``Louis''} -- In ``Louis XIV built the Palace of Versailles,'' Louis refers to the king. In ``Louis, Missouri,'' it refers to a place. The model may also confuse ``Louis'' with ``Saint Louis'' (a person or a city). Without disambiguation, entity linking can fail.
 \end{enumerate}
+
+As noted in QueryWithOpenKB, ambiguity in entity lookup is common: ``Paris'' can denote Paris (France), Paris (Texas), Paris (mythology), or Paris (person). Entity alignment requires context; we use type-based filtering (GPE $\rightarrow$ place, PERSON $\rightarrow$ human) and Property Evidence when available to improve disambiguation.
 
 \subsection{Scaling Reflection}
 
@@ -69,18 +132,42 @@ For 10,000 pages instead of 10, the approach would need several changes:
 
 \subsection{Alignment Strategy}
 
-\textbf{Entity linking.} Per instructions (DBpedia or Wikidata), we first search the Wikidata API (\texttt{wbsearchentities}). When a match is found, we add \texttt{owl:sameAs} to the Wikidata entity URI (e.g.\ \texttt{wd:Q90} for Paris) with confidence from the API. When Wikidata has no match, we fall back to the Europeana Search API. When neither finds a match, we create a new entity in the ontology with \texttt{rdf:type} and \texttt{rdfs:subClassOf}.
+\textbf{Entity linking.} Per instructions (DBpedia or Wikidata), we search the Wikidata API (\texttt{wbsearchentities}). When a match is found, we add \texttt{owl:sameAs} to the Wikidata entity URI (e.g.\ \texttt{wd:Q90} for Paris) with confidence from the API. Only Wikidata/DBpedia URIs are added to the alignment file---Europeana item URIs are not used for alignment, as they are not SPARQL-queryable on LOD. When Wikidata has no match, we create a new entity in the ontology with a precise type (Person, Organization, Place, Temporal) and mark it as NEW in the mapping table.
 
-\textbf{Predicate alignment.} Per instructions, we use SPARQL queries on the Wikidata endpoint (\texttt{query.wikidata.org}) to find equivalent properties. For each private predicate, we run a query filtering by label (e.g.\ ``location'' for \texttt{locatedIn}) and select the most pertinent result. When SPARQL returns no match, we fall back to EDM/Dublin Core (e.g.\ \texttt{dcterms:spatial}, \texttt{dc:creator}).
+\textbf{Disambiguation strategies (QueryWithOpenKB).} We apply: (1) \textit{Type-based filtering}: GPE $\rightarrow$ place/city, PERSON $\rightarrow$ human, ORG $\rightarrow$ organization; (2) \textit{Property Evidence}: when the API returns a description, we boost confidence if it matches the expected type; (3) \textit{Label match}: exact match yields higher confidence than partial match. DBpedia Spotlight could be used as an alternative for entity linking when text context is available.
+
+\textbf{Predicate alignment.} Per instructions, we use SPARQL queries on the Wikidata endpoint (\texttt{query.wikidata.org}) to find equivalent properties. For each private predicate, we run a query filtering by label (e.g.\ ``location'' for \texttt{locatedIn}) and select the most pertinent result. We use \texttt{owl:equivalentProperty} when semantics match exactly, and \texttt{rdfs:subPropertyOf} when our predicate is narrower (e.g., \texttt{wonAward} $\sqsubseteq$ \texttt{wdt:P166}). When SPARQL returns no match, we fall back to EDM/Dublin Core (e.g.\ \texttt{dcterms:spatial}, \texttt{dc:creator}).
+
+\subsection{Linking vs.\ Duplication}
+
+Per QueryWithOpenKB, we \textbf{link} to open KBs rather than duplicating facts. Using \texttt{owl:sameAs} preserves authority (DBpedia/Wikidata remain the source of truth), avoids data inconsistency when external KBs are updated, and enables federated SPARQL queries. Duplicating facts (e.g., copying population from DBpedia into our KB) would create maintenance burden and semantic drift. Federated SPARQL (querying both DBpedia and Wikidata via \texttt{SERVICE}) is a future extension.
 
 \subsection{Expansion Strategy}
 
-The expansion uses the Europeana API:
+Per InstructionPhase2 (``extend it via SPARQL queries'') and QueryWithOpenKB: entity linking $\rightarrow$ subgraph extraction via SPARQL $\rightarrow$ merge.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  node distance=0.8cm,
+  box/.style={rectangle, draw, minimum width=2.2cm, minimum height=0.6cm, font=\small},
+  arrow/.style={-Stealth}
+]
+  \node[box] (el) {Entity Linking};
+  \node[box, right=of el] (sg) {Subgraph Extraction};
+  \node[box, right=of sg] (merge) {Merge};
+  \node[below=0.3cm of sg, font=\footnotesize] (sparql) {SPARQL 1-Hop, 2-Hop, Predicate-controlled};
+  \draw[arrow] (el) -- (sg) -- (merge);
+\end{tikzpicture}
+\caption{Stratégie d'intégration LOD (QueryWithOpenKB): Entity linking $\rightarrow$ extraction de sous-graphes via SPARQL $\rightarrow$ fusion.}
+\end{figure}
 
 \begin{enumerate}
-\item \textbf{Record fetching:} We query the Europeana Search API with multiple queries (Paris, Louvre, monument, museum, etc.) and fetch many records.
-\item \textbf{Triple extraction:} For each record, we extract triples from metadata: \texttt{dc:creator}, \texttt{dcterms:spatial}, \texttt{dcterms:created}, \texttt{edm:place}, \texttt{edm:concept}.
-\item \textbf{Merge:} We merge the initial KB with extracted triples, remove duplicates, and export.
+\item \textbf{SPARQL 1-Hop on Wikidata:} We parse the alignment and mapping table to extract Wikidata Q-IDs with confidence $\geq 0.85$. For each such entity, we run \texttt{SELECT ?p ?o WHERE \{ wd:Qxxx ?p ?o \} LIMIT 1000} on \texttt{query.wikidata.org}. We filter verbose literals and keep direct properties (P31, P17, P571, P625, etc.).
+\item \textbf{2-Hop expansion:} For a sample of aligned entities, we fetch triples where an intermediate entity connects the seed to new facts, increasing relation diversity.
+\item \textbf{Predicate-controlled expansion:} We run \texttt{SELECT ?s ?p ?o WHERE \{ ?s wdt:Pxxx ?o \}} for key Wikidata properties (P276 location, P170 creator, P166 award, etc.) to add many triples per relation type.
+\item \textbf{Europeana complement:} If the volume remains below 50k triplets, we complement with Europeana API records (cursor pagination, metadata extraction).
+\item \textbf{Cleanup \& merge:} We fix malformed literals (JSON artifacts such as \texttt{\{'def': 'X'\}}), deduplicate, and export to N-Triples.
 \end{enumerate}
 
 \subsection{Challenges Encountered}
@@ -89,6 +176,8 @@ The expansion uses the Europeana API:
 \item \textbf{Entity name normalization:} Entity names with spaces, apostrophes, or special characters need to be converted to URI-safe form.
 
 \item \textbf{Predicate semantics:} EDM properties may have different semantics than our extracted predicates. Manual validation is required to choose the correct equivalent or subproperty.
+
+\item \textbf{Wikidata predicates:} Wikidata uses \texttt{wdt:} (direct) vs \texttt{wds:} (statement); we keep only direct properties for a cleaner KB. Long literal descriptions are filtered to keep the graph suitable for KGE.
 \end{itemize}
 
 \subsection{Final KB Statistics}
@@ -96,21 +185,49 @@ The expansion uses the Europeana API:
 The statistics report (see \texttt{livrable/statistics\_report.txt}) contains the number of triplets, entities, and relations. With cursor-based pagination and rich metadata extraction, we achieve:
 
 \begin{itemize}
-\item \textbf{Triplets:} 50,000--200,000 (target met) via extraction from Europeana metadata.
-\item \textbf{Entities:} 5,000--30,000 (target met) by using entity URIs for creators, places, etc.
-\item \textbf{Relations:} Europeana metadata uses a limited set of predicates (dc:, dcterms:, edm:). We obtain $\sim$20--25 predicates. The instruction target (50--200) was designed for Wikidata/DBpedia; Europeana's EDM schema has fewer property types. This is documented as a limitation when using Europeana instead of LOD.
+\item \textbf{Triplets:} 50,000--200,000 (target met) via SPARQL 1-hop, 2-hop, and predicate-controlled expansion on Wikidata plus Europeana metadata.
+\item \textbf{Entities:} 5,000--30,000 (target met) from Wikidata URIs and Europeana entity extraction.
+\item \textbf{Relations:} The instruction target (50--200) is met via predicate-controlled expansion (Wikidata properties P276, P170, P166, etc.) and Europeana metadata (dc:, dcterms:, edm:).
 \end{itemize}
 
 \subsection{Deliverables}
 
-\textbf{Note:} Les statistiques (triplets, entités, relations) proviennent de \texttt{data/kb\_expanded.nt}. Les fichiers \texttt{extracted\_triples.csv}, \texttt{extracted\_knowledge.csv} et \texttt{mapping\_table.csv} sont des livrables intermédiaires (Phase 1 et entity linking) avec des volumes plus petits.
+\textbf{Note:} Les statistiques (triplets, entités, relations) proviennent de \texttt{livrable/statistics\_report.txt}. Les fichiers \texttt{extracted\_triples.csv}, \texttt{extracted\_knowledge.csv} sont des livrables intermédiaires (Phase 1).
 
 \begin{itemize}
-\item \texttt{data/kb\_expanded.nt} -- Expanded KB in N-Triples format (livrable principal Phase 2)
-\item \texttt{data/ontology.ttl} -- Ontology for new entities
-\item \texttt{data/alignment.ttl} -- Entity and predicate alignments
-\item \texttt{data/mapping\_table.csv} -- Private entity to Europeana URI mapping with confidence
-\item \texttt{data/statistics\_report.txt} -- Statistics
+\item \texttt{livrable/kb\_expanded.nt} -- Expanded KB in N-Triples format (livrable principal Phase 2)
+\item \texttt{livrable/ontology.ttl} -- Ontology for new entities
+\item \texttt{livrable/alignment.ttl} -- Entity and predicate alignments (Wikidata/DBpedia only)
+\item \texttt{livrable/mapping\_table.csv} -- Private entity to Wikidata/DBpedia URI mapping with confidence
+\item \texttt{livrable/statistics\_report.txt} -- Statistics
 \end{itemize}
+
+%=============================================================================
+\section{Améliorations post-évaluation}
+%=============================================================================
+
+Suite à l'évaluation du projet, les améliorations suivantes ont été implémentées:
+
+\textbf{Cohérence des prédicats.} Unification sur \texttt{relatedTo} (camelCase) au lieu de \texttt{related\_to}, aligné avec les bonnes pratiques RDF et le fichier d'alignement.
+
+\textbf{Nettoyage des littéraux.} Filtrage des valeurs URL stockées comme littéraux (ex.\ \texttt{http://id.worldcat.org/...}) qui n'apportent pas de sémantique utile au KGE. Détection dans \texttt{add\_literal} et \texttt{cleanup\_malformed\_literals}.
+
+\textbf{Filtrage multilingue.} Extension de \texttt{FILTER\_ENTITIES} et \texttt{FILTER\_FRAGMENTS} pour les faux positifs en polonais, allemand, néerlandais (prawdopodobnie, Bild, Fundet, etc.). Heuristique de détection de phrases non-anglaises: si plus de 40\% des tokens sont des indicateurs de langue étrangère, la phrase est ignorée pour l'extraction de relations.
+
+\textbf{Classification ontologique.} Blacklist d'entités (\texttt{ENTITY\_BLACKLIST}) et corrections de type (\texttt{ENTITY\_TYPE\_CORRECTIONS}) pour éviter d'ajouter à l'ontologie des adjectifs ou noms communs mal classifiés (architectuur, neoclassicistisch, etc.).
+
+\textbf{Alignement des prédicats Wikidata.} Mapping manuel prioritaire (\texttt{PREDICATE\_TO\_WIKIDATA}) pour les prédicats clés: \texttt{locatedIn} $\rightarrow$ \texttt{wdt:P276}, \texttt{build/design} $\rightarrow$ \texttt{wdt:P170}, \texttt{crown} $\rightarrow$ \texttt{wdt:P166}, etc. Priorité: mapping manuel $>$ SPARQL $>$ fallback EDM/DC.
+
+\textbf{Script de connectivité.} \texttt{scripts/analyze\_connectivity.py} calcule les composantes connexes du graphe d'entités (BFS), affiche la taille de la plus grande composante, le nombre de composantes et les entités isolées. Utile pour diagnostiquer la qualité du graphe avant KGE.
+
+%=============================================================================
+\section{Conclusion}
+%=============================================================================
+
+We have implemented a complete pipeline from unstructured web data (Europeana API) to a structured Knowledge Base aligned with Wikidata/DBpedia. The pipeline uses transformer-based NER for entity recognition, dependency parsing for relation extraction, and SPARQL-based expansion (1-hop, 2-hop, predicate-controlled) to reach the target volume and relation diversity.
+
+\textbf{Limitations.} The number of relations depends on the alignment quality and the Wikidata/Europeana schema. Multilingual content (Dutch, German, Polish, etc.) in Europeana metadata can cause NER errors; we mitigate with \texttt{ENTITY\_TYPE\_OVERRIDES}, \texttt{FILTER\_ENTITIES}, \texttt{FILTER\_FRAGMENTS}, sentence-level language heuristics, and \texttt{ENTITY\_BLACKLIST}.
+
+\textbf{Pistes d'amélioration.} (1) Federated SPARQL across DBpedia and Wikidata; (2) DBpedia Spotlight for context-aware entity linking; (3) evaluation metrics (precision, recall) for NER and RE; (4) expansion 2-hop on a larger subset of entities.
 
 \end{document}

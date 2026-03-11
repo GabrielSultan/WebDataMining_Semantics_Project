@@ -15,34 +15,192 @@ lh:Temporal a rdfs:Class ;
 
 lh:Thing a rdfs:Class .
 
-lh:Alexandre_III_KU_Leuven a lh:Thing .
+lh:1242_1248 a lh:Temporal .
 
-lh:Arc_de_Triomphe_KU_Leuven a lh:Thing .
+lh:1786_1790 a lh:Temporal .
 
-lh:Arc_de_Triomphe_Photochrom_Nr a lh:Thing .
+lh:1806_1836 a lh:Temporal .
 
-lh:Arc_de_Triomphe_de_l_Étoile_à_Paris_Caption a lh:Thing .
+lh:1813_1826 a lh:Temporal .
 
-lh:B312_1_Country a lh:Thing .
+lh:1839_en_1939 a lh:Temporal .
 
-lh:Eiffel_Tower_KU_Leuven a lh:Thing .
+lh:1875_1882 a lh:Temporal .
 
-lh:God_Kulturstyrelsen_Country a lh:Thing .
+lh:1887_1889 a lh:Temporal .
 
-lh:God_Kulturstyrelsen_Støbejern_L_267_cm a lh:Thing .
+lh:1896_1900 a lh:Temporal .
 
-lh:La_Bourse_de_Paris_KU_Leuven a lh:Thing .
+lh:18th_19th_century a lh:Temporal .
 
-lh:Musée_du_Louvre___Raphael_Sanzio_Die_Fotografie a lh:Thing .
+lh:ARC_DE_TRIOMPHE_DE_LÉTOILE_A_PARIS__GOUPIL__WIBERT a lh:Organization .
 
-lh:Porte_Saint_Denis_KU_Leuven a lh:Thing .
+lh:A_de_Montaiglon a lh:Person .
 
-lh:TM_Country a lh:Thing .
+lh:Adolphe_Braun_Mitte a lh:Person .
 
-lh:Théâtre_Français_KU_Leuven a lh:Thing .
+lh:Alexandre_III_KU_Leuven a lh:Place .
 
-lh:francuska_Graf a lh:Thing .
+lh:Alfonz_Rostóczky a lh:Person .
+
+lh:Arc_de_Triomphe_KU_Leuven a lh:Place .
+
+lh:Arc_de_Triomphe_Photochrom_Nr a lh:Organization .
+
+lh:Arc_de_Triomphe_de_l_Étoile_à_Paris_Caption a lh:Organization .
+
+lh:B312_1_Country a lh:Organization .
+
+lh:Bastillien a lh:Person .
+
+lh:CHAISE___Meuble a lh:Organization .
+
+lh:C_Caffieri a lh:Person .
+
+lh:De_La_Ménagerie a lh:Organization .
+
+lh:Des_Galeries_De_Minéralogie_Et_D_Anatomy_Et_De_La_Vallée_Suisse a lh:Organization .
+
+lh:Dyrlægegården_i_Trørød a lh:Organization .
+
+lh:Eiffel_Tower_KU_Leuven a lh:Place .
+
+lh:Elsässer_Firma a lh:Person .
+
+lh:Exposition_Universelle_de_19001245 a lh:Person .
+
+lh:God_Kulturstyrelsen_Country a lh:Person .
+
+lh:God_Kulturstyrelsen_Støbejern_L_267_cm a lh:Person .
+
+lh:Hauptsitz_des_Naturkundemuseums a lh:Organization .
+
+lh:Heuguet_M_de_Cartes_Géographiques a lh:Person .
+
+lh:La_Bourse_de_Paris_KU_Leuven a lh:Organization .
+
+lh:Larc_de_Triomphe_De_lensemble a lh:Organization .
+
+lh:Louis_Blanquart_Evrard a lh:Person .
+
+lh:Luvru_Louvre a lh:Organization .
+
+lh:Léon_Cogniet_et_Raffet a lh:Organization .
+
+lh:M_F_Hoffbauer a lh:Person .
+
+lh:Magyar_Film_Irodához a lh:Person .
+
+lh:MovementStyle_Gothic a lh:Organization .
+
+lh:Musee_du_Louvresur a lh:Organization .
+
+lh:Museen_von_Basel a lh:Person .
+
+lh:Musée_du_Louvre___Raphael_Sanzio_Die_Fotografie a lh:Person .
+
+lh:N_Ransonnette_Gr_Orde_de_Monsieur a lh:Person .
+
+lh:Panorama_du_Trocadéro a lh:Person .
+
+lh:Par_B_Renault a lh:Person .
+
+lh:Paris_Plan_Topographique a lh:Organization .
+
+lh:Paryżu a lh:Organization .
+
+lh:Pflanzen_und_Stillleben a lh:Person .
+
+lh:Porte_Saint_Denis_KU_Leuven a lh:Place .
+
+lh:Porte_de_St_Antoine a lh:Organization .
+
+lh:Privatsammlungen a lh:Organization .
+
+lh:Quai_Voltaire_11 a lh:Person .
+
+lh:Roberta_Sayera a lh:Person .
+
+lh:Rostóczky_Alfonz a lh:Person .
+
+lh:Rue_Montfaucon_N_1 a lh:Person .
+
+lh:Rue_Rivoli a lh:Person .
+
+lh:Ruined_Buildings_on_Place_de_la_Bastille a lh:Organization .
+
+lh:SLUB_Histnat a lh:Person .
+
+lh:Sainte_Chapelle_Exterior a lh:Organization .
+
+lh:Seite_XXIV_aus a lh:Organization .
+
+lh:Sohnes_Henri a lh:Person .
+
+lh:Stoffmustervorlagen a lh:Person .
+
+lh:Szoknyalibbentő a lh:Person .
+
+lh:TM_Country a lh:Organization .
+
+lh:Tapisserie_de_Beauvais a lh:Person .
+
+lh:Tatiana_Moscu a lh:Person .
+
+lh:The_Champ_de_Mars a lh:Organization .
+
+lh:The_Destroyed_Ministry_of_Finance a lh:Organization .
+
+lh:Théâtre_Français_KU_Leuven a lh:Place .
+
+lh:Verkauf_von_Stereobildern a lh:Person .
+
+lh:Versailles_Aerial a lh:Person .
+
+lh:Veue_de_la_Bastille_de_Paris a lh:Person .
+
+lh:Wiedergabe_von_Gemälden a lh:Person .
+
+lh:angielskim a lh:Person .
+
+lh:au_cm_Carton_fond_de_chaise a lh:Person .
+
+lh:authentiquespar_M_F_Hoffbauer a lh:Person .
+
+lh:between_1839_and_1939 a lh:Temporal .
+
+lh:das_Kohledruckverfahren_spezialisiert a lh:Person .
+
+lh:der_Place_de_la_Bastille a lh:Person .
+
+lh:der_sich_auf a lh:Person .
+
+lh:doch_Braun a lh:Person .
+
+lh:jos_de_două a lh:Organization .
+
+lh:jusquà a lh:Person .
+
+lh:kép_készítője a lh:Place .
+
+lh:lewej_s___levé a lh:Person .
 
 lh:locatedIn rdfs:domain lh:Thing ;
     rdfs:range lh:Place .
+
+lh:rM_Padua a lh:Person .
+
+lh:rM_Padua_Bleistift a lh:Person .
+
+lh:the_Hungarian_Film_Office a lh:Organization .
+
+lh:vede_o_parte a lh:Organization .
+
+lh:versucht_1855 a lh:Person .
+
+lh:wzoru_pod_kompoz a lh:Person .
+
+lh:în_monogramă_cu_negru a lh:Person .
+
+lh:încadrat_de_copaci_cu a lh:Person .
 

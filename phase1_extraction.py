@@ -19,14 +19,55 @@ ENTITY_LABELS = {"PERSON", "ORG", "GPE", "DATE"}
 FILTER_ENTITIES = {
     "the", "a", "an", "history", "century", "year", "years", "world",
     "war", "city", "building", "museum", "tower", "palace", "cathedral",
-    "glass", "art", "europhot", "country",
+    "glass", "art", "europhot", "country", "creatie", "bouw", "movement",
+    "style", "creation", "techniek", "materiaal", "architectuur",
+    "beeldhouwkunst", "europhot", "neoclassicistisch",
+    # Europeana metadata labels (not named entities)
+    "creatie/bouw", "movement/style", "creation/building", "creation/construction",
+    "techniek/materiaal", "movement/style: classicism",
+    # Multilingual false positives (Polish, German, Danish, Romanian)
+    "prawdopodobnie", "bild", "fundet", "nedatat", "unternehmen", "meisterstück",
+    "anliegen", "litografia", "francuska", "papier", "alles",
 }
 
-# Fragments, Dutch/Polish common words, and non-entity strings (multilingual content)
+# Fragments, Dutch/Polish/German common words, and non-entity strings (multilingual content)
 FILTER_FRAGMENTS = {
     "sygn", "aut", "pod", "kompoz", "dia", "toegevoegde", "fotograaf",
     "architectuur", "glasdia", "tussen", "jusqu", "authentiques", "par",
     "def", "ozn", "z", "de", "la", "le", "du", "des", "en", "et", "mm",
+    "stroming", "huidige", "locatie", "creatie", "gebouw", "straat", "brug",
+    # Polish, German, Danish, Romanian
+    "prawdopodobnie", "fundet", "nedatat", "litografia", "graf", "r.m",
+    "der", "das", "und", "oder", "für", "von", "mit", "auf", "aus",
+}
+
+# Override NER type for known domain entities (spaCy sometimes mislabels)
+ENTITY_TYPE_OVERRIDES = {
+    "ku leuven": "ORG",
+    "université de louvain": "ORG",
+    "art history": "ORG",
+    "place de la bourse": "GPE",
+    "rue de richelieu": "GPE",
+    "place charles de gaulle": "GPE",
+    "18th-19th century": "DATE",
+    "between 1839 and 1939": "DATE",
+    "eiffel tower ku leuven": "GPE",
+    "porte saint-denis ku leuven": "GPE",
+    "arc de triomphe ku leuven": "GPE",
+    "théâtre-français ku leuven": "GPE",
+    "alexandre iii ku leuven": "GPE",
+    "la bourse de paris ku leuven": "ORG",
+}
+
+# Non-English predicate lemmas to reject or replace with relatedTo
+FILTER_PREDICATES = {"tussen", "seine", "das", "und", "oder", "z", "de", "het"}
+
+# Words indicating non-English sentences (skip relation extraction if ratio too high)
+NON_ENGLISH_INDICATORS = {
+    "der", "das", "und", "oder", "für", "von", "mit", "auf", "aus", "ist", "sind",
+    "het", "de", "een", "van", "op", "in", "voor", "met", "zijn", "worden",
+    "prawdopodobnie", "jest", "są", "z", "w", "na", "do", "od",
+    "fotograaf", "toegevoegde", "stroming", "creatie", "gebouw", "huidige",
 }
 
 # Minimum length for entity text (filter very short fragments)
@@ -75,16 +116,27 @@ def extract_entities(doc, source_url: str) -> list[dict]:
             continue
         if not _is_valid_entity(text):
             continue
-        key = (text, ent.label_, source_url)
+        # Apply type overrides for known domain entities
+        etype = ENTITY_TYPE_OVERRIDES.get(text.lower(), ent.label_)
+        key = (text, etype, source_url)
         if key in seen:
             continue
         seen.add(key)
         rows.append({
             "entity": text,
-            "entity_type": ent.label_,
+            "entity_type": etype,
             "source_url": source_url,
         })
     return rows
+
+
+def _is_likely_non_english(sent) -> bool:
+    """Skip sentences where too many tokens indicate non-English (multilingual content)."""
+    tokens = [t.text.lower() for t in sent if t.is_alpha and len(t.text) > 1]
+    if len(tokens) < 5:
+        return False
+    non_en = sum(1 for t in tokens if t in NON_ENGLISH_INDICATORS)
+    return non_en / len(tokens) > 0.4
 
 
 def extract_relations(doc, source_url: str) -> list[dict]:
@@ -93,9 +145,12 @@ def extract_relations(doc, source_url: str) -> list[dict]:
     Uses nsubj (subject), dobj (direct object), pobj (prepositional object).
     Only outputs relations when a verb syntactically connects the entities;
     skips co-occurrence-only pairs (e.g. lists of authors) to avoid noise.
+    Skips sentences likely in non-English (multilingual Europeana content).
     """
     relations = []
     for sent in doc.sents:
+        if _is_likely_non_english(sent):
+            continue
         entities_in_sent = [
             ent for ent in sent.ents
             if ent.label_ in ENTITY_LABELS
@@ -124,11 +179,13 @@ def extract_relations(doc, source_url: str) -> list[dict]:
                             break
                     if verb:
                         break
-                # Prefer real verb; use related_to only when exactly 2 entities (not a list)
+                # Prefer real verb; reject non-English predicates (tussen, seine, etc.)
+                if verb and verb.lower() in FILTER_PREDICATES:
+                    verb = None
                 if verb:
                     pred = verb
                 elif len(entities_in_sent) == 2:
-                    pred = "related_to"
+                    pred = "relatedTo"
                 else:
                     continue  # Skip: 3+ entities with no verb = likely list co-occurrence
                 relations.append({

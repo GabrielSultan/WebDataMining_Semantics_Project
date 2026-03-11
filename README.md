@@ -55,8 +55,8 @@ python -m spacy download en_core_web_sm
    ```bash
    python phase2_expand_kb.py
    ```
-   Uses cursor-based pagination to fetch 700+ records. Target: 50k--200k triplets, 5k--30k entities.
-   Options: `--quick` (500 records), `--target N` (custom record count).
+   Per InstructionPhase2: SPARQL 1-Hop expansion on Wikidata (from aligned entities), then Europeana API complement if volume < 50k triplets. Target: 50k--200k triplets, 5k--30k entities.
+   Options: `--quick` (skip SPARQL, 500 Europeana records), `--no-sparql`, `--target N`.
 
 ## Où sont les statistiques (triplets, entités, relations) ?
 
@@ -71,7 +71,7 @@ Les fichiers à rendre (InstructionPhase2) sont dans **`livrable/`** :
 | `livrable/kb_expanded.nt` | Expanded KB (N-Triples) |
 | `livrable/ontology.ttl` | Ontology for new entities |
 | `livrable/alignment.ttl` | Entity and predicate alignments |
-| `livrable/mapping_table.csv` | Private entity → Europeana URI mapping |
+| `livrable/mapping_table.csv` | Private entity → Wikidata/DBpedia URI mapping with confidence |
 | `livrable/statistics_report.txt` | KB statistics |
 | `report/report.tex` | Lab report (Phase 1 + Phase 2) |
 

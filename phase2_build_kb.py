@@ -25,8 +25,11 @@ def to_uri(name: str) -> str:
 
 
 def to_predicate(verb: str) -> str:
-    """Convert verb to camelCase predicate."""
-    words = str(verb).lower().replace("-", " ").split()
+    """Convert verb to camelCase predicate. Normalize related_to -> relatedTo."""
+    v = str(verb).strip()
+    if v.lower() == "related_to":
+        return "relatedTo"
+    words = v.lower().replace("-", " ").split()
     if not words:
         return "relatedTo"
     return words[0] + "".join(w.capitalize() for w in words[1:])
