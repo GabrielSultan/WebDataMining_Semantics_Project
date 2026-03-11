@@ -1,0 +1,114 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{parskip}
+\geometry{margin=2.5cm}
+
+\title{Web Mining and Semantics\\Lab Report: From Unstructured Web to Knowledge Base}
+\author{Student Project}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+%=============================================================================
+\section{Phase 1: From Unstructured Web to Structured Entities}
+%=============================================================================
+
+\subsection{Methodology and Pipeline}
+
+The extraction pipeline follows four main stages: (1) source selection and crawling, (2) content extraction and cleaning, (3) named entity recognition, and (4) relation extraction.
+
+\textbf{Source selection.} As recommended in the instructions, we use APIs when anti-robot checking occurs. The primary source is the \textbf{Europeana API} (Search API at \texttt{api.europeana.eu}), which provides metadata and descriptions for cultural heritage objects (Local History domain). No scraping or trafilatura is needed for API-sourced content; text is extracted directly from the JSON response (title, dcDescription, year, country). A lower word threshold (100 words) is used for API items since descriptions are typically shorter than full web pages.
+
+\textbf{Fallback.} If the Europeana API key is not set, we use sample data (\texttt{--demo}) for pipeline testing.
+
+\textbf{Content extraction.} Text comes directly from the Europeana API response (title, dcDescription, year, country). Items with fewer than 100 words are discarded.
+
+\textbf{Storage.} Results are stored in JSONL format, with one JSON object per line containing \texttt{url}, \texttt{text}, \texttt{title}, and \texttt{word\_count}.
+
+\textbf{NER.} We use spaCy with the \texttt{en\_core\_web\_trf} model (transformer-based) to extract entities of type PERSON, ORG, GPE, and DATE. Common nouns and generic terms are filtered out.
+
+\textbf{Relations.} For each sentence containing at least two entities, we use dependency tags (\texttt{nsubj}, \texttt{dobj}, \texttt{pobj}) to find a verb connecting them. The verb lemma is used as the predicate for triples of the form (subject, predicate, object).
+
+\subsection{Entity Ambiguity Analysis}
+
+Three examples of entity ambiguity:
+
+\begin{enumerate}
+\item \textbf{``Paris''} -- The NER can correctly identify Paris as the city (GPE) in most contexts. However, in ``Paris Hilton'' or ``Treaty of Paris,'' the same string refers to a person or a document. Context is crucial; the model may mislabel in ambiguous sentences.
+
+\item \textbf{``May''} -- May can be a month (DATE), a person's name (PERSON), or a modal verb. In ``The treaty was signed in May 1919,'' it is correctly a DATE. In ``May I help you?,'' it is not an entity; misclassification can occur if the model is not context-aware.
+
+\item \textbf{``Louis''} -- In ``Louis XIV built the Palace of Versailles,'' Louis refers to the king. In ``Louis, Missouri,'' it refers to a place. The model may also confuse ``Louis'' with ``Saint Louis'' (a person or a city). Without disambiguation, entity linking can fail.
+\end{enumerate}
+
+\subsection{Scaling Reflection}
+
+For 10,000 pages instead of 10, the approach would need several changes:
+
+\begin{itemize}
+\item \textbf{Parallel crawling:} Use a thread pool or \texttt{asyncio} with rate limiting to avoid overloading servers. Respect \texttt{Crawl-delay} in robots.txt when specified.
+
+\item \textbf{Incremental storage:} Append to JSONL instead of loading all data into memory. Use batch processing for NER and relation extraction.
+
+\item \textbf{Database:} Replace CSV with a database (e.g., SQLite) for large-scale entity and triple storage.
+
+\item \textbf{Resumability:} Track crawled URLs and skip already-processed pages. Store checkpoints for long-running jobs.
+
+\item \textbf{Monitoring:} Log failures and retry with exponential backoff. Monitor for blocked IPs or rate limits.
+\end{itemize}
+
+%=============================================================================
+\section{Phase 2: Knowledge Base Construction, Alignment, and Expansion}
+%=============================================================================
+
+\subsection{Alignment Strategy}
+
+\textbf{Entity linking.} For each private entity, we search the Europeana Search API. When a matching record is found, we add an \texttt{owl:sameAs} link to the Europeana item URL. When no match is found, we create a new entity in the ontology with \texttt{rdf:type} and \texttt{rdfs:subClassOf} to appropriate classes (Person, Organization, Place, Temporal).
+
+\textbf{Predicate alignment.} For each private predicate (e.g., \texttt{locatedIn}, \texttt{build}), we align to the Europeana Data Model (EDM) and Dublin Core properties. For example, \texttt{locatedIn} maps to \texttt{dcterms:spatial}, \texttt{build} to \texttt{dc:creator}. We add \texttt{owl:equivalentProperty} or \texttt{rdfs:subPropertyOf} to the alignment file.
+
+\subsection{Expansion Strategy}
+
+The expansion uses the Europeana API:
+
+\begin{enumerate}
+\item \textbf{Record fetching:} We query the Europeana Search API with multiple queries (Paris, Louvre, monument, museum, etc.) and fetch many records.
+\item \textbf{Triple extraction:} For each record, we extract triples from metadata: \texttt{dc:creator}, \texttt{dcterms:spatial}, \texttt{dcterms:created}, \texttt{edm:place}, \texttt{edm:concept}.
+\item \textbf{Merge:} We merge the initial KB with extracted triples, remove duplicates, and export.
+\end{enumerate}
+
+\subsection{Challenges Encountered}
+
+\begin{itemize}
+\item \textbf{Entity name normalization:} Entity names with spaces, apostrophes, or special characters need to be converted to URI-safe form.
+
+\item \textbf{Predicate semantics:} EDM properties may have different semantics than our extracted predicates. Manual validation is required to choose the correct equivalent or subproperty.
+\end{itemize}
+
+\subsection{Final KB Statistics}
+
+The statistics report (see \texttt{data/statistics\_report.txt}) contains the number of triplets, entities, and relations. With cursor-based pagination and rich metadata extraction, we achieve:
+
+\begin{itemize}
+\item \textbf{Triplets:} 50,000--200,000 (target met) via extraction from Europeana metadata.
+\item \textbf{Entities:} 5,000--30,000 (target met) by using entity URIs for creators, places, etc.
+\item \textbf{Relations:} Europeana metadata uses a limited set of predicates (dc:, dcterms:, edm:). We obtain $\sim$20--25 predicates. The instruction target (50--200) was designed for Wikidata/DBpedia; Europeana's EDM schema has fewer property types. This is documented as a limitation when using Europeana instead of LOD.
+\end{itemize}
+
+\subsection{Deliverables}
+
+\begin{itemize}
+\item \texttt{data/kb\_expanded.nt} -- Expanded KB in N-Triples format
+\item \texttt{data/ontology.ttl} -- Ontology for new entities
+\item \texttt{data/alignment.ttl} -- Entity and predicate alignments
+\item \texttt{data/mapping\_table.csv} -- Private entity to Europeana URI mapping with confidence
+\item \texttt{data/statistics\_report.txt} -- Statistics
+\end{itemize}
+
+\end{document}

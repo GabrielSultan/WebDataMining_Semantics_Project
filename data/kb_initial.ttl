@@ -1,0 +1,232 @@
+@prefix lh: <http://example.org/localhistory/> .
+
+lh:19th_century a lh:Temporal ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Arc_de_Triomphe_KU_Leuven a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Architectuur a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Art_History a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Belgium a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:CreatieBouw a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:1806_1836 .
+
+lh:CreationConstruction a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:20th_century .
+
+lh:Fotograaf a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Fournier a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:1875_1882,
+        lh:1885,
+        lh:A_Bonnardot,
+        lh:A_de_Montaiglon,
+        lh:Franklin,
+        lh:Jules_Cousin,
+        lh:Paris,
+        lh:Paul_Lacroix,
+        lh:Valentin_Dufour .
+
+lh:France a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:Paris,
+        lh:Place_Charles_de_Gaulle,
+        lh:Versailles .
+
+lh:Glasdia a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:architectuur_en .
+
+lh:Glass a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:KU_Leuven a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:La_Bastille a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:Sygn,
+        lh:aut .
+
+lh:MovementStyle a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Neoclassicisme a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Poland a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Toegevoegde a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:dia .
+
+lh:Université_de_Louvain a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:between_1839_and_1939 ;
+    lh:tussen lh:1839_en_1939 .
+
+lh:pod_kompoz a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:1806_1836 a lh:Temporal ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:1839_en_1939 a lh:Temporal ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:20th_century a lh:Temporal ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Paul_Lacroix a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:1875_1882,
+        lh:1885,
+        lh:A_Bonnardot,
+        lh:A_de_Montaiglon,
+        lh:Franklin,
+        lh:Jules_Cousin,
+        lh:Paris,
+        lh:Valentin_Dufour .
+
+lh:Sygn a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:aut .
+
+lh:Versailles a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:XIIIe a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:MM,
+        lh:authentiquespar_M_F_Hoffbauer,
+        lh:jusquà .
+
+lh:architectuur_en a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:between_1839_and_1939 a lh:Temporal ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:de_Paris a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:MM,
+        lh:M_F_Hoffbauer,
+        lh:XIIIe,
+        lh:authentiquespar_M_F_Hoffbauer,
+        lh:jusquà,
+        lh:le_XIIIe .
+
+lh:dia a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:A_de_Montaiglon a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:1875_1882,
+        lh:1885,
+        lh:A_Bonnardot,
+        lh:Franklin,
+        lh:Jules_Cousin,
+        lh:Paris,
+        lh:Valentin_Dufour .
+
+lh:Place_Charles_de_Gaulle a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:aut a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:jusquà a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:MM,
+        lh:authentiquespar_M_F_Hoffbauer .
+
+lh:le_XIIIe a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:MM,
+        lh:M_F_Hoffbauer .
+
+lh:A_Bonnardot a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:1875_1882,
+        lh:1885,
+        lh:Franklin,
+        lh:Jules_Cousin,
+        lh:Paris,
+        lh:Valentin_Dufour .
+
+lh:M_F_Hoffbauer a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:MM .
+
+lh:authentiquespar_M_F_Hoffbauer a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:MM .
+
+lh:Jules_Cousin a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:1875_1882,
+        lh:1885,
+        lh:Franklin,
+        lh:Paris,
+        lh:Valentin_Dufour .
+
+lh:Franklin a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:1875_1882,
+        lh:1885,
+        lh:Paris,
+        lh:Valentin_Dufour .
+
+lh:Valentin_Dufour a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:1875_1882,
+        lh:1885,
+        lh:Paris .
+
+lh:MM a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:1875_1882 a lh:Temporal ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:1885,
+        lh:Paris .
+
+lh:1885 a lh:Temporal ;
+    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Paris a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:related_to lh:1875_1882,
+        lh:1885,
+        lh:MM,
+        lh:M_F_Hoffbauer,
+        lh:Place_Charles_de_Gaulle,
+        lh:de_Paris,
+        lh:le_XIIIe .
+

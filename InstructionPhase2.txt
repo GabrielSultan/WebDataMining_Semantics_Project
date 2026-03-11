@@ -1,0 +1,152 @@
+Lab Session: Knowledge Base Construction,
+Alignment, and Expansion
+(Preparation for Knowledge Graph Embedding)
+Objective
+In this lab, you will construct a private Knowledge Base (KB), align it with an open Knowledge Base
+(DBpedia or Wikidata), extend it via SPARQL queries, and prepare it for the next lab session on Knowledge
+Graph Embedding (KGE).
+The final KB must be large enough to support meaningful embedding learning while remaining
+computationally manageable on a laptop.
+An example toy data is provided for better explaination in each step.
+Step 1 --- Build the Initial Private Knowledge Base
+Requirements
+You should have prepared your own knowledge graph in RDF model, with data collected from some web API
+or html pages. It is adviced that your starting knowledge graph respects the following volume:
+≥ 100 triplets
+≥ 50 entities
+No upper limit
+Example (Domain: Scientific Researchers)
+:MarieCurie :wonAward :NobelPrize .
+:MarieCurie :fieldOfWork :Physics .
+:AlbertEinstein :fieldOfWork :Physics .
+:AlbertEinstein :wonAward :NobelPrize .
+:RosalindFranklin :affiliatedWith :KingsCollegeLondon .
+Good Practices
+Use URIs, not plain strings
+Normalize predicate naming (e.g., camelCase)
+Avoid duplicate triples
+Clearly separate entities from literals
+KB_Lab_Session_KB_Construction_and_Expansion.md 2026-02-12
+2 / 6
+Step 2 --- Entity Linking with Open Knowledge Bases
+Requirement
+For each entity:
+If it exists in DBpedia or Wikidata → link it.
+If it does not exist → create a new entity and define it semantically. (You can use Protégé for GUI. or
+purly with RDFLib)
+You can use APIs mentioned in the CM. Mark also the confidence values return by the API. (As shown in the
+CM)
+Deliverables
+Mapping table:
+Private Entity External URI Confidence
+:MarieCurie wd:Q7186 0.99
+Ontological definition of newly created entities.
+Python script.
+Example: Existing Entity
+Private entity:
+:MarieCurie
+Wikidata match:
+wd:Q7186
+Alignment:
+:MarieCurie owl:sameAs wd:Q7186 .
+Example: New Entity (Not Found)
+:QuantumResearchCenterParis rdf:type :ResearchInstitute .
+:ResearchInstitute rdfs:subClassOf :Organization .
+KB_Lab_Session_KB_Construction_and_Expansion.md 2026-02-12
+3 / 6
+Define properties:
+:affiliatedWith rdfs:domain :Person ;
+ rdfs:range :Organization .
+Step 3 --- Predicate Alignment Using SPARQL
+Requirement
+Use SPARQL queries on the open KB to determine whether:
+An identical predicate exists
+A semantically similar predicate exists
+Validation can be manual. Here is a simple way: Given a triplet $(s,p,o)$ in your private knowledge graph,
+the subject $s_{1}$ and object $o_{1}$ are alighed with {wiki(s)} and {wiki(o)} in the open KB, you can list all
+existing prdicates returned by the SPQRAL Query
+SELECT ?property ?propertyLabel WHERE {
+ ?property a wikibase:Property .
+ ?property rdfs:label ?propertyLabel .
+ {wiki(s)} ?property {wiki(o)}.
+}
+Then manually compare the results with $p$ in your private knowledge graph, chose the most pertinent one
+for alignement.
+Of course other more intelligent ways exist. You will learn later.
+Below is another example of aligning by the text meaning
+Example
+Private predicate:
+:wonAward
+SPARQL Query (Wikidata)
+SELECT ?property ?propertyLabel WHERE {
+ ?property a wikibase:Property .
+KB_Lab_Session_KB_Construction_and_Expansion.md 2026-02-12
+4 / 6
+ ?property rdfs:label ?propertyLabel .
+ FILTER(CONTAINS(LCASE(?propertyLabel), "award"))
+ FILTER(LANG(?propertyLabel) = "en")
+}
+LIMIT 50
+Candidate:
+wdt:P166 → "award received"
+If validated:
+:wonAward owl:equivalentProperty wdt:P166 .
+If broader/narrower:
+:receivedRecognition rdfs:subPropertyOf wdt:P166 .
+Step 4 --- KB Expansion via SPARQL
+Final Size Requirements
+After expansion, your KB must contain:
+50,000 -- 200,000 triplets
+5,000 -- 30,000 entities
+50 -- 200 relations
+If the KB is too small → KGE models will fail to learn meaningful structure.
+If too large → computation may exceed laptop capabilities.
+Anchored Expansion Strategy
+Only expand from confidently aligned entities.
+1-Hop Expansion
+SELECT ?p ?o WHERE {
+ wd:Q7186 ?p ?o .
+}
+LIMIT 1000
+KB_Lab_Session_KB_Construction_and_Expansion.md 2026-02-12
+5 / 6
+Repeat for all aligned core entities.
+Predicate-Controlled Expansion
+SELECT ?s ?p ?o WHERE {
+ ?s wdt:P166 ?o .
+}
+LIMIT 20000
+2-Hop Example
+SELECT ?award ?p ?o WHERE {
+ ?person wdt:P166 ?award .
+ ?award ?p ?o .
+}
+LIMIT 10000
+Cleaning Before Embedding
+Before exporting for KGE:
+Remove duplicate triples
+Remove inconsistent URIs
+Ensure consistent predicate alignment
+Remove unwanted literal-heavy predicates (if necessary)
+Ensure graph connectivity (avoid isolated components)
+Why These Volume Constraints Matter
+KB Size Consequence
+< 10k triples Embeddings collapse to frequency effects 50k--200k triples Stable training and meaningful
+structure > 500k triples High memory and computation cost
+Final Deliverables
+You need to prepare the following files for next lab session and final submission.
+KB_Lab_Session_KB_Construction_and_Expansion.md 2026-02-12
+6 / 6
+. Expanded KB file (RDF/NT)
+. Ontology file
+. Alignment file
+. Statistics report:
+Number of triplets
+Number of entities
+Number of relations
+. Short methodological report (3--5 pages):
+Alignment strategy
+Expansion strategy
+Challenges encountered
+Final KB statistics
+You should integrate 4 and 5 in the final report.

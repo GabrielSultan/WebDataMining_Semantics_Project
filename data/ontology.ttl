@@ -1,0 +1,22 @@
+@prefix lh: <http://example.org/localhistory/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+lh:Organization a rdfs:Class ;
+    rdfs:subClassOf lh:Thing .
+
+lh:Person a rdfs:Class ;
+    rdfs:subClassOf lh:Thing .
+
+lh:Place a rdfs:Class ;
+    rdfs:subClassOf lh:Thing .
+
+lh:Temporal a rdfs:Class ;
+    rdfs:subClassOf lh:Thing .
+
+lh:Thing a rdfs:Class .
+
+lh:Arc_de_Triomphe_KU_Leuven a lh:Thing .
+
+lh:locatedIn rdfs:domain lh:Thing ;
+    rdfs:range lh:Place .
+
