@@ -13,7 +13,8 @@ load_dotenv()  # Load .env file so EUROPEANA_API_KEY is available
 MIN_WORD_COUNT = 500
 
 # Lower threshold for API-sourced content (Europeana descriptions are often shorter)
-MIN_WORD_COUNT_API = 100
+# 80 allows more items while filtering very short metadata
+MIN_WORD_COUNT_API = 80
 
 # User agent for crawling - identifiable as requested for web ethics
 USER_AGENT = "WebMiningSemanticsStudent/1.0 (Educational project; Python/httpx)"

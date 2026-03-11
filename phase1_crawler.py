@@ -35,7 +35,7 @@ def fetch_europeana_via_api() -> list[dict]:
             params = {
                 "wskey": config.EUROPEANA_API_KEY,
                 "query": query,
-                "rows": 12,
+                "rows": 50,
                 "profile": "rich",
                 "reusability": "open",
             }
@@ -142,7 +142,8 @@ def main():
         print("Fetching from Europeana API...")
         results = fetch_europeana_via_api()
         for r in results:
-            print(f"Saved: {r['title'][:50]}... ({r['word_count']} words)")
+            t = (r['title'][:50] or "").encode("ascii", errors="replace").decode("ascii")
+            print(f"Saved: {t}... ({r['word_count']} words)")
 
     if not results and args.demo:
         print("Using demo data.")

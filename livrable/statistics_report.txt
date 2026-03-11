@@ -1,3 +1,3 @@
-Number of triplets: 179412
-Number of entities: 6728
-Number of relations: 22
+Number of triplets: 179939
+Number of entities: 6940
+Number of relations: 23

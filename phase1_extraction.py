@@ -19,7 +19,36 @@ ENTITY_LABELS = {"PERSON", "ORG", "GPE", "DATE"}
 FILTER_ENTITIES = {
     "the", "a", "an", "history", "century", "year", "years", "world",
     "war", "city", "building", "museum", "tower", "palace", "cathedral",
+    "glass", "art", "europhot", "country",
 }
+
+# Fragments, Dutch/Polish common words, and non-entity strings (multilingual content)
+FILTER_FRAGMENTS = {
+    "sygn", "aut", "pod", "kompoz", "dia", "toegevoegde", "fotograaf",
+    "architectuur", "glasdia", "tussen", "jusqu", "authentiques", "par",
+    "def", "ozn", "z", "de", "la", "le", "du", "des", "en", "et", "mm",
+}
+
+# Minimum length for entity text (filter very short fragments)
+MIN_ENTITY_LEN = 3
+
+# Reject entities that are mostly digits or special chars
+def _is_valid_entity(text: str) -> bool:
+    """Check if entity text is valid (not a fragment, not garbage)."""
+    t = text.strip()
+    if len(t) < MIN_ENTITY_LEN:
+        return False
+    if t.lower() in FILTER_FRAGMENTS:
+        return False
+    # Reject if it looks like a fragment (e.g. "architectuur en", "pod kompoz")
+    words = t.lower().split()
+    if len(words) <= 2 and any(w in FILTER_FRAGMENTS for w in words):
+        return False
+    # Reject if mostly non-alphanumeric
+    alpha = sum(1 for c in t if c.isalnum() or c.isspace())
+    if alpha < len(t) * 0.5:
+        return False
+    return True
 
 
 def load_nlp():
@@ -33,16 +62,18 @@ def load_nlp():
 
 
 def extract_entities(doc, source_url: str) -> list[dict]:
-    """Extract PERSON, ORG, GPE, DATE entities. Filter common nouns."""
+    """Extract PERSON, ORG, GPE, DATE entities. Filter common nouns and fragments."""
     rows = []
     seen = set()
     for ent in doc.ents:
         if ent.label_ not in ENTITY_LABELS:
             continue
         text = ent.text.strip()
-        if not text or len(text) < 2:
+        if not text or len(text) < MIN_ENTITY_LEN:
             continue
         if text.lower() in FILTER_ENTITIES:
+            continue
+        if not _is_valid_entity(text):
             continue
         key = (text, ent.label_, source_url)
         if key in seen:
@@ -60,12 +91,16 @@ def extract_relations(doc, source_url: str) -> list[dict]:
     """
     Find entities in same sentence and verb connecting them via dependency parsing.
     Uses nsubj (subject), dobj (direct object), pobj (prepositional object).
+    Only outputs relations when a verb syntactically connects the entities;
+    skips co-occurrence-only pairs (e.g. lists of authors) to avoid noise.
     """
     relations = []
     for sent in doc.sents:
         entities_in_sent = [
             ent for ent in sent.ents
-            if ent.label_ in ENTITY_LABELS and ent.text.strip().lower() not in FILTER_ENTITIES
+            if ent.label_ in ENTITY_LABELS
+            and ent.text.strip().lower() not in FILTER_ENTITIES
+            and _is_valid_entity(ent.text)
         ]
         if len(entities_in_sent) < 2:
             continue
@@ -89,11 +124,16 @@ def extract_relations(doc, source_url: str) -> list[dict]:
                             break
                     if verb:
                         break
-                if not verb:
-                    verb = "related_to"
+                # Prefer real verb; use related_to only when exactly 2 entities (not a list)
+                if verb:
+                    pred = verb
+                elif len(entities_in_sent) == 2:
+                    pred = "related_to"
+                else:
+                    continue  # Skip: 3+ entities with no verb = likely list co-occurrence
                 relations.append({
                     "subject": e1.text.strip(),
-                    "predicate": verb,
+                    "predicate": pred,
                     "object": e2.text.strip(),
                     "source_url": source_url,
                 })

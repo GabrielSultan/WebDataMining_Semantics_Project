@@ -1,9 +1,10 @@
 """
-Phase 2 Step 2: Entity Linking with Europeana
+Phase 2 Step 2: Entity Linking with Wikidata / DBpedia / Europeana
 
-For each private entity: if found in Europeana (Search/Entity API), link with owl:sameAs.
-If not found, create new entity in ontology with rdf:type and rdfs:subClassOf.
-Output: mapping table (CSV), ontology file, alignment file.
+Per instructions: if entity exists in DBpedia or Wikidata → link it.
+If not found → create new entity in ontology.
+Primary: Wikidata API (LOD). Fallback: Europeana when Wikidata has no match.
+Output: mapping table (CSV) with confidence, ontology file, alignment file.
 """
 
 import pandas as pd
@@ -14,16 +15,48 @@ from rdflib.namespace import OWL, RDF, RDFS
 import config
 
 NS = Namespace("http://example.org/localhistory/")
-EDM = Namespace("http://www.europeana.eu/schemas/edm/")
-
+WIKIDATA_API = "https://www.wikidata.org/w/api.php"
 EUROPEANA_SEARCH_URL = "https://api.europeana.eu/record/v2/search.json"
-EUROPEANA_ENTITY_SUGGEST = "https://api.europeana.eu/entity/v2/suggest.json"
+
+
+def search_wikidata_entity(label: str) -> list[tuple[str, float]]:
+    """
+    Search Wikidata for entity by label (per instructions: DBpedia or Wikidata).
+    Returns list of (wikidata_uri, confidence) tuples.
+    Confidence: 0.95 for exact label match, 0.85 for partial.
+    """
+    params = {
+        "action": "wbsearchentities",
+        "search": label,
+        "language": "en",
+        "format": "json",
+        "limit": 5,
+    }
+    headers = {"User-Agent": "WebMiningSemantics/1.0 (https://github.com/; Educational project)"}
+    try:
+        with httpx.Client(timeout=10.0) as client:
+            resp = client.get(WIKIDATA_API, params=params, headers=headers)
+    except Exception:
+        return []
+    if resp.status_code != 200:
+        return []
+    data = resp.json()
+    results = []
+    for i, item in enumerate(data.get("search", [])):
+        eid = item.get("id")
+        if not eid:
+            continue
+        uri = f"https://www.wikidata.org/entity/{eid}"
+        wlabel = (item.get("label") or "").strip()
+        conf = 0.95 if wlabel.lower() == label.strip().lower() else 0.85 - (i * 0.05)
+        conf = max(0.6, conf)
+        results.append((uri, round(conf, 2)))
+    return results
 
 
 def search_europeana_entity(label: str) -> list[tuple[str, float]]:
     """
-    Search Europeana for entity by label.
-    Uses Search API: find records matching the label, use first result's Europeana URL as reference.
+    Fallback: Search Europeana when Wikidata has no match.
     Returns list of (europeana_uri, confidence) tuples.
     """
     if not config.EUROPEANA_API_KEY:
@@ -35,9 +68,11 @@ def search_europeana_entity(label: str) -> list[tuple[str, float]]:
         "rows": 3,
         "profile": "minimal",
     }
-    with httpx.Client(timeout=15.0) as client:
-        resp = client.get(EUROPEANA_SEARCH_URL, params=params)
-
+    try:
+        with httpx.Client(timeout=15.0) as client:
+            resp = client.get(EUROPEANA_SEARCH_URL, params=params)
+    except Exception:
+        return []
     if resp.status_code != 200:
         return []
 
@@ -49,9 +84,15 @@ def search_europeana_entity(label: str) -> list[tuple[str, float]]:
         if not item_id:
             continue
         url = item.get("guid", "") or f"https://www.europeana.eu/item/{item_id}"
-        confidence = 0.9 - (i * 0.1)
-        results.append((url, confidence))
+        confidence = 0.8 - (i * 0.1)  # Lower than Wikidata (fallback)
+        results.append((url, round(confidence, 2)))
     return results
+
+
+def _to_uri_safe(entity: str) -> str:
+    """Convert entity name to URI-safe form."""
+    s = str(entity).replace(" ", "_").replace("-", "_").replace("'", "")
+    return "".join(c for c in s if c.isalnum() or c == "_")
 
 
 def main():
@@ -61,7 +102,6 @@ def main():
     mapping_rows = []
     alignment = Graph()
     alignment.bind("lh", str(NS))
-    alignment.bind("edm", str(EDM))
     alignment.bind("owl", OWL)
 
     ontology = Graph()
@@ -80,16 +120,18 @@ def main():
     ontology.add((NS["locatedIn"], RDFS.range, NS["Place"]))
 
     for entity in unique_entities:
-        results = search_europeana_entity(entity)
+        # Primary: Wikidata (per instructions: DBpedia or Wikidata)
+        results = search_wikidata_entity(entity)
+        if not results:
+            results = search_europeana_entity(entity)
         if results:
             uri, score = results[0]
             mapping_rows.append({
                 "Private_Entity": entity,
                 "External_URI": uri,
-                "Confidence": round(score, 2),
+                "Confidence": score,
             })
-            lh_name = entity.replace(" ", "_").replace("-", "_")
-            lh_name = "".join(c for c in lh_name if c.isalnum() or c == "_")
+            lh_name = _to_uri_safe(entity)
             if lh_name:
                 alignment.add((URIRef(NS[lh_name]), OWL.sameAs, URIRef(uri)))
         else:
@@ -98,8 +140,7 @@ def main():
                 "External_URI": "NEW",
                 "Confidence": 0.0,
             })
-            lh_name = entity.replace(" ", "_").replace("-", "_")
-            lh_name = "".join(c for c in lh_name if c.isalnum() or c == "_")
+            lh_name = _to_uri_safe(entity)
             if lh_name:
                 ontology.add((URIRef(NS[lh_name]), RDF.type, NS["Thing"]))
 

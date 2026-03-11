@@ -15,7 +15,33 @@ lh:Temporal a rdfs:Class ;
 
 lh:Thing a rdfs:Class .
 
+lh:Alexandre_III_KU_Leuven a lh:Thing .
+
 lh:Arc_de_Triomphe_KU_Leuven a lh:Thing .
+
+lh:Arc_de_Triomphe_Photochrom_Nr a lh:Thing .
+
+lh:Arc_de_Triomphe_de_l_Étoile_à_Paris_Caption a lh:Thing .
+
+lh:B312_1_Country a lh:Thing .
+
+lh:Eiffel_Tower_KU_Leuven a lh:Thing .
+
+lh:God_Kulturstyrelsen_Country a lh:Thing .
+
+lh:God_Kulturstyrelsen_Støbejern_L_267_cm a lh:Thing .
+
+lh:La_Bourse_de_Paris_KU_Leuven a lh:Thing .
+
+lh:Musée_du_Louvre___Raphael_Sanzio_Die_Fotografie a lh:Thing .
+
+lh:Porte_Saint_Denis_KU_Leuven a lh:Thing .
+
+lh:TM_Country a lh:Thing .
+
+lh:Théâtre_Français_KU_Leuven a lh:Thing .
+
+lh:francuska_Graf a lh:Thing .
 
 lh:locatedIn rdfs:domain lh:Thing ;
     rdfs:range lh:Place .

@@ -69,9 +69,9 @@ For 10,000 pages instead of 10, the approach would need several changes:
 
 \subsection{Alignment Strategy}
 
-\textbf{Entity linking.} For each private entity, we search the Europeana Search API. When a matching record is found, we add an \texttt{owl:sameAs} link to the Europeana item URL. When no match is found, we create a new entity in the ontology with \texttt{rdf:type} and \texttt{rdfs:subClassOf} to appropriate classes (Person, Organization, Place, Temporal).
+\textbf{Entity linking.} Per instructions (DBpedia or Wikidata), we first search the Wikidata API (\texttt{wbsearchentities}). When a match is found, we add \texttt{owl:sameAs} to the Wikidata entity URI (e.g.\ \texttt{wd:Q90} for Paris) with confidence from the API. When Wikidata has no match, we fall back to the Europeana Search API. When neither finds a match, we create a new entity in the ontology with \texttt{rdf:type} and \texttt{rdfs:subClassOf}.
 
-\textbf{Predicate alignment.} For each private predicate (e.g., \texttt{locatedIn}, \texttt{build}), we align to the Europeana Data Model (EDM) and Dublin Core properties. For example, \texttt{locatedIn} maps to \texttt{dcterms:spatial}, \texttt{build} to \texttt{dc:creator}. We add \texttt{owl:equivalentProperty} or \texttt{rdfs:subPropertyOf} to the alignment file.
+\textbf{Predicate alignment.} Per instructions, we use SPARQL queries on the Wikidata endpoint (\texttt{query.wikidata.org}) to find equivalent properties. For each private predicate, we run a query filtering by label (e.g.\ ``location'' for \texttt{locatedIn}) and select the most pertinent result. When SPARQL returns no match, we fall back to EDM/Dublin Core (e.g.\ \texttt{dcterms:spatial}, \texttt{dc:creator}).
 
 \subsection{Expansion Strategy}
 
@@ -93,7 +93,7 @@ The expansion uses the Europeana API:
 
 \subsection{Final KB Statistics}
 
-The statistics report (see \texttt{data/statistics\_report.txt}) contains the number of triplets, entities, and relations. With cursor-based pagination and rich metadata extraction, we achieve:
+The statistics report (see \texttt{livrable/statistics\_report.txt}) contains the number of triplets, entities, and relations. With cursor-based pagination and rich metadata extraction, we achieve:
 
 \begin{itemize}
 \item \textbf{Triplets:} 50,000--200,000 (target met) via extraction from Europeana metadata.

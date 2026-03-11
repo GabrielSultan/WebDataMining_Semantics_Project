@@ -1,145 +1,497 @@
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix edm: <http://www.europeana.eu/schemas/edm/> .
 @prefix lh: <http://example.org/localhistory/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+lh:1242_1248 owl:sameAs <https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9989977940101488?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:13th_century owl:sameAs <https://www.wikidata.org/entity/Q7049> .
+
+lh:1599 owl:sameAs <https://www.wikidata.org/entity/Q12681513> .
+
+lh:1624 owl:sameAs <https://www.wikidata.org/entity/Q12681540> .
+
+lh:1672 owl:sameAs <https://www.wikidata.org/entity/Q19241361> .
+
+lh:1680 owl:sameAs <https://www.wikidata.org/entity/Q11185395> .
+
+lh:1749 owl:sameAs <https://www.wikidata.org/entity/Q12681600> .
+
+lh:1780 owl:sameAs <https://www.wikidata.org/entity/Q13634655> .
+
+lh:1786_1790 owl:sameAs <https://www.europeana.eu/item/2059516/data_foodanddrink_O100490?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:1789 owl:sameAs <https://www.wikidata.org/entity/Q11185417> .
+
+lh:17th_century owl:sameAs <https://www.wikidata.org/entity/Q7016> .
 
 lh:1806_1836 owl:sameAs <https://www.europeana.eu/item/440/item_XAWR6Y4DDN5DF5MUCENHJ3TK5Z6WTWO5?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
+lh:1813_1826 owl:sameAs <https://www.europeana.eu/item/495/item_3DK4QRZW2QEWRJLL2R65LV3AB33UU24E?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:1832 owl:sameAs <https://www.wikidata.org/entity/Q7584> .
+
 lh:1839_en_1939 owl:sameAs <https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9985247420101488?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:1842 owl:sameAs <https://www.wikidata.org/entity/Q7625> .
+
+lh:1851 owl:sameAs <https://www.wikidata.org/entity/Q19241482> .
+
+lh:1855 owl:sameAs <https://www.wikidata.org/entity/Q19241489> .
+
+lh:1857 owl:sameAs <https://www.wikidata.org/entity/Q7680> .
+
+lh:1866 owl:sameAs <https://www.wikidata.org/entity/Q7712> .
+
+lh:1867 owl:sameAs <https://www.wikidata.org/entity/Q19241498> .
+
+lh:1871 owl:sameAs <https://www.wikidata.org/entity/Q19241503> .
 
 lh:1875_1882 owl:sameAs <https://www.europeana.eu/item/542/item_PSLC66BW23VLFGJPX5M4NUMZDQMRLWUW?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:1885 owl:sameAs <https://www.europeana.eu/item/2058618/object_KUAS_22313152?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:1878 owl:sameAs <https://www.wikidata.org/entity/Q7776> .
 
-lh:19th_century owl:sameAs <https://www.europeana.eu/item/2022362/_Royal_Museums_Greenwich__http___collections_rmg_co_uk_collections_objects_12609?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:1885 owl:sameAs <https://www.wikidata.org/entity/Q7821> .
 
-lh:20th_century owl:sameAs <https://www.europeana.eu/item/08711/https___www_biodiversitylibrary_org_item_328014?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:1887_1889 owl:sameAs <https://www.europeana.eu/item/542/item_F372O6CGEGY3NBDDOQHM6RGJQXBLIIP3?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:A_Bonnardot owl:sameAs <https://www.europeana.eu/item/794/ark__12148_bpt6k9757959s?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:1889 owl:sameAs <https://www.wikidata.org/entity/Q3226134> .
+
+lh:1896_1900 owl:sameAs <https://www.europeana.eu/item/542/item_BFOACNKHWOIQMKD6MTP3XKDGY5XOSDEV?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:18th_19th_century owl:sameAs <https://www.europeana.eu/item/9200579/rfg7n9u9?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:18th_century owl:sameAs <https://www.wikidata.org/entity/Q7015> .
+
+lh:1900 owl:sameAs <https://www.wikidata.org/entity/Q2034> .
+
+lh:1914 owl:sameAs <https://www.wikidata.org/entity/Q2083> .
+
+lh:1924 owl:sameAs <https://www.wikidata.org/entity/Q2173> .
+
+lh:1929 owl:sameAs <https://www.wikidata.org/entity/Q18792> .
+
+lh:1932 owl:sameAs <https://www.wikidata.org/entity/Q18743> .
+
+lh:1933 owl:sameAs <https://www.wikidata.org/entity/Q18726> .
+
+lh:1937 owl:sameAs <https://www.wikidata.org/entity/Q18647> .
+
+lh:1937_ben owl:sameAs <https://www.wikidata.org/entity/Q112665813> .
+
+lh:1946 owl:sameAs <https://www.wikidata.org/entity/Q18610> .
+
+lh:1957 owl:sameAs <https://www.wikidata.org/entity/Q5311> .
+
+lh:19th_century owl:sameAs <https://www.wikidata.org/entity/Q6955> .
+
+lh:20th_century owl:sameAs <https://www.wikidata.org/entity/Q6927> .
+
+lh:ARC_DE_TRIOMPHE_DE_LÉTOILE_A_PARIS__GOUPIL__WIBERT owl:sameAs <https://www.europeana.eu/item/15508/FotoGLV2000_26421_33?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:A_Bonnardot owl:sameAs <https://www.wikidata.org/entity/Q18612592> .
 
 lh:A_de_Montaiglon owl:sameAs <https://www.europeana.eu/item/794/ark__12148_bpt6k5418393d?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
+lh:Adolphe_Braun_Mitte owl:sameAs <https://www.europeana.eu/item/2048429/item_RDGEWCW2JGUTUBIL2BSAFYA4YYH3DRXC?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Adolphe_Chanaux owl:sameAs <https://www.wikidata.org/entity/Q22683394> .
+
+lh:Alfonz_Rostóczky owl:sameAs <https://www.europeana.eu/item/2048128/842294?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Alles owl:sameAs <https://www.wikidata.org/entity/Q133897111> .
+
+lh:Anliegen owl:sameAs <https://www.wikidata.org/entity/Q19130587> .
+
 lh:Architectuur owl:sameAs <https://www.europeana.eu/item/90402/RP_T_1994_156_45_V_?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:Art_History owl:sameAs <https://www.europeana.eu/item/2048426/item_GD2QK5HDCAZD4K3W4QGZB5TKEADCLHLN?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Archiv owl:sameAs <https://www.wikidata.org/entity/Q166118> .
 
-lh:Belgium owl:sameAs <https://www.europeana.eu/item/446/GE38003411?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Art_History owl:sameAs <https://www.wikidata.org/entity/Q50637> .
+
+lh:August_1900 owl:sameAs <https://www.wikidata.org/entity/Q4820504> .
+
+lh:August_23_1900 owl:sameAs <https://www.wikidata.org/entity/Q69252831> .
+
+lh:Austria owl:sameAs <https://www.wikidata.org/entity/Q40> .
+
+lh:Bastille owl:sameAs <https://www.wikidata.org/entity/Q689> .
+
+lh:Bastillien owl:sameAs <https://www.europeana.eu/item/2058618/object_KUAS_22185408?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Bauer_Sándor owl:sameAs <https://www.wikidata.org/entity/Q2892012> .
+
+lh:Beeldhouwkunst owl:sameAs <https://www.wikidata.org/entity/Q11634> .
+
+lh:Belgium owl:sameAs <https://www.wikidata.org/entity/Q31> .
+
+lh:Bild owl:sameAs <https://www.wikidata.org/entity/Q156203> .
+
+lh:Bois owl:sameAs <https://www.wikidata.org/entity/Q2908924> .
+
+lh:Bois_de_Boulogne owl:sameAs <https://www.wikidata.org/entity/Q209626> .
+
+lh:Boulevard_Montmartre owl:sameAs <https://www.wikidata.org/entity/Q1027566> .
+
+lh:CHAISE___Meuble owl:sameAs <https://www.europeana.eu/item/9200521/ark__12148_btv1b531916160?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:C_Caffieri owl:sameAs <https://www.europeana.eu/item/9200517/ark__12148_btv1b53136125x?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Champ_de_Mars owl:sameAs <https://www.wikidata.org/entity/Q217925> .
+
+lh:Communards owl:sameAs <https://www.wikidata.org/entity/Q5153972> .
+
+lh:Compoziția owl:sameAs <https://www.wikidata.org/entity/Q531873> .
 
 lh:CreatieBouw owl:sameAs <https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9985539650101488?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
+lh:CreationBuilding owl:sameAs <https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9989385910101488?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
 lh:CreationConstruction owl:sameAs <https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9988604030101488?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:Fotograaf owl:sameAs <https://www.europeana.eu/item/2051943/data_euscreenXL_EUS_564B8F6CED4F4D97BD98381A34261201?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:DAnatomie owl:sameAs <https://www.europeana.eu/item/9200110/BibliographicResource_1000126550914?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:Fournier owl:sameAs <https://www.europeana.eu/item/2051908/data_euscreenXL_ina_PHD88005490?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:De_La_Ménagerie owl:sameAs <https://www.europeana.eu/item/89/item_VDZMCVL3QE64HIHUO2QMJW7JHK6MQGUQ?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:France owl:sameAs <https://www.europeana.eu/item/9200479/item_46735612_?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Denmark owl:sameAs <https://www.wikidata.org/entity/Q35> .
 
-lh:Franklin owl:sameAs <https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9981038610101488?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Des_Galeries_De_Minéralogie_Et owl:sameAs <https://www.europeana.eu/item/546/https___hispana_mcu_es_lod_oai_bibliotecavirtualmadrid_comunidad_madrid_3836_ent0?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:Glasdia owl:sameAs <https://www.europeana.eu/item/2021657/resource_document_museon_D003865?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Des_Galeries_De_Minéralogie_Et_D_Anatomy_Et_De_La_Vallée_Suisse owl:sameAs <https://www.europeana.eu/item/440/item_Y3VIINHNJVLALTOLS4NACHZFDIM5NSGA?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:Glass owl:sameAs <https://www.europeana.eu/item/2022362/_Royal_Museums_Greenwich__http___collections_rmg_co_uk_collections_objects_260689?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Deutschland owl:sameAs <https://www.wikidata.org/entity/Q158427> .
 
-lh:Jules_Cousin owl:sameAs <https://www.europeana.eu/item/03919/public_mistral_joconde_fr_ACTION_CHERCHER_FIELD_1_REF_VALUE_1_50090003479?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Dresden owl:sameAs <https://www.wikidata.org/entity/Q1731> .
 
-lh:KU_Leuven owl:sameAs <https://www.europeana.eu/item/2031901/P_028206_00_11?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Druck owl:sameAs <https://www.wikidata.org/entity/Q11160769> .
 
-lh:La_Bastille owl:sameAs <https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Dyrlægegården_i_Trørød owl:sameAs <https://www.europeana.eu/item/2058618/object_KUAS_22185408?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:MM owl:sameAs <https://www.europeana.eu/item/2059218/data_sounds_IT_DDS0000035143000100?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Elsässer_Firma owl:sameAs <https://www.europeana.eu/item/2048429/item_RDGEWCW2JGUTUBIL2BSAFYA4YYH3DRXC?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Et_De_La_Vallée_Suisse owl:sameAs <https://www.europeana.eu/item/546/https___hispana_mcu_es_lod_oai_bibliotecavirtualmadrid_comunidad_madrid_3836_ent0?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Exkursionen owl:sameAs <https://www.wikidata.org/entity/Q9364367> .
+
+lh:Exposition_Universelle_de_1900 owl:sameAs <https://www.wikidata.org/entity/Q753646> .
+
+lh:Exposition_Universelle_de_19001245 owl:sameAs <https://www.europeana.eu/item/15508/FotoGLV2000_1709?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:FRANCE owl:sameAs <https://www.wikidata.org/entity/Q142> .
+
+lh:Florenz owl:sameAs <https://www.wikidata.org/entity/Q20973254> .
+
+lh:Fotografen owl:sameAs <https://www.wikidata.org/entity/Q79014504> .
+
+lh:Fournier owl:sameAs <https://www.wikidata.org/entity/Q21494576> .
+
+lh:France owl:sameAs <https://www.wikidata.org/entity/Q142> .
+
+lh:Franklin owl:sameAs <https://www.wikidata.org/entity/Q14647745> .
+
+lh:Fundet owl:sameAs <https://www.wikidata.org/entity/Q110825039> .
+
+lh:G_Pelletier owl:sameAs <https://www.wikidata.org/entity/Q107346104> .
+
+lh:Gartenplan owl:sameAs <https://www.wikidata.org/entity/Q102043509> .
+
+lh:Genesis owl:sameAs <https://www.wikidata.org/entity/Q9184> .
+
+lh:Germany owl:sameAs <https://www.wikidata.org/entity/Q183> .
+
+lh:Graf owl:sameAs <https://www.wikidata.org/entity/Q1158367> .
+
+lh:Groult owl:sameAs <https://www.wikidata.org/entity/Q56538575> .
+
+lh:Grundriss owl:sameAs <https://www.wikidata.org/entity/Q18965> .
+
+lh:Hauptsitz_des_Naturkundemuseums owl:sameAs <https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Henri_Braun owl:sameAs <https://www.wikidata.org/entity/Q127273810> .
+
+lh:Herstellung owl:sameAs <https://www.wikidata.org/entity/Q739302> .
+
+lh:Heuguet_M_de_Cartes_Géographiques owl:sameAs <https://www.europeana.eu/item/9200479/item_43437334_?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Hungary owl:sameAs <https://www.wikidata.org/entity/Q28> .
+
+lh:Hôtel owl:sameAs <https://www.wikidata.org/entity/Q27686> .
+
+lh:Illustrations_de_l owl:sameAs <https://www.wikidata.org/entity/Q123095080> .
+
+lh:Imprimerie_Lemercier owl:sameAs <https://www.wikidata.org/entity/Q21645742> .
+
+lh:Imprimé owl:sameAs <https://www.wikidata.org/entity/Q1261026> .
+
+lh:Jahre owl:sameAs <https://www.wikidata.org/entity/Q15755041> .
+
+lh:Jules_Cousin owl:sameAs <https://www.wikidata.org/entity/Q107276391> .
+
+lh:Jules_Hardouin_Mansart owl:sameAs <https://www.wikidata.org/entity/Q8053> .
+
+lh:KU_Leuven owl:sameAs <https://www.wikidata.org/entity/Q833670> .
+
+lh:Klebeetikett owl:sameAs <https://www.wikidata.org/entity/Q722218> .
+
+lh:Kupferstich owl:sameAs <https://www.wikidata.org/entity/Q106119128> .
+
+lh:Larc_de_Triomphe_De_lensemble owl:sameAs <https://www.europeana.eu/item/9200518/ark__12148_btv1b53128337c?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Leitung owl:sameAs <https://www.wikidata.org/entity/Q110272261> .
+
+lh:Llanta owl:sameAs <https://www.wikidata.org/entity/Q109633208> .
+
+lh:Louis_Blanquart_Evrard owl:sameAs <https://www.europeana.eu/item/2048429/item_RDGEWCW2JGUTUBIL2BSAFYA4YYH3DRXC?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Louis_Le_Vau owl:sameAs <https://www.wikidata.org/entity/Q310530> .
+
+lh:Luvru_Louvre owl:sameAs <https://www.europeana.eu/item/2048047/Clasate_d84b0fe951434e26873e30ceb11d1236?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Léon_Cogniet_et_Raffet owl:sameAs <https://www.europeana.eu/item/9200479/item_40700637_?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:MTI owl:sameAs <https://www.wikidata.org/entity/Q10884> .
 
 lh:M_F_Hoffbauer owl:sameAs <https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
+lh:Magyar_Film_Irodához owl:sameAs <https://www.europeana.eu/item/2048128/629761?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Mailand owl:sameAs <https://www.wikidata.org/entity/Q490> .
+
+lh:Meisterstück owl:sameAs <https://www.wikidata.org/entity/Q1918772> .
+
 lh:MovementStyle owl:sameAs <https://www.europeana.eu/item/2058618/object_KUAS_22306939?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:Neoclassicisme owl:sameAs <https://www.europeana.eu/item/1293/https___hispana_mcu_es_lod_oai_bibliotecadigital_museodelprado_es_15319_ent0?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:MovementStyle_Classicism owl:sameAs <https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9988102290101488?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:Paris owl:sameAs <https://www.europeana.eu/item/626/item_QDQDQA2KC32SDKAMVBSSYTKRIT4GQRRU?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:MovementStyle_Gothic owl:sameAs <https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9985535890101488?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:Paul_Lacroix owl:sameAs <https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9983546810101488?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Musee_du_Louvresur owl:sameAs <https://www.europeana.eu/item/2048047/Clasate_d84b0fe951434e26873e30ceb11d1236?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:Place_Charles_de_Gaulle owl:sameAs <https://www.europeana.eu/item/916118/S_TEK_photo_TEKA0112937?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Museen_von_Basel owl:sameAs <https://www.europeana.eu/item/2048429/item_RDGEWCW2JGUTUBIL2BSAFYA4YYH3DRXC?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:Poland owl:sameAs <https://www.europeana.eu/item/9200479/item_28529024_?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Muzeul_Louvre owl:sameAs <https://www.wikidata.org/entity/Q19675> .
 
-lh:Sygn owl:sameAs <https://www.europeana.eu/item/160/documents_748359_0_?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:N_P_LEREBOURS owl:sameAs <https://www.wikidata.org/entity/Q325438> .
 
-lh:Toegevoegde owl:sameAs <https://www.europeana.eu/item/2023006/24062A51_priref_19292?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:N_Ransonnette_Gr_Orde_de_Monsieur owl:sameAs <https://www.europeana.eu/item/9200479/item_43437334_?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:Université_de_Louvain owl:sameAs <https://www.europeana.eu/item/9200229/BibliographicResource_3000135604701?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Nedatat owl:sameAs <https://www.europeana.eu/item/954/Culturalia_efd2c4c8_edd6_4f6b_bb02_d03a13861dbe?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:Valentin_Dufour owl:sameAs <https://www.europeana.eu/item/794/ark__12148_bpt6k36522q?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Neoclassicisme owl:sameAs <https://www.wikidata.org/entity/Q54111> .
 
-lh:Versailles owl:sameAs <https://www.europeana.eu/item/626/item_XNUJLGXHRUDSLQI56GN3K7YSSJUEEOPP?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Neoclassicistisch owl:sameAs <https://www.wikidata.org/entity/Q54111> .
 
-lh:XIIIe owl:sameAs <https://www.europeana.eu/item/285/gam20324?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Netherlands owl:sameAs <https://www.wikidata.org/entity/Q55> .
 
-lh:architectuur_en owl:sameAs <https://www.europeana.eu/item/90402/RP_T_1968_4?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Neurdein owl:sameAs <https://www.wikidata.org/entity/Q102811718> .
 
-lh:aut owl:sameAs <https://www.europeana.eu/item/446/RM0255_DIG_4842?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:Original owl:sameAs <https://www.wikidata.org/entity/Q810198> .
+
+lh:Padua owl:sameAs <https://www.wikidata.org/entity/Q617> .
+
+lh:Panorama owl:sameAs <https://www.wikidata.org/entity/Q41363> .
+
+lh:Panorama_du_Trocadéro owl:sameAs <https://www.europeana.eu/item/90402/RP_F_F16596?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Papier owl:sameAs <https://www.wikidata.org/entity/Q37266561> .
+
+lh:Par_B_Renault owl:sameAs <https://www.europeana.eu/item/2059209/7438_11236431385_fd0e37c16c_o_jpg?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Parijs owl:sameAs <https://www.wikidata.org/entity/Q90> .
+
+lh:Paris owl:sameAs <https://www.wikidata.org/entity/Q90> .
+
+lh:Paris_Louvre owl:sameAs <https://www.wikidata.org/entity/Q19675> .
+
+lh:Paris_Plan_Topographique owl:sameAs <https://www.europeana.eu/item/9200517/ark__12148_btv1b530622941?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Paryżu owl:sameAs <https://www.europeana.eu/item/9200479/item_36825614_?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Paul_Lacroix owl:sameAs <https://www.wikidata.org/entity/Q1607626> .
+
+lh:Pflanzen_und_Stillleben owl:sameAs <https://www.europeana.eu/item/2048429/item_RDGEWCW2JGUTUBIL2BSAFYA4YYH3DRXC?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Phot owl:sameAs <https://www.wikidata.org/entity/Q23892012> .
+
+lh:Photogalvanographie owl:sameAs <https://www.wikidata.org/entity/Q1439619> .
+
+lh:Pierron owl:sameAs <https://www.wikidata.org/entity/Q36951493> .
+
+lh:Place_Charles_de_Gaulle owl:sameAs <https://www.wikidata.org/entity/Q390243> .
+
+lh:Place_de_la_Bourse owl:sameAs <https://www.wikidata.org/entity/Q3390344> .
+
+lh:Plan_Topographique owl:sameAs <https://www.wikidata.org/entity/Q137795182> .
+
+lh:Poland owl:sameAs <https://www.wikidata.org/entity/Q36> .
+
+lh:Porte_de_St_Antoine owl:sameAs <https://www.europeana.eu/item/9200518/ark__12148_btv1b84098293?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Privatsammlungen owl:sameAs <https://www.europeana.eu/item/2048441/item_ST3N4KCT6GTJ6RMQCK2CYBGDFXN432BY?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Pruisische owl:sameAs <https://www.wikidata.org/entity/Q38872> .
+
+lh:Quai_Voltaire_11 owl:sameAs <https://www.europeana.eu/item/15508/FotoGLV2000_26421_8?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Reiseziele owl:sameAs <https://www.wikidata.org/entity/Q96615188> .
+
+lh:Roberta_Sayera owl:sameAs <https://www.europeana.eu/item/9200479/item_41981931_?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Roger_Fenton owl:sameAs <https://www.wikidata.org/entity/Q345666> .
+
+lh:Romania owl:sameAs <https://www.wikidata.org/entity/Q218> .
+
+lh:Rostóczky_Alfonz owl:sameAs <https://www.europeana.eu/item/2048128/842294?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Rue_Montfaucon_N_1 owl:sameAs <https://www.europeana.eu/item/9200479/item_43437334_?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Rue_Pierre_Bullet owl:sameAs <https://www.wikidata.org/entity/Q943509> .
+
+lh:Rue_Rivoli owl:sameAs <https://www.europeana.eu/item/2021657/resource_document_museon_237275?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Rue_de_Richelieu owl:sameAs <https://www.wikidata.org/entity/Q2915495> .
+
+lh:Ruined_Buildings_on_Place_de_la_Bastille owl:sameAs <https://www.europeana.eu/item/90402/RP_F_2013_114?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:SLUB_Histnat owl:sameAs <https://www.europeana.eu/item/188/item_42J7RU5AQU4OH2G26SAOHFU5DWO6UKMK?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Sainte_Chapelle_Exterior owl:sameAs <https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9989977940101488?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Schwarz owl:sameAs <https://www.wikidata.org/entity/Q14947294> .
+
+lh:Schweiz owl:sameAs <https://www.wikidata.org/entity/Q27713404> .
+
+lh:Schätze owl:sameAs <https://www.wikidata.org/entity/Q83501656> .
+
+lh:Seite_XXIV_aus owl:sameAs <https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Semnat owl:sameAs <https://www.wikidata.org/entity/Q220849> .
+
+lh:Sena owl:sameAs <https://www.wikidata.org/entity/Q37033741> .
+
+lh:Skulpturen owl:sameAs <https://www.wikidata.org/entity/Q1650436> .
+
+lh:Sohnes_Henri owl:sameAs <https://www.europeana.eu/item/199/item_DTFE7NDPCHCXX7K2N6TS4POWYRVYMHBX?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:St_Anthonys owl:sameAs <https://www.wikidata.org/entity/Q182155> .
+
+lh:Stereo_ owl:sameAs <https://www.wikidata.org/entity/Q34678> .
+
+lh:Stoffmustervorlagen owl:sameAs <https://www.europeana.eu/item/2048429/item_N2N64RURIV3OV2U6JD3ONGDZGR5LMUQU?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Switzerland owl:sameAs <https://www.wikidata.org/entity/Q39> .
+
+lh:Szoknyalibbentő owl:sameAs <https://www.europeana.eu/item/2048128/647291?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Sándor_Bauer owl:sameAs <https://www.wikidata.org/entity/Q136159083> .
+
+lh:Tapisserie_de_Beauvais owl:sameAs <https://www.europeana.eu/item/03919/public_mistral_joconde_fr_ACTION_CHERCHER_FIELD_1_REF_VALUE_1_50170001748?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Tatiana_Moscu owl:sameAs <https://www.europeana.eu/item/2048047/Clasate_78dff82474b543a6924f9c9e9d895e58?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:TechniekMateriaal owl:sameAs <https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9988070450101488?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:The_Champ_de_Mars owl:sameAs <https://www.europeana.eu/item/2022362/_Royal_Museums_Greenwich__http___collections_rmg_co_uk_collections_objects_128917?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:The_Destroyed_Ministry_of_Finance owl:sameAs <https://www.europeana.eu/item/90402/RP_F_2013_114?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Tod owl:sameAs <https://www.wikidata.org/entity/Q18697527> .
+
+lh:Trocadéro owl:sameAs <https://www.wikidata.org/entity/Q15764234> .
+
+lh:United_Kingdom owl:sameAs <https://www.wikidata.org/entity/Q145> .
+
+lh:Université_de_Louvain owl:sameAs <https://www.wikidata.org/entity/Q378134> .
+
+lh:Valentin_Dufour owl:sameAs <https://www.wikidata.org/entity/Q52155000> .
+
+lh:Vaters owl:sameAs <https://www.wikidata.org/entity/Q37463309> .
+
+lh:Vendéglátás owl:sameAs <https://www.wikidata.org/entity/Q815825> .
+
+lh:Venedig owl:sameAs <https://www.wikidata.org/entity/Q641> .
+
+lh:Verkauf_von_Stereobildern owl:sameAs <https://www.europeana.eu/item/2048429/item_RDGEWCW2JGUTUBIL2BSAFYA4YYH3DRXC?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Versailles owl:sameAs <https://www.wikidata.org/entity/Q621> .
+
+lh:Versailles_Aerial owl:sameAs <https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116912201488?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Verso owl:sameAs <https://www.wikidata.org/entity/Q9368452> .
+
+lh:Veue_de_la_Bastille_de_Paris owl:sameAs <https://www.europeana.eu/item/9200518/ark__12148_btv1b10302491v?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Victor_Delarue owl:sameAs <https://www.wikidata.org/entity/Q21557522> .
+
+lh:Voltaire owl:sameAs <https://www.wikidata.org/entity/Q9068> .
+
+lh:Werkzeug owl:sameAs <https://www.wikidata.org/entity/Q107370289> .
+
+lh:Wiedergabe_von_Gemälden owl:sameAs <https://www.europeana.eu/item/2048429/item_RDGEWCW2JGUTUBIL2BSAFYA4YYH3DRXC?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:XIIIe owl:sameAs <https://www.wikidata.org/entity/Q28469723> .
+
+lh:Zeit owl:sameAs <https://www.wikidata.org/entity/Q186741> .
+
+lh:angielskim owl:sameAs <https://www.europeana.eu/item/362/item_FCVEHCJK6DWWJYB7SMREPU6WZ46VCVWO?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:armée owl:sameAs <https://www.wikidata.org/entity/Q296266> .
+
+lh:au_cm_Carton_fond_de_chaise owl:sameAs <https://www.europeana.eu/item/957/GMT_24694_002?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
 lh:authentiquespar_M_F_Hoffbauer owl:sameAs <https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
 lh:between_1839_and_1939 owl:sameAs <https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9985247420101488?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:build owl:equivalentProperty dc:creator .
+lh:das_Kohledruckverfahren_spezialisiert owl:sameAs <https://www.europeana.eu/item/2048429/item_RDGEWCW2JGUTUBIL2BSAFYA4YYH3DRXC?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:choose rdfs:subPropertyOf dcterms:created .
+lh:das_Unternehmen owl:sameAs <https://www.wikidata.org/entity/Q136880088> .
 
-lh:commission owl:equivalentProperty dc:creator .
+lh:de_la_Bastille owl:sameAs <https://www.wikidata.org/entity/Q106886158> .
 
-lh:complete owl:equivalentProperty dcterms:created .
+lh:der_Place_de_la_Bastille owl:sameAs <https://www.europeana.eu/item/228/system_343190745?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:conquer rdfs:subPropertyOf dcterms:spatial .
+lh:der_sich_auf owl:sameAs <https://www.europeana.eu/item/168/item_LLNL4EKZW45PFMMTRU332RKUNQGHEMH7?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:construct owl:equivalentProperty dc:creator .
+lh:doch_Braun owl:sameAs <https://www.europeana.eu/item/2048429/item_RDGEWCW2JGUTUBIL2BSAFYA4YYH3DRXC?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:crown rdfs:subPropertyOf dc:creator .
+lh:dun owl:sameAs <https://www.wikidata.org/entity/Q15180> .
 
-lh:de_Paris owl:sameAs <https://www.europeana.eu/item/2058606/bw5ne5_ThumbJpeg_ashx_WEBIDS_FNBN5753_Pixels_0?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
-
-lh:design owl:equivalentProperty dc:creator .
-
-lh:designate owl:equivalentProperty dcterms:type .
-
-lh:dia owl:sameAs <https://www.europeana.eu/item/2059218/data_sounds_IT_DDS0000074438000700?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
-
-lh:establish owl:equivalentProperty dcterms:created .
-
-lh:expand rdfs:subPropertyOf dcterms:modified .
-
-lh:flow rdfs:subPropertyOf dcterms:spatial .
-
-lh:grow rdfs:subPropertyOf dcterms:modified .
-
-lh:imprison rdfs:subPropertyOf dcterms:spatial .
+lh:jos_de_două owl:sameAs <https://www.europeana.eu/item/2048047/Clasate_12c3089fd1e4456a8c9c88e9a38bdf0c?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
 lh:jusquà owl:sameAs <https://www.europeana.eu/item/2022717/bnesearch_detalle_bdh0000074417?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:le_XIIIe owl:sameAs <https://www.europeana.eu/item/2022717/bnesearch_detalle_bdh0000012511?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:kann owl:sameAs <https://www.wikidata.org/entity/Q21448112> .
 
-lh:locate owl:equivalentProperty dcterms:spatial .
+lh:kapta owl:sameAs <https://www.wikidata.org/entity/Q18754072> .
 
-lh:locatedIn owl:equivalentProperty dcterms:spatial .
+lh:kép_készítője owl:sameAs <https://www.europeana.eu/item/2048128/683406?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:make owl:equivalentProperty dcterms:created .
+lh:lewej_s___levé owl:sameAs <https://www.europeana.eu/item/9200479/item_43437334_?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:occupy owl:equivalentProperty dcterms:spatial .
+lh:litografia owl:sameAs <https://www.wikidata.org/entity/Q133036> .
 
-lh:own rdfs:subPropertyOf edm:isShownAt .
+lh:otthont owl:sameAs <https://www.wikidata.org/entity/Q58010150> .
 
-lh:paint owl:equivalentProperty dc:creator .
+lh:prawdopodobnie owl:sameAs <https://www.wikidata.org/entity/Q56644435> .
 
-lh:pledge rdfs:subPropertyOf dcterms:created .
+lh:rM_Padua owl:sameAs <https://www.europeana.eu/item/15508/FotoGLV2000_7301?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:pod_kompoz owl:sameAs <https://www.europeana.eu/item/9200479/item_5821311_?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+lh:rM_Padua_Bleistift owl:sameAs <https://www.europeana.eu/item/15508/FotoGLV2000_7299?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:settle owl:equivalentProperty dcterms:spatial .
+lh:ro owl:sameAs <https://www.wikidata.org/entity/Q16242140> .
 
-lh:sign owl:equivalentProperty dcterms:created .
+lh:the_Hungarian_Film_Office owl:sameAs <https://www.europeana.eu/item/2048128/576584?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
-lh:storm owl:equivalentProperty dcterms:spatial .
+lh:vede_o_parte owl:sameAs <https://www.europeana.eu/item/1190/INP_postcards_4728?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:versucht_1855 owl:sameAs <https://www.europeana.eu/item/15508/FotoGLV2000_7301?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:w_jęz owl:sameAs <https://www.wikidata.org/entity/Q29256> .
+
+lh:wzoru_pod_kompoz owl:sameAs <https://www.europeana.eu/item/9200479/item_15905200_?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:Öffentlichkeit owl:sameAs <https://www.wikidata.org/entity/Q2388316> .
+
+lh:în_monogramă_cu_negru owl:sameAs <https://www.europeana.eu/item/2048047/Clasate_c613aaa3407343a093c39ed5a91986d6?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
+
+lh:încadrat_de_copaci_cu owl:sameAs <https://www.europeana.eu/item/2048047/Clasate_d84b0fe951434e26873e30ceb11d1236?utm_source=api&utm_medium=api&utm_campaign=tionefter> .
 
