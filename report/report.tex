@@ -190,6 +190,16 @@ The statistics report (see \texttt{livrable/statistics\_report.txt}) contains th
 \item \textbf{Relations:} The instruction target (50--200) is met via predicate-controlled expansion (Wikidata properties P276, P170, P166, etc.) and Europeana metadata (dc:, dcterms:, edm:).
 \end{itemize}
 
+\subsection{Impact of Europeana on the Final Volume}
+
+Europeana intervenes at two levels of the pipeline: (1)~Phase~1, as the sole source of the crawler (Search API); (2)~Phase~2, as an expansion complement when the volume remains below 50k triplets (EDM/Dublin Core metadata extraction on approximately 700 records).
+
+\textbf{Quantitative measure.} In the final KB (\texttt{kb\_expanded.nt}), triplets whose subject is a Europeana URI (\texttt{https://www.europeana.eu/item/...}) account for approximately \textbf{92\,\%} of the total volume (199,415 out of 216,079 triplets). The remainder comes from the initial KB (Phase~1) and SPARQL expansion on Wikidata.
+
+\textbf{Justification with respect to instructions.} The instructions recommend using APIs when anti-robot checking occurs; Europeana responds to this requirement. However, the ``extend via SPARQL queries'' instruction (InstructionPhase2) does not explicitly mention Europeana: the Europeana complement in Phase~2 is a pragmatic choice to reach the volume target (50k--200k triplets).
+
+\textbf{Consequences of removal.} If Europeana were removed from the pipeline, the volume would drop to approximately 16,600 triplets (SPARQL + initial KB only), i.e., a loss of approximately 92\,\%. The decision to keep or remove Europeana therefore depends on the constraints: if the instructions strictly require web scraping (Trafilatura), it would need to be replaced; if APIs are tolerated, Europeana remains relevant for the Local History domain (cultural heritage).
+
 \subsection{Deliverables}
 
 \textbf{Note:} Les statistiques (triplets, entités, relations) proviennent de \texttt{livrable/statistics\_report.txt}. Les fichiers \texttt{extracted\_triples.csv}, \texttt{extracted\_knowledge.csv} sont des livrables intermédiaires (Phase 1).
