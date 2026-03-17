@@ -35,9 +35,9 @@ This report describes a two-phase pipeline for building a Knowledge Base (KB) in
 
 The extraction pipeline follows four main stages: (1) source selection and crawling, (2) content extraction and cleaning, (3) named entity recognition, and (4) relation extraction.
 
-\textbf{Source selection.} As recommended in the instructions, we use APIs when anti-robot checking occurs. The primary source is the \textbf{Europeana API} (Search API at \texttt{api.europeana.eu}), which provides metadata and descriptions for cultural heritage objects (Local History domain). No scraping or trafilatura is needed for API-sourced content; text is extracted directly from the JSON response (title, dcDescription, year, country). A lower word threshold (100 words) is used for API items since descriptions are typically shorter than full web pages.
+\textbf{Source selection.} As recommended in the instructions, we use APIs when anti-robot checking occurs. The primary source is the \textbf{Europeana API} (Search API at \texttt{api.europeana.eu}), which provides metadata and descriptions for cultural heritage objects (Local History domain). No scraping or trafilatura is needed for API-sourced content; text is extracted directly from the JSON response and enriched with additional textual metadata fields.
 
-\textbf{Content extraction.} Text comes directly from the Europeana API response (title, dcDescription, year, country). Items with fewer than 80--100 words are discarded. The instructions suggest 500 words for scraped pages; we use a lower threshold for API-sourced content since Europeana descriptions are typically shorter than full web pages---a pragmatic choice documented in the config.
+\textbf{Content extraction.} Text comes from Europeana API responses and is normalized (whitespace cleanup, URL literal filtering). A strict useful-page threshold is applied: items with fewer than 500 words are discarded, in line with the challenge requirement of Phase~1.
 
 \textbf{Storage.} Results are stored in JSONL format, with one JSON object per line containing \texttt{url}, \texttt{text}, \texttt{title}, and \texttt{word\_count}.
 
@@ -180,19 +180,18 @@ Per InstructionPhase2 (``extend it via SPARQL queries'') and QueryWithOpenKB: en
 
 \subsection{Final KB Statistics}
 
-The statistics report (see \texttt{livrable/statistics\_report.txt}) contains the number of triplets, entities, and relations. The pipeline respects InstructionPhase2 Step~4 requirements (50k--200k triplets, 5k--30k entities, 50--200 relations):
+The statistics report (see \texttt{livrable/statistics\_report.txt}) contains the number of triplets, entities, relations, and connectivity metrics. The pipeline is designed to satisfy InstructionPhase2 Step~4 requirements (50k--200k triplets, 5k--30k entities, 50--200 relations):
 
 \begin{itemize}
-\item \textbf{Triplets:} 110,729 (target 50,000--200,000 met) via SPARQL 1-hop, 2-hop, and predicate-controlled expansion on Wikidata plus Europeana metadata.
-\item \textbf{Entities:} 7,972 (target 5,000--30,000 met) from Wikidata URIs and Europeana entity extraction.
-\item \textbf{Relations:} 50 (target 50--200 met) via a whitelist of Wikidata properties (\texttt{ALLOWED\_WIKIDATA\_PROPERTIES}) and consolidated Europeana predicates (dc:, dcterms:, edm:, one canonical predicate per semantic role).
+\item \textbf{Triplets / Entities / Relations:} values are generated at runtime in \texttt{statistics\_report.txt} and must remain within the required ranges.
+\item \textbf{Connectivity:} the report now includes connected components, largest component size, and isolated entities to support KGE readiness checks.
 \end{itemize}
 
 \subsection{Impact of Europeana on the Final Volume}
 
 Europeana intervenes at two levels of the pipeline: (1)~Phase~1, as the sole source of the crawler (Search API); (2)~Phase~2, as an expansion complement when the volume remains below 50k triplets (EDM/Dublin Core metadata extraction on approximately 700 records).
 
-\textbf{Quantitative measure.} In the final KB (\texttt{kb\_expanded.nt}), triplets whose subject is a Europeana URI (\texttt{https://www.europeana.eu/item/...}) account for the majority of the total volume (110,729 triplets). The remainder comes from the initial KB (Phase~1) and SPARQL expansion on Wikidata.
+\textbf{Quantitative measure.} In the final KB (\texttt{kb\_expanded.nt}), triplets whose subject is a Europeana URI (\texttt{https://www.europeana.eu/item/...}) account for a substantial share of the volume. The remainder comes from the initial KB (Phase~1) and SPARQL expansion on Wikidata.
 
 \textbf{Justification with respect to instructions.} The instructions recommend using APIs when anti-robot checking occurs; Europeana responds to this requirement. The Europeana complement in Phase~2 is a pragmatic choice to reach the volume target (50k--200k triplets) while respecting the relation limit (50--200) via predicate consolidation.
 

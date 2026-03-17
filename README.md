@@ -59,7 +59,8 @@ python -m spacy download en_core_web_sm
 
 ## Où sont les statistiques (triplets, entités, relations) ?
 
-Les chiffres **179 412 triplets, 6 728 entités, 22 relations** se trouvent dans **`livrable/kb_expanded.nt`** (un triplet par ligne). Voir `data/DATA_README.md` pour le détail.
+Les statistiques de la dernière exécution se trouvent dans **`livrable/statistics_report.txt`**.  
+Le fichier **`livrable/kb_expanded.nt`** contient la KB finale (un triplet par ligne).
 
 ## Livrables (dossier `livrable/`)
 

@@ -1,879 +1,1295 @@
 @prefix lh: <http://example.org/localhistory/> .
 
-lh:1242_1248 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9989977940101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:13th_century a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9989977940101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1599 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/9200166/BibliographicResource_3000117226971?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:Switzerland .
-
-lh:1624 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116912201488?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:1680 .
-
-lh:1672 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557360101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:Belgium .
-
-lh:1749 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_41981930_?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:Poland .
-
-lh:1780 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991556200101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:Belgium .
-
-lh:1786_1790 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557230101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1789 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2058618/object_KUAS_22185408?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/9200479/item_40700643_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:17th_century a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557360101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116912201488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1806_1836 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1813_1826 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557120101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1832 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_40700643_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1855 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_7302?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1857 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1866 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1867 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/842296?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1871 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/90402/RP_F_2013_114?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:Netherlands .
-
-lh:1875_1882 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1878 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/842296?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1887_1889 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557280101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1889 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/842296?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2058618/object_KUAS_22185408?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1896_1900 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557660101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:18th_19th_century a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557490101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:18th_century a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991556200101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557230101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557490101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557550101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1900 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/842296?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1914 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116107701488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1924 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/957/GMT_24694_004?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1929 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/957/GMT_24694_004?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1932 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/957/GMT_24694_004?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1933 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/957/GMT_24694_004?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1937 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/842296?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:Hungary .
-
-lh:1937_ben a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/842296?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1946 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/647291?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1957 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/647291?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:19th_century a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557120101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557280101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557660101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:20th_century a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116107701488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:ARC_DE_TRIOMPHE_DE_LÉTOILE_A_PARIS__GOUPIL__WIBERT a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_26421_33?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:A_Bonnardot a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:A_de_Montaiglon a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Adolphe_Chanaux a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/957/GMT_24694_004?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Alexandre_III_KU_Leuven a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557660101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Arc_de_Triomphe_KU_Leuven a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Arc_de_Triomphe_Photochrom_Nr a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/9200166/BibliographicResource_3000117226971?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Arc_de_Triomphe_de_l_Étoile_à_Paris_Caption a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_26421_33?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Architectuur a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557550101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Archiv a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Art_History a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9989977940101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991556200101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557120101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557230101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557280101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557360101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557490101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557550101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557660101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116107701488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116912201488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:August_1900 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_1709?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:Paris .
-
-lh:August_23_1900 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_1709?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Austria a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_1709?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/15508/FotoGLV2000_26421_33?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/15508/FotoGLV2000_7302?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:B312_1_Country a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:Germany .
-
-lh:Bastille a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_43437334_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Bastillien a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2058618/object_KUAS_22185408?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Bauer_Sándor a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/647291?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Bois a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/957/GMT_24694_004?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Bois_de_Boulogne a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_1709?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Boulevard_Montmartre a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_26421_33?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:N_P_LEREBOURS .
-
-lh:CHAISE___Meuble a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/957/GMT_24694_004?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:C_Caffieri a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_43437334_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Champ_de_Mars a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/842296?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:Alfonz_Rostóczky .
-
-lh:Communards a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/90402/RP_F_2013_114?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Compoziția a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048047/Clasate_d84b0fe951434e26873e30ceb11d1236?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:DAnatomie a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:De_La_Ménagerie a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:Des_Galeries_De_Minéralogie_Et_D_Anatomy_Et_De_La_Vallée_Suisse .
-
-lh:Des_Galeries_De_Minéralogie_Et a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Deutschland a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Dresden a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Druck a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_26421_33?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Dyrlægegården_i_Trørød a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2058618/object_KUAS_22185408?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Eiffel_Tower_KU_Leuven a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557280101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Elsässer_Firma a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Et_De_La_Vallée_Suisse a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Exkursionen a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Exposition_Universelle_de_1900 a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_1709?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Exposition_Universelle_de_19001245 a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_1709?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:FRANCE a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_26421_33?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Florenz a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Fotografen a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Fournier a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:France a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9989977940101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991556200101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557120101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557230101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557280101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557360101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557490101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557550101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557660101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116912201488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/957/GMT_24694_004?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:Paris,
-        lh:Versailles .
-
-lh:Franklin a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:G_Pelletier a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/957/GMT_24694_004?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Gartenplan a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Genesis a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9989977940101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:God_Kulturstyrelsen_Country a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2058618/object_KUAS_22185408?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:Denmark .
-
-lh:God_Kulturstyrelsen_Støbejern_L_267_cm a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2058618/object_KUAS_22185408?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Groult a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/957/GMT_24694_004?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Grundriss a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Hauptsitz_des_Naturkundemuseums a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Henri_Braun a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Herstellung a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_7302?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Heuguet_M_de_Cartes_Géographiques a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_43437334_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Hôtel a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991556200101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Illustrations_de_l a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_40700643_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Imprimerie_Lemercier a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_40700643_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Imprimé a lh:Organization,
-        lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_43437334_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Jahre a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Jules_Cousin a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Jules_Hardouin_Mansart a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116912201488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Klebeetikett a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_7302?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Kupferstich a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:La_Bourse_de_Paris_KU_Leuven a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557120101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Larc_de_Triomphe_De_lensemble a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/957/GMT_24694_004?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Leitung a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Llanta a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_40700643_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Louis_Blanquart_Evrard a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Louis_Le_Vau a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116912201488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Luvru_Louvre a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2048047/Clasate_d84b0fe951434e26873e30ceb11d1236?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Léon_Cogniet_et_Raffet a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_40700643_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:MTI a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/647291?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Magyar_Film_Irodához a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/647291?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Mailand a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:MovementStyle_Gothic a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9989977940101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Musee_du_Louvresur a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2048047/Clasate_d84b0fe951434e26873e30ceb11d1236?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Museen_von_Basel a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Musée_du_Louvre___Raphael_Sanzio_Die_Fotografie a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:Adolphe_Braun_Mitte .
-
-lh:Muzeul_Louvre a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048047/Clasate_d84b0fe951434e26873e30ceb11d1236?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:N_Ransonnette_Gr_Orde_de_Monsieur a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_43437334_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Neoclassicisme a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Neurdein a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_1709?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Original a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_7302?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Padua a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_7302?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:rM_Padua .
-
-lh:Panorama a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_1709?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:Trocadéro .
-
-lh:Panorama_du_Trocadéro a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_1709?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Par_B_Renault a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2059209/2859_11037033286_81d5e64388_o_jpg?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Parijs a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/90402/RP_F_2013_114?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Paris_Louvre a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2048047/Clasate_d84b0fe951434e26873e30ceb11d1236?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Paris_Plan_Topographique a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Paryżu a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_40700643_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Paul_Lacroix a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Pflanzen_und_Stillleben a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Phot a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_1709?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Photogalvanographie a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_7302?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Pierron a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_43437334_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Place_Charles_de_Gaulle a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Place_de_la_Bourse a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557120101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Plan_Topographique a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Porte_Saint_Denis_KU_Leuven a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557360101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Porte_de_St_Antoine a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_41981930_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Privatsammlungen a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Pruisische a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/90402/RP_F_2013_114?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Quai_Voltaire_11 a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_26421_33?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Reiseziele a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Roberta_Sayera a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_41981930_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Roger_Fenton a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Romania a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2048047/Clasate_d84b0fe951434e26873e30ceb11d1236?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Rostóczky_Alfonz a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/842296?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Rue_Montfaucon_N_1 a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_43437334_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Rue_Pierre_Bullet a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991556200101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Rue_Rivoli a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/90402/RP_F_2013_114?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Rue_de_Richelieu a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557230101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Ruined_Buildings_on_Place_de_la_Bastille a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/90402/RP_F_2013_114?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:SLUB_Histnat a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Sainte_Chapelle_Exterior a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9989977940101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Schwarz a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_1709?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Schweiz a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Schätze a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Seite_XXIV_aus a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Semnat a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2048047/Clasate_d84b0fe951434e26873e30ceb11d1236?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Sena a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048047/Clasate_d84b0fe951434e26873e30ceb11d1236?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Skulpturen a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Sohnes_Henri a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:St_Anthonys a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_41981930_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Stereo_ a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_7302?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Stoffmustervorlagen a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Szoknyalibbentő a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/647291?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Sándor_Bauer a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/647291?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:TM_Country a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2048047/Clasate_d84b0fe951434e26873e30ceb11d1236?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Tapisserie_de_Beauvais a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/957/GMT_24694_004?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Tatiana_Moscu a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048047/Clasate_d84b0fe951434e26873e30ceb11d1236?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:The_Champ_de_Mars a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/842296?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:The_Destroyed_Ministry_of_Finance a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/90402/RP_F_2013_114?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Théâtre_Français_KU_Leuven a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557230101488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Tod a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Université_de_Louvain a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9989977940101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991556200101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557120101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557230101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557280101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557360101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557490101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557550101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557660101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116107701488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116912201488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:1839_en_1939,
-        lh:between_1839_and_1939 .
-
-lh:Valentin_Dufour a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Vaters a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Vendéglátás a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/647291?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Venedig a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Verkauf_von_Stereobildern a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Versailles_Aerial a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116912201488?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:KU_Leuven .
-
-lh:Verso a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_43437334_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Veue_de_la_Bastille_de_Paris a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_41981930_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Victor_Delarue a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_40700643_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Voltaire a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_43437334_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Werkzeug a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Wiedergabe_von_Gemälden a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:XIIIe a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Zeit a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:angielskim a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_41981930_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:armée a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_40700643_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:au_cm_Carton_fond_de_chaise a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/957/GMT_24694_004?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:authentiquespar_M_F_Hoffbauer a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:das_Kohledruckverfahren_spezialisiert a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:de_la_Bastille a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_40700643_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:der_Place_de_la_Bastille a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_7302?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:Paris .
-
-lh:der_sich_auf a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:doch_Braun a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:dun a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2059209/2859_11037033286_81d5e64388_o_jpg?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:jos_de_două a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2048047/Clasate_d84b0fe951434e26873e30ceb11d1236?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:jusquà a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:kann a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:kapta a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/842296?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:kép_készítője a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/647291?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:lewej_s___levé a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_43437334_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:otthont a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/842296?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:rM_Padua_Bleistift a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_7302?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:ro a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_7302?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:the_Hungarian_Film_Office a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/647291?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:vede_o_parte a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2048047/Clasate_d84b0fe951434e26873e30ceb11d1236?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:versucht_1855 a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_7302?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:w_jęz a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_41981930_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:wzoru_pod_kompoz a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_41981930_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Öffentlichkeit a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:în_monogramă_cu_negru a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048047/Clasate_d84b0fe951434e26873e30ceb11d1236?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:încadrat_de_copaci_cu a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048047/Clasate_d84b0fe951434e26873e30ceb11d1236?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1680 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116912201488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1839_en_1939 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9989977940101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991556200101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557120101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557230101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557280101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557360101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557490101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557550101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557660101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116107701488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116912201488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1842 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_26421_33?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:1851 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2059209/2859_11037033286_81d5e64388_o_jpg?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:United_Kingdom .
-
-lh:1885 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Adolphe_Braun_Mitte a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Alfonz_Rostóczky a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/842296?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Denmark a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2058618/object_KUAS_22185408?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Des_Galeries_De_Minéralogie_Et_D_Anatomy_Et_De_La_Vallée_Suisse a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Germany a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2048429/item_3BNP35ACRHLJGXYS4V64A4PCLW67GC7Z?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Hungary a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2048128/647291?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2048128/842296?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:KU_Leuven a lh:Organization ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9989977940101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991556200101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557120101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557230101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557280101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557360101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557490101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557550101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557660101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116107701488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116912201488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:M_F_Hoffbauer a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:N_P_LEREBOURS a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_26421_33?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Netherlands a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/90402/RP_F_2013_114?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Poland a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/9200479/item_40700643_?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/9200479/item_41981930_?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/9200479/item_43437334_?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Switzerland a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/9200166/BibliographicResource_3000117226971?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Trocadéro a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_1709?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:United_Kingdom a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2059209/2859_11037033286_81d5e64388_o_jpg?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Versailles a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116912201488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:between_1839_and_1939 a lh:Temporal ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9989977940101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991556200101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557120101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557230101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557280101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557360101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557490101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557550101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557660101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116107701488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116912201488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:rM_Padua a lh:Person ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_7302?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
-
-lh:Belgium a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9989977940101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991556200101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557120101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557230101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557280101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557360101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557490101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557550101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557660101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116107701488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116911001488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116912201488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+lh:1442_INP_Bucharest_update a lh:Temporal ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:1994_TEXT_1994 a lh:Temporal ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:2025_12_10T123129609Z a lh:Temporal ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:2026_03_03T154141047Z a lh:Temporal ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:20ός_αιώνας_20th_century a lh:Temporal ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:21st_century a lh:Temporal ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Apdzīvota a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Armand_Călinescu a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Aro_Modernoa a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Asentamiento a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Asentamiento_Asula_uusaeg_Giza a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Asentamiento_Edad_de_Bronce a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Asentamiento_Eneolítico_Asula_Giza a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Asentamiento_Idade_Média_Povoamento a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Asula_Aro_Modernoa_Giza a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Asula_Giza a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Asutus a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Așezare a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Balkans_Bucuresti a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Balkans_Bucuresti_Románia a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Belgia a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Belgia_Patrick a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Biserica a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Bronce a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Bronze_Age a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Bronze_Age_Insediamento a lh:Organization,
+        lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Bucareste a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Bucharest_Bucuresţi a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Bucharest_Bucuresţi_Rumanía_Rumanía_Bucharest a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Bucharest_București_Bucuresti a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Bucharest_CNRS_Institut_de_Paléontologie_Humaine a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Bucharest_Universitatea_Creștină a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Bucureşti a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Bucureşti_Municipalité_de_Bucarest a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:București a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:relatedTo lh:Punct .
+
+lh:București_București a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:București_Facultatea_de_Istorie a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Bucureștiul_Bukarest a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:CARARE a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Calea_Moșilor a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Carol_Căpiță a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Casa_Economiștilor a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Centrul_Istoric___Curtea_Veche a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Comercial a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Comuna a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Cronica_1574_ro_CARARE a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Cronica_1895_ro_CARARE a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Dimitrie_Cantemir a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Edad_Moderna a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Edad_Moderna_Medieval a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Egeïsche a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Eneolithic_La_Tène a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Eneolítico_Asentamiento a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Errumania_Bucarest a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Errumania_Rumunsko_An_Rómáin_An_Rómáin a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Franța_Institutul_de_Arheologie a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Fundațiile_Hanului_Filaret a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Gheorghe_Mănucu_Adameșteanu a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:relatedTo lh:Nestorescu_Gheorghe_Mănucu_Adameșteanu .
+
+lh:Gorj a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Gorj_Boroșteni a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Grabmal_Idade_Média a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Gyvenvietė_Apdzīvota a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Gyvenvietė_Naujieji a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Gyvenvietė_Novi a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Hallstatt a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Hallstatt_Edad_de_Bronce a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Hallstatt_Neolithisch_Bronstijd a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Hallstatt_Település a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Hallstattkultur_Siedlung a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Hallstattkultur_Siedlung_Asutus_Населённый a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Haut_Moyen a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Idade a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Idade_Média a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Ion_Câmpineanu___Hanu_Filaret a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Jahrhundert_XX a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:relatedTo lh:Século .
+
+lh:Jahrhundert_XXI_век a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:relatedTo lh:Século .
+
+lh:Județ a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:La_Tène_Prerrománico a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Late_Antique a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Localité a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:relatedTo lh:Musée .
+
+lh:Localité_Asutus_Населённый a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Localité_Idade_Média a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Localité_Muzeul_Municipiului_București a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Medieval_Asentamiento a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Medieval_Edad_de_Bronce_La_Tène a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Medieval_Edad_de_Bronce_Prerrománico a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:relatedTo lh:casas .
+
+lh:Medieval_Muzeul a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Medieval_Neolítico_Edad_de_Bronce_Bronce a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Medieval_Romano a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Mesolithic_Human a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Miejscowość_Bebyggelse a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Militari___Câmpul_Boja a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Moderna_Idade_Média_Povoamento a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Municipiul_București a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Municipiului_București a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:relatedTo lh:Medieval,
+        lh:Medieval_Prerrománico .
+
+lh:Municipiului_București_Medieval a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Muzeul_Municipiului a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Muzeul_Municipiului_București a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Média a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Média_Населено a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Média_Съвременна a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Naselje a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Naselje_Apdzīvota a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Naselje_Haut_Moyen a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Naselje_Localité a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Naselje_Település a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Naselje_jaunie a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Naselje_nua_stair a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Negru_Mircea_Negru a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Neolithic_Hellenistic a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Neolithisch a lh:Organization,
+        lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Neolithisch_Bronstijd_Vroege_Bronstijd_La_Tène a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Neolítico a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Neolítico_Edad_de_Bronce_Griego_protohistórico a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Neuzeit a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Otte_Patrick a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Paleolithic_Insediamento a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Paleolítico a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Paleolítico_Mesolítico_Asentamiento a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Panait_I_Panait a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
 
 lh:Paris a lh:Place ;
-    lh:hasSource "https://www.europeana.eu/item/15508/FotoGLV2000_1709?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/15508/FotoGLV2000_7302?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9989977940101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991556200101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557120101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557230101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557280101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557360101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557490101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557550101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9991557660101488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992116107701488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2024903/photography_ProvidedCHO_KU_Leuven_9992118579901488?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2048128/842296?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/2059209/2859_11037033286_81d5e64388_o_jpg?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/440/item_TMPMMY37MKP66COEWYA7Q6RQHMKVIKHT?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/90402/RP_F_2013_114?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/9200166/BibliographicResource_3000117226971?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/9200479/item_40700643_?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/9200479/item_41981930_?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/9200479/item_43437334_?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/9200479/item_7894665_?utm_source=api&utm_medium=api&utm_campaign=tionefter",
-        "https://www.europeana.eu/item/957/GMT_24694_004?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
-    lh:relatedto lh:1842,
-        lh:1851,
-        lh:1885,
-        lh:M_F_Hoffbauer .
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:París_París a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Peștișani a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Prerrománico_Helenístico a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Prerrománico_Helenístico_La_Tène a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Prerrománico_La_Tène a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Prerrománico_protohistórico_Romano a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:RAN a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Roemenie_Bucharest a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Roemenie_Romania_România a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Romania a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Romania_Bucarest a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Romania_Bucharest a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Romania_National_Heritage_Institute a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Romania_Romania a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Romania_Rumunjska a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Romeins a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Románia_Rumanía_Rumanía a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:România a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:România_La_Roumanie_Roum a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:România_România a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:România_România_Roemenië_Roemenië a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:rumānija lh:Rumunsko_Romunija_An_Rómáin .
+
+lh:Roménia a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Romênia a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Roumania a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Roumanie_Roum a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Roumanie_Roumanie a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Roumanie_Roumanie_Bucarest a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumania a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumania_Bucarest a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumania_România a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumanija_Bukarest a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumanija_Romania a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumanija_Romanian a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumanija_Rumunija a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumeenia_Rumunsko a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumunjska a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumunsko_An_Rómáin_An_Rómáin_Romania a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumunsko_Bucureşti a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumunsko_Bukurešť a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumunsko_Bukurešť_Romunija_Bukarešta a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumunsko_Romunija a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumänien_Bucharest_București a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumänien_Bukarest_Ρουμανία_Βουκουρέστι a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumänien_Romania_Roménia a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumänien_Rumänien a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumänien_Rumänien_Bukarest a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Rumänien_Rumänien_Румыния a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Segle_XXI_2000 a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Segle_XX_1900_talet a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Siedlung a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Siedlung_Asutus_Населённый a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Siedlung_Siedlung a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Siglo_XXI a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Siglo_XX_20 a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Situl a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Străulești___Măicănești a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Sídelní a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:relatedTo lh:Miejscowość .
+
+lh:Sídlo a lh:Person,
+        lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Sídlo_Naselje a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Sídlo_Naselje_Áit a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:relatedTo lh:Ancient_Greek .
+
+lh:Település a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Tène_Localité a lh:Organization,
+        lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:relatedTo lh:Antiquité_tardive_Musée_municipal_de_Bucarest .
+
+lh:Tène_Musée a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Universitatea_București_Universitatea_Liège a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Volksverhuizingstijd a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Volksverhuizingstijd_Grieks a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Volksverhuizingstijd_Woonplaats_Idade_Média_Povoamento a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Vroege_Bronstijd_Volksverhuizingstijd a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Woonplaats a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Woonplaats_Antiquité a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Woonplaats_Siedlung a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Woonplaats_Siedlung_Neuzeit a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Woonplaats_Siedlung_Siedlung a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:XXI a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:XXI_wiek a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:relatedTo lh:Secolul_al_XXI_lea .
+
+lh:de_la_Boroșteni___ a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:de_la_București___Biserica a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:helenística_arte a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:humano_comercio a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:humano_Населено a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:prehistórico_La_Tène a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:prehistórico_Mesolítico a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:protohistoric_Roman a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:racimo_periodo_de_las a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:romana_Povoamento a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:století a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:relatedTo lh:Secolul_al_XXI_lea,
+        lh:Secolul_al_XX_lea .
+
+lh:the_East_București_Bucureşti_Bucuresti_Bucharest a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:vieta a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:vieta_jaunie_laiki a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Áit a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:århundrede a lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:relatedTo lh:21e .
+
+lh:νεότερη a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Букурещ_Rumunija_Bukareštas a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Населено a lh:Person,
+        lh:Place ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Населённый a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Новое a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Република_Румъния a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Република_Румъния_Rumunija a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Румъния_Rumunija a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Съвременна a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:пункт_arte a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:21e a lh:Temporal ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Ancient_Greek a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Antiquité_tardive_Musée_municipal_de_Bucarest a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Cărămidarii_de_Jos a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Hellenistisch_Grieks a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Medieval a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Medieval_Prerrománico a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Miejscowość a lh:Organization,
+        lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Musée a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Nestorescu_Gheorghe_Mănucu_Adameșteanu a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Punct a lh:Organization,
+        lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" ;
+    lh:relatedTo lh:Cărămidarii_de_Jos .
+
+lh:Rumunsko_Romunija_An_Rómáin a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Secolul_al_XX_lea a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:casas a lh:Place ;
+    lh:bewoonde lh:Hellenistisch_Grieks ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Secolul_al_XXI_lea a lh:Person ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
+
+lh:Século a lh:Organization ;
+    lh:hasSource "https://www.europeana.eu/item/1442/Cronica_1021?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1132?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1306?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1307?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_130?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1572?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1573?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1574?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1895?utm_source=api&utm_medium=api&utm_campaign=tionefter",
+        "https://www.europeana.eu/item/1442/Cronica_1896?utm_source=api&utm_medium=api&utm_campaign=tionefter" .
 

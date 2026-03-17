@@ -27,8 +27,11 @@ def to_uri(name: str) -> str:
 def to_predicate(verb: str) -> str:
     """Convert verb to camelCase predicate. Normalize related_to -> relatedTo."""
     v = str(verb).strip()
-    if v.lower() == "related_to":
+    if v.lower() in {"related_to", "relatedto"}:
         return "relatedTo"
+    # Keep existing camelCase inputs stable (e.g. relatedTo).
+    if any(ch.isupper() for ch in v[1:]) and "_" not in v and "-" not in v and " " not in v:
+        return v[0].lower() + v[1:]
     words = v.lower().replace("-", " ").split()
     if not words:
         return "relatedTo"

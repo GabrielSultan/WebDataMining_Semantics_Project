@@ -148,6 +148,48 @@ def cleanup_malformed_literals(g: Graph) -> Graph:
     return out
 
 
+def compute_connectivity_stats(g: Graph) -> tuple[int, int, int]:
+    """
+    Compute undirected connectivity metrics on URI-only entity graph.
+    Returns: (number_of_components, largest_component_size, isolated_entities_count).
+    """
+    adj = {}
+    entities = set()
+    for s, p, o in g:
+        if isinstance(s, URIRef) and isinstance(o, URIRef):
+            s_str = str(s)
+            o_str = str(o)
+            entities.add(s_str)
+            entities.add(o_str)
+            adj.setdefault(s_str, set()).add(o_str)
+            adj.setdefault(o_str, set()).add(s_str)
+
+    visited = set()
+    component_sizes = []
+    for node in entities:
+        if node in visited:
+            continue
+        stack = [node]
+        size = 0
+        while stack:
+            cur = stack.pop()
+            if cur in visited:
+                continue
+            visited.add(cur)
+            size += 1
+            for nei in adj.get(cur, set()):
+                if nei not in visited:
+                    stack.append(nei)
+        component_sizes.append(size)
+
+    if not component_sizes:
+        return 0, 0, 0
+    n_components = len(component_sizes)
+    largest = max(component_sizes)
+    isolated = sum(1 for s in component_sizes if s == 1)
+    return n_components, largest, isolated
+
+
 def extract_triples_from_record(item: dict, g: Graph) -> None:
     """
     Extract RDF triples from an Europeana record.
@@ -324,16 +366,21 @@ def main():
     n_triples = len(g_clean)
     n_entities = len(set(str(s) for s, p, o in g_clean) | set(str(o) for s, p, o in g_clean if isinstance(o, URIRef)))
     n_relations = len(set(str(p) for s, p, o in g_clean))
+    n_components, largest_component, isolated_entities = compute_connectivity_stats(g_clean)
 
     with open(config.STATISTICS_REPORT, "w") as f:
         f.write(f"Number of triplets: {n_triples}\n")
         f.write(f"Number of entities: {n_entities}\n")
         f.write(f"Number of relations: {n_relations}\n")
+        f.write(f"Connected components: {n_components}\n")
+        f.write(f"Largest component size: {largest_component}\n")
+        f.write(f"Isolated entities: {isolated_entities}\n")
 
     print(f"Saved expanded KB to {config.KB_EXPANDED}")
     print(f"  Triples: {n_triples}")
     print(f"  Entities: {n_entities}")
     print(f"  Relations: {n_relations}")
+    print(f"  Connected components: {n_components} (largest={largest_component}, isolated={isolated_entities})")
     print(f"  Statistics saved to {config.STATISTICS_REPORT}")
 
 

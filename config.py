@@ -12,10 +12,13 @@ load_dotenv()  # Load .env file so EUROPEANA_API_KEY is available
 # Minimum word count for a page to be considered "useful" (Phase 1 requirement)
 MIN_WORD_COUNT = 500
 
-# Lower threshold for API-sourced content (InstructionPhase1 suggests 500 for scraped pages).
-# Europeana descriptions are typically shorter; 80 allows more items while filtering
-# very short metadata. Documented in report as pragmatic choice.
-MIN_WORD_COUNT_API = 80
+# For Phase 1 compliance: keep only "useful" pages with >= 500 words.
+# We apply the same threshold to API-sourced content.
+MIN_WORD_COUNT_API = 500
+
+# Target number of useful documents to keep in crawler_output.jsonl.
+# This helps ensure a sufficient Phase 1 sample while respecting word threshold.
+TARGET_USEFUL_DOCS = 10
 
 # User agent for crawling - identifiable as requested for web ethics
 USER_AGENT = "WebMiningSemanticsStudent/1.0 (Educational project; Python/httpx)"

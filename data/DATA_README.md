@@ -1,8 +1,9 @@
 # Contenu des dossiers `data` et `livrable` — Lien avec les instructions
 
-## Où sont les 179 412 triplets, 6 728 entités et 22 relations ?
+## Où sont les statistiques finales ?
 
-**Tous ces chiffres sont dans un seul fichier : `livrable/kb_expanded.nt`**
+Les statistiques de la dernière exécution sont dans : `livrable/statistics_report.txt`  
+La KB finale est dans : `livrable/kb_expanded.nt` (un triplet RDF par ligne)
 
 Les fichiers à rendre (InstructionPhase2) sont dans **`livrable/`**. Le dossier `data/` contient les données intermédiaires.
 
@@ -38,7 +39,7 @@ InstructionPhase1 (Lab 1)                    InstructionPhase2 (Lab 2)
 
 | Fichier | Phase | Contenu | Taille typique |
 |---------|-------|---------|----------------|
-| **`livrable/kb_expanded.nt`** | **2** | **KB finale étendue (N-Triples)** | **179 412 lignes** |
+| **`livrable/kb_expanded.nt`** | **2** | **KB finale étendue (N-Triples)** | Variable (selon run) |
 | `livrable/ontology.ttl` | 2 | Définition des classes (Person, Place, etc.) | ~23 lignes |
 | `livrable/alignment.ttl` | 2 | Alignements entités + prédicats (EDM) | ~146 lignes |
 | `livrable/mapping_table.csv` | 2 | Entités privées → URI Europeana + confiance | ~47 lignes |
@@ -58,12 +59,11 @@ InstructionPhase1 (Lab 1)                    InstructionPhase2 (Lab 2)
 ## Vérification rapide
 
 ```powershell
-# Nombre de lignes dans kb_expanded.nt (= nombre de triplets)
-(Get-Content livrable\kb_expanded.nt | Measure-Object -Line).Lines
-# → 179412
+# Statistiques officielles du dernier run
+Get-Content livrable\statistics_report.txt
 
-# Aperçu du fichier
-Get-Content livrable\kb_expanded.nt -Head 5
+# Optionnel: nombre de lignes de la KB finale
+(Get-Content livrable\kb_expanded.nt | Measure-Object -Line).Lines
 ```
 
 Chaque ligne de `kb_expanded.nt` est un triplet RDF au format N-Triples :  

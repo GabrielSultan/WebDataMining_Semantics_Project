@@ -39,6 +39,7 @@ FILTER_FRAGMENTS = {
     # Polish, German, Danish, Romanian
     "prawdopodobnie", "fundet", "nedatat", "litografia", "graf", "r.m",
     "der", "das", "und", "oder", "für", "von", "mit", "auf", "aus",
+    "country", "caption", "movement/style", "creation/building",
 }
 
 # Override NER type for known domain entities (spaCy sometimes mislabels)
@@ -88,6 +89,15 @@ def _is_valid_entity(text: str) -> bool:
     # Reject if mostly non-alphanumeric
     alpha = sum(1 for c in t if c.isalnum() or c.isspace())
     if alpha < len(t) * 0.5:
+        return False
+    # Reject long noisy chunks (often metadata fragments)
+    if len(t.split()) > 6:
+        return False
+    # Reject obvious punctuation-heavy fragments
+    if any(ch in t for ch in ["/", "\\", "[", "]", "{", "}", "=", "|"]):
+        return False
+    # Require at least one alphabetic character
+    if not any(c.isalpha() for c in t):
         return False
     return True
 
