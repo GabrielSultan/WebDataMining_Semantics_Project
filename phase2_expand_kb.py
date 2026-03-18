@@ -362,7 +362,7 @@ def main():
             g_clean.add((s, p, o))
         print(f"  Capped at {max_triples} triplets (was {len(triples_list)})")
 
-    g_clean.serialize(destination=config.KB_EXPANDED, format="nt")
+    g_clean.serialize(destination=config.KB_EXPANDED, format="nt", encoding="utf-8")
     n_triples = len(g_clean)
     n_entities = len(set(str(s) for s, p, o in g_clean) | set(str(o) for s, p, o in g_clean if isinstance(o, URIRef)))
     n_relations = len(set(str(p) for s, p, o in g_clean))

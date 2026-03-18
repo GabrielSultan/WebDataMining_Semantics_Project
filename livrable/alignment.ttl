@@ -5,271 +5,155 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix wdt: <http://www.wikidata.org/prop/direct/> .
 
-lh:13th_century owl:sameAs <https://www.wikidata.org/entity/Q7049> .
+lh:21e owl:sameAs <https://www.wikidata.org/entity/Q110089073> .
 
-lh:1599 owl:sameAs <https://www.wikidata.org/entity/Q12681513> .
+lh:21st_century owl:sameAs <https://www.wikidata.org/entity/Q6939> .
 
-lh:1624 owl:sameAs <https://www.wikidata.org/entity/Q12681540> .
+lh:Ancient_Greek owl:sameAs <https://www.wikidata.org/entity/Q35497> .
 
-lh:1672 owl:sameAs <https://www.wikidata.org/entity/Q19241361> .
+lh:Apdzīvota owl:sameAs <https://www.wikidata.org/entity/Q486972> .
 
-lh:1680 owl:sameAs <https://www.wikidata.org/entity/Q11185395> .
+lh:Armand_Călinescu owl:sameAs <https://www.wikidata.org/entity/Q439903> .
 
-lh:1749 owl:sameAs <https://www.wikidata.org/entity/Q12681600> .
+lh:Aro_Modernoa owl:sameAs <https://www.wikidata.org/entity/Q5308718> .
 
-lh:1780 owl:sameAs <https://www.wikidata.org/entity/Q13634655> .
+lh:Asentamiento owl:sameAs <https://www.wikidata.org/entity/Q486972> .
 
-lh:1789 owl:sameAs <https://www.wikidata.org/entity/Q11185417> .
+lh:Asutus owl:sameAs <https://www.wikidata.org/entity/Q486972> .
 
-lh:17th_century owl:sameAs <https://www.wikidata.org/entity/Q7016> .
+lh:Așezare owl:sameAs <https://www.wikidata.org/entity/Q43061312> .
 
-lh:1832 owl:sameAs <https://www.wikidata.org/entity/Q7584> .
+lh:Belgia owl:sameAs <https://www.wikidata.org/entity/Q166776> .
 
-lh:1842 owl:sameAs <https://www.wikidata.org/entity/Q7625> .
+lh:Biserica owl:sameAs <https://www.wikidata.org/entity/Q16970> .
 
-lh:1851 owl:sameAs <https://www.wikidata.org/entity/Q19241482> .
+lh:Bronce owl:sameAs <https://www.wikidata.org/entity/Q34095> .
 
-lh:1855 owl:sameAs <https://www.wikidata.org/entity/Q19241489> .
+lh:Bronze_Age owl:sameAs <https://www.wikidata.org/entity/Q11761> .
 
-lh:1857 owl:sameAs <https://www.wikidata.org/entity/Q7680> .
+lh:Bucareste owl:sameAs <https://www.wikidata.org/entity/Q19660> .
 
-lh:1866 owl:sameAs <https://www.wikidata.org/entity/Q7712> .
+lh:Bucureşti owl:sameAs <https://www.wikidata.org/entity/Q19660> .
 
-lh:1867 owl:sameAs <https://www.wikidata.org/entity/Q19241498> .
+lh:București owl:sameAs <https://www.wikidata.org/entity/Q19660> .
 
-lh:1871 owl:sameAs <https://www.wikidata.org/entity/Q19241503> .
+lh:CARARE owl:sameAs <https://www.wikidata.org/entity/Q107207056> .
 
-lh:1878 owl:sameAs <https://www.wikidata.org/entity/Q7776> .
+lh:Calea_Moșilor owl:sameAs <https://www.wikidata.org/entity/Q5019198> .
 
-lh:1885 owl:sameAs <https://www.wikidata.org/entity/Q7821> .
+lh:Comercial owl:sameAs <https://www.wikidata.org/entity/Q3813348> .
 
-lh:1889 owl:sameAs <https://www.wikidata.org/entity/Q3226134> .
+lh:Comuna owl:sameAs <https://www.wikidata.org/entity/Q532> .
 
-lh:18th_century owl:sameAs <https://www.wikidata.org/entity/Q7015> .
+lh:Cărămidarii_de_Jos owl:sameAs <https://www.wikidata.org/entity/Q12721824> .
 
-lh:1900 owl:sameAs <https://www.wikidata.org/entity/Q2034> .
+lh:Dimitrie_Cantemir owl:sameAs <https://www.wikidata.org/entity/Q159933> .
 
-lh:1914 owl:sameAs <https://www.wikidata.org/entity/Q2083> .
+lh:Edad_Moderna owl:sameAs <https://www.wikidata.org/entity/Q5308718> .
 
-lh:1924 owl:sameAs <https://www.wikidata.org/entity/Q2173> .
+lh:Egeïsche owl:sameAs <https://www.wikidata.org/entity/Q19067899> .
 
-lh:1929 owl:sameAs <https://www.wikidata.org/entity/Q18792> .
+lh:Gorj owl:sameAs <https://www.wikidata.org/entity/Q190406> .
 
-lh:1932 owl:sameAs <https://www.wikidata.org/entity/Q18743> .
+lh:Hallstatt owl:sameAs <https://www.wikidata.org/entity/Q131633> .
 
-lh:1933 owl:sameAs <https://www.wikidata.org/entity/Q18726> .
+lh:Haut_Moyen owl:sameAs <https://www.wikidata.org/entity/Q202763> .
 
-lh:1937 owl:sameAs <https://www.wikidata.org/entity/Q18647> .
+lh:Idade owl:sameAs <https://www.wikidata.org/entity/Q185836> .
 
-lh:1937_ben owl:sameAs <https://www.wikidata.org/entity/Q112665813> .
+lh:Idade_Média owl:sameAs <https://www.wikidata.org/entity/Q12554> .
 
-lh:1946 owl:sameAs <https://www.wikidata.org/entity/Q18610> .
+lh:Județ owl:sameAs <https://www.wikidata.org/entity/Q1776764> .
 
-lh:1957 owl:sameAs <https://www.wikidata.org/entity/Q5311> .
+lh:Late_Antique owl:sameAs <https://www.wikidata.org/entity/Q217050> .
 
-lh:19th_century owl:sameAs <https://www.wikidata.org/entity/Q6955> .
+lh:Localité owl:sameAs <https://www.wikidata.org/entity/Q486972> .
 
-lh:20th_century owl:sameAs <https://www.wikidata.org/entity/Q6927> .
+lh:Medieval owl:sameAs <https://www.wikidata.org/entity/Q12554> .
 
-lh:A_Bonnardot owl:sameAs <https://www.wikidata.org/entity/Q18612592> .
+lh:Mesolithic_Human owl:sameAs <https://www.wikidata.org/entity/Q57890918> .
 
-lh:Adolphe_Chanaux owl:sameAs <https://www.wikidata.org/entity/Q22683394> .
+lh:Miejscowość owl:sameAs <https://www.wikidata.org/entity/Q486972> .
 
-lh:Archiv owl:sameAs <https://www.wikidata.org/entity/Q166118> .
+lh:Militari___Câmpul_Boja owl:sameAs <https://www.wikidata.org/entity/Q42758606> .
 
-lh:Art_History owl:sameAs <https://www.wikidata.org/entity/Q50637> .
+lh:Municipiul_București owl:sameAs <https://www.wikidata.org/entity/Q19660> .
 
-lh:August_1900 owl:sameAs <https://www.wikidata.org/entity/Q4820504> .
+lh:Musée owl:sameAs <https://www.wikidata.org/entity/Q23402> .
 
-lh:August_23_1900 owl:sameAs <https://www.wikidata.org/entity/Q69252831> .
+lh:Muzeul_Municipiului owl:sameAs <https://www.wikidata.org/entity/Q12736096> .
 
-lh:Austria owl:sameAs <https://www.wikidata.org/entity/Q40> .
+lh:Muzeul_Municipiului_București owl:sameAs <https://www.wikidata.org/entity/Q12736096> .
 
-lh:Bastille owl:sameAs <https://www.wikidata.org/entity/Q689> .
+lh:Média owl:sameAs <https://www.wikidata.org/entity/Q83> .
 
-lh:Bauer_Sándor owl:sameAs <https://www.wikidata.org/entity/Q2892012> .
+lh:Naselje owl:sameAs <https://www.wikidata.org/entity/Q486972> .
 
-lh:Belgium owl:sameAs <https://www.wikidata.org/entity/Q31> .
+lh:Neolithisch owl:sameAs <https://www.wikidata.org/entity/Q36422> .
 
-lh:Bois owl:sameAs <https://www.wikidata.org/entity/Q2908924> .
+lh:Neolítico owl:sameAs <https://www.wikidata.org/entity/Q36422> .
 
-lh:Bois_de_Boulogne owl:sameAs <https://www.wikidata.org/entity/Q209626> .
+lh:Neuzeit owl:sameAs <https://www.wikidata.org/entity/Q3281534> .
 
-lh:Boulevard_Montmartre owl:sameAs <https://www.wikidata.org/entity/Q1027566> .
+lh:Paleolítico owl:sameAs <https://www.wikidata.org/entity/Q40203> .
 
-lh:Champ_de_Mars owl:sameAs <https://www.wikidata.org/entity/Q217925> .
-
-lh:Communards owl:sameAs <https://www.wikidata.org/entity/Q5153972> .
-
-lh:Compoziția owl:sameAs <https://www.wikidata.org/entity/Q531873> .
-
-lh:Denmark owl:sameAs <https://www.wikidata.org/entity/Q35> .
-
-lh:Deutschland owl:sameAs <https://www.wikidata.org/entity/Q158427> .
-
-lh:Dresden owl:sameAs <https://www.wikidata.org/entity/Q1731> .
-
-lh:Druck owl:sameAs <https://www.wikidata.org/entity/Q11160769> .
-
-lh:Exkursionen owl:sameAs <https://www.wikidata.org/entity/Q9364367> .
-
-lh:Exposition_Universelle_de_1900 owl:sameAs <https://www.wikidata.org/entity/Q753646> .
-
-lh:FRANCE owl:sameAs <https://www.wikidata.org/entity/Q142> .
-
-lh:Florenz owl:sameAs <https://www.wikidata.org/entity/Q20973254> .
-
-lh:Fotografen owl:sameAs <https://www.wikidata.org/entity/Q79014504> .
-
-lh:Fournier owl:sameAs <https://www.wikidata.org/entity/Q21494576> .
-
-lh:France owl:sameAs <https://www.wikidata.org/entity/Q142> .
-
-lh:Franklin owl:sameAs <https://www.wikidata.org/entity/Q14647745> .
-
-lh:G_Pelletier owl:sameAs <https://www.wikidata.org/entity/Q107346104> .
-
-lh:Genesis owl:sameAs <https://www.wikidata.org/entity/Q9184> .
-
-lh:Germany owl:sameAs <https://www.wikidata.org/entity/Q183> .
-
-lh:Groult owl:sameAs <https://www.wikidata.org/entity/Q56538575> .
-
-lh:Henri_Braun owl:sameAs <https://www.wikidata.org/entity/Q127273810> .
-
-lh:Herstellung owl:sameAs <https://www.wikidata.org/entity/Q739302> .
-
-lh:Hungary owl:sameAs <https://www.wikidata.org/entity/Q28> .
-
-lh:Hôtel owl:sameAs <https://www.wikidata.org/entity/Q27686> .
-
-lh:Illustrations_de_l owl:sameAs <https://www.wikidata.org/entity/Q123095080> .
-
-lh:Imprimerie_Lemercier owl:sameAs <https://www.wikidata.org/entity/Q21645742> .
-
-lh:Imprimé owl:sameAs <https://www.wikidata.org/entity/Q1261026> .
-
-lh:Jahre owl:sameAs <https://www.wikidata.org/entity/Q15755041> .
-
-lh:Jules_Cousin owl:sameAs <https://www.wikidata.org/entity/Q107276391> .
-
-lh:Jules_Hardouin_Mansart owl:sameAs <https://www.wikidata.org/entity/Q8053> .
-
-lh:KU_Leuven owl:sameAs <https://www.wikidata.org/entity/Q833670> .
-
-lh:Klebeetikett owl:sameAs <https://www.wikidata.org/entity/Q722218> .
-
-lh:Leitung owl:sameAs <https://www.wikidata.org/entity/Q110272261> .
-
-lh:Llanta owl:sameAs <https://www.wikidata.org/entity/Q109633208> .
-
-lh:Louis_Le_Vau owl:sameAs <https://www.wikidata.org/entity/Q310530> .
-
-lh:MTI owl:sameAs <https://www.wikidata.org/entity/Q10884> .
-
-lh:Mailand owl:sameAs <https://www.wikidata.org/entity/Q490> .
-
-lh:Muzeul_Louvre owl:sameAs <https://www.wikidata.org/entity/Q19675> .
-
-lh:N_P_LEREBOURS owl:sameAs <https://www.wikidata.org/entity/Q325438> .
-
-lh:Neoclassicisme owl:sameAs <https://www.wikidata.org/entity/Q54111> .
-
-lh:Netherlands owl:sameAs <https://www.wikidata.org/entity/Q55> .
-
-lh:Neurdein owl:sameAs <https://www.wikidata.org/entity/Q102811718> .
-
-lh:Original owl:sameAs <https://www.wikidata.org/entity/Q810198> .
-
-lh:Padua owl:sameAs <https://www.wikidata.org/entity/Q617> .
-
-lh:Parijs owl:sameAs <https://www.wikidata.org/entity/Q90> .
+lh:Panait_I_Panait owl:sameAs <https://www.wikidata.org/entity/Q21065140> .
 
 lh:Paris owl:sameAs <https://www.wikidata.org/entity/Q90> .
 
-lh:Paris_Louvre owl:sameAs <https://www.wikidata.org/entity/Q19675> .
+lh:París_París owl:sameAs <https://www.wikidata.org/entity/Q42291481> .
 
-lh:Paul_Lacroix owl:sameAs <https://www.wikidata.org/entity/Q1607626> .
+lh:Peștișani owl:sameAs <https://www.wikidata.org/entity/Q16426644> .
 
-lh:Phot owl:sameAs <https://www.wikidata.org/entity/Q23892012> .
+lh:Punct owl:sameAs <https://www.wikidata.org/entity/Q3171074> .
 
-lh:Photogalvanographie owl:sameAs <https://www.wikidata.org/entity/Q1439619> .
-
-lh:Pierron owl:sameAs <https://www.wikidata.org/entity/Q36951493> .
-
-lh:Place_Charles_de_Gaulle owl:sameAs <https://www.wikidata.org/entity/Q390243> .
-
-lh:Place_de_la_Bourse owl:sameAs <https://www.wikidata.org/entity/Q3390344> .
-
-lh:Plan_Topographique owl:sameAs <https://www.wikidata.org/entity/Q137795182> .
-
-lh:Poland owl:sameAs <https://www.wikidata.org/entity/Q36> .
-
-lh:Pruisische owl:sameAs <https://www.wikidata.org/entity/Q38872> .
-
-lh:Reiseziele owl:sameAs <https://www.wikidata.org/entity/Q96615188> .
-
-lh:Roger_Fenton owl:sameAs <https://www.wikidata.org/entity/Q345666> .
+lh:RAN owl:sameAs <https://www.wikidata.org/entity/Q194394> .
 
 lh:Romania owl:sameAs <https://www.wikidata.org/entity/Q218> .
 
-lh:Rue_Pierre_Bullet owl:sameAs <https://www.wikidata.org/entity/Q943509> .
+lh:Romeins owl:sameAs <https://www.wikidata.org/entity/Q85082707> .
 
-lh:Rue_de_Richelieu owl:sameAs <https://www.wikidata.org/entity/Q2915495> .
+lh:România owl:sameAs <https://www.wikidata.org/entity/Q218> .
 
-lh:Schwarz owl:sameAs <https://www.wikidata.org/entity/Q14947294> .
+lh:Roménia owl:sameAs <https://www.wikidata.org/entity/Q218> .
 
-lh:Schweiz owl:sameAs <https://www.wikidata.org/entity/Q27713404> .
+lh:Romênia owl:sameAs <https://www.wikidata.org/entity/Q218> .
 
-lh:Schätze owl:sameAs <https://www.wikidata.org/entity/Q83501656> .
+lh:Roumania owl:sameAs <https://www.wikidata.org/entity/Q218> .
 
-lh:Semnat owl:sameAs <https://www.wikidata.org/entity/Q220849> .
+lh:Rumania owl:sameAs <https://www.wikidata.org/entity/Q218> .
 
-lh:Sena owl:sameAs <https://www.wikidata.org/entity/Q37033741> .
+lh:Rumunjska owl:sameAs <https://www.wikidata.org/entity/Q218> .
 
-lh:Skulpturen owl:sameAs <https://www.wikidata.org/entity/Q1650436> .
+lh:Secolul_al_XXI_lea owl:sameAs <https://www.wikidata.org/entity/Q6939> .
 
-lh:St_Anthonys owl:sameAs <https://www.wikidata.org/entity/Q182155> .
+lh:Secolul_al_XX_lea owl:sameAs <https://www.wikidata.org/entity/Q6927> .
 
-lh:Stereo_ owl:sameAs <https://www.wikidata.org/entity/Q34678> .
+lh:Siedlung owl:sameAs <https://www.wikidata.org/entity/Q486972> .
 
-lh:Switzerland owl:sameAs <https://www.wikidata.org/entity/Q39> .
+lh:Siglo_XXI owl:sameAs <https://www.wikidata.org/entity/Q6128174> .
 
-lh:Sándor_Bauer owl:sameAs <https://www.wikidata.org/entity/Q136159083> .
+lh:Situl owl:sameAs <https://www.wikidata.org/entity/Q4913591> .
 
-lh:Tod owl:sameAs <https://www.wikidata.org/entity/Q18697527> .
+lh:Străulești___Măicănești owl:sameAs <https://www.wikidata.org/entity/Q42758592> .
 
-lh:Trocadéro owl:sameAs <https://www.wikidata.org/entity/Q15764234> .
+lh:Século owl:sameAs <https://www.wikidata.org/entity/Q52034124> .
 
-lh:United_Kingdom owl:sameAs <https://www.wikidata.org/entity/Q145> .
+lh:Sídelní owl:sameAs <https://www.wikidata.org/entity/Q486972> .
 
-lh:Université_de_Louvain owl:sameAs <https://www.wikidata.org/entity/Q378134> .
+lh:Sídlo owl:sameAs <https://www.wikidata.org/entity/Q486972> .
 
-lh:Valentin_Dufour owl:sameAs <https://www.wikidata.org/entity/Q52155000> .
+lh:Település owl:sameAs <https://www.wikidata.org/entity/Q486972> .
 
-lh:Vaters owl:sameAs <https://www.wikidata.org/entity/Q37463309> .
+lh:Woonplaats owl:sameAs <https://www.wikidata.org/entity/Q1852859> .
 
-lh:Vendéglátás owl:sameAs <https://www.wikidata.org/entity/Q815825> .
+lh:XXI owl:sameAs <https://www.wikidata.org/entity/Q6939> .
 
-lh:Venedig owl:sameAs <https://www.wikidata.org/entity/Q641> .
-
-lh:Versailles owl:sameAs <https://www.wikidata.org/entity/Q621> .
-
-lh:Verso owl:sameAs <https://www.wikidata.org/entity/Q9368452> .
-
-lh:Victor_Delarue owl:sameAs <https://www.wikidata.org/entity/Q21557522> .
-
-lh:Voltaire owl:sameAs <https://www.wikidata.org/entity/Q9068> .
-
-lh:Werkzeug owl:sameAs <https://www.wikidata.org/entity/Q107370289> .
-
-lh:XIIIe owl:sameAs <https://www.wikidata.org/entity/Q28469723> .
-
-lh:Zeit owl:sameAs <https://www.wikidata.org/entity/Q186741> .
-
-lh:armée owl:sameAs <https://www.wikidata.org/entity/Q296266> .
+lh:XXI_wiek owl:sameAs <https://www.wikidata.org/entity/Q6939> .
 
 lh:build owl:equivalentProperty wdt:P170 .
+
+lh:casas owl:sameAs <https://www.wikidata.org/entity/Q16865417> .
 
 lh:choose owl:equivalentProperty wdt:P580 .
 
@@ -283,13 +167,9 @@ lh:construct owl:equivalentProperty wdt:P170 .
 
 lh:crown owl:equivalentProperty wdt:P166 .
 
-lh:de_la_Bastille owl:sameAs <https://www.wikidata.org/entity/Q106886158> .
-
 lh:design owl:equivalentProperty wdt:P170 .
 
 lh:designate owl:equivalentProperty wdt:P31 .
-
-lh:dun owl:sameAs <https://www.wikidata.org/entity/Q15180> .
 
 lh:establish owl:equivalentProperty wdt:P571 .
 
@@ -301,10 +181,6 @@ lh:grow rdfs:subPropertyOf dcterms:modified .
 
 lh:imprison owl:equivalentProperty wdt:P276 .
 
-lh:kann owl:sameAs <https://www.wikidata.org/entity/Q21448112> .
-
-lh:kapta owl:sameAs <https://www.wikidata.org/entity/Q18754072> .
-
 lh:locate owl:equivalentProperty wdt:P276 .
 
 lh:locatedIn owl:equivalentProperty wdt:P276 .
@@ -312,8 +188,6 @@ lh:locatedIn owl:equivalentProperty wdt:P276 .
 lh:make owl:equivalentProperty wdt:P170 .
 
 lh:occupy owl:equivalentProperty wdt:P276 .
-
-lh:otthont owl:sameAs <https://www.wikidata.org/entity/Q58010150> .
 
 lh:own rdfs:subPropertyOf edm:isShownAt .
 
@@ -323,15 +197,29 @@ lh:pledge owl:equivalentProperty wdt:P580 .
 
 lh:relatedTo owl:equivalentProperty dcterms:relation .
 
-lh:ro owl:sameAs <https://www.wikidata.org/entity/Q16242140> .
-
 lh:settle owl:equivalentProperty wdt:P276 .
 
 lh:sign owl:equivalentProperty wdt:P580 .
 
+lh:století owl:sameAs <https://www.wikidata.org/entity/Q2944360> .
+
 lh:storm owl:equivalentProperty wdt:P276 .
 
-lh:w_jęz owl:sameAs <https://www.wikidata.org/entity/Q29256> .
+lh:vieta owl:sameAs <https://www.wikidata.org/entity/Q2221906> .
 
-lh:Öffentlichkeit owl:sameAs <https://www.wikidata.org/entity/Q2388316> .
+lh:Áit owl:sameAs <https://www.wikidata.org/entity/Q937529> .
+
+lh:århundrede owl:sameAs <https://www.wikidata.org/entity/Q578> .
+
+lh:νεότερη owl:sameAs <https://www.wikidata.org/entity/Q71533355> .
+
+lh:Населено owl:sameAs <https://www.wikidata.org/entity/Q486972> .
+
+lh:Населённый owl:sameAs <https://www.wikidata.org/entity/Q486972> .
+
+lh:Новое owl:sameAs <https://www.wikidata.org/entity/Q19887169> .
+
+lh:Република_Румъния owl:sameAs <https://www.wikidata.org/entity/Q218> .
+
+lh:Съвременна owl:sameAs <https://www.wikidata.org/entity/Q6495391> .
 

@@ -15,192 +15,314 @@ lh:Temporal a rdfs:Class ;
 
 lh:Thing a rdfs:Class .
 
-lh:1242_1248 a lh:Temporal .
+lh:1442_INP_Bucharest_update a lh:Temporal .
 
-lh:1786_1790 a lh:Temporal .
+lh:1994_TEXT_1994 a lh:Temporal .
 
-lh:1806_1836 a lh:Temporal .
+lh:2025_12_10T123129609Z a lh:Temporal .
 
-lh:1813_1826 a lh:Temporal .
+lh:2026_03_03T154141047Z a lh:Temporal .
 
-lh:1839_en_1939 a lh:Temporal .
+lh:20ός_αιώνας_20th_century a lh:Temporal .
 
-lh:1875_1882 a lh:Temporal .
+lh:Antiquité_tardive_Musée_municipal_de_Bucarest a lh:Organization .
 
-lh:1887_1889 a lh:Temporal .
+lh:Asentamiento_Asula_uusaeg_Giza a lh:Person .
 
-lh:1896_1900 a lh:Temporal .
+lh:Asentamiento_Edad_de_Bronce a lh:Person .
 
-lh:18th_19th_century a lh:Temporal .
+lh:Asentamiento_Eneolítico_Asula_Giza a lh:Person .
 
-lh:ARC_DE_TRIOMPHE_DE_LÉTOILE_A_PARIS__GOUPIL__WIBERT a lh:Organization .
+lh:Asentamiento_Idade_Média_Povoamento a lh:Organization .
 
-lh:A_de_Montaiglon a lh:Person .
+lh:Asula_Aro_Modernoa_Giza a lh:Person .
 
-lh:Adolphe_Braun_Mitte a lh:Person .
+lh:Asula_Giza a lh:Person .
 
-lh:Alexandre_III_KU_Leuven a lh:Place .
+lh:Balkans_Bucuresti a lh:Organization .
 
-lh:Alfonz_Rostóczky a lh:Person .
+lh:Balkans_Bucuresti_Románia a lh:Organization .
 
-lh:Arc_de_Triomphe_KU_Leuven a lh:Place .
+lh:Belgia_Patrick a lh:Person .
 
-lh:Arc_de_Triomphe_Photochrom_Nr a lh:Organization .
+lh:Bronze_Age_Insediamento a lh:Organization .
 
-lh:Arc_de_Triomphe_de_l_Étoile_à_Paris_Caption a lh:Organization .
+lh:Bucharest_Bucuresţi a lh:Organization .
 
-lh:B312_1_Country a lh:Organization .
+lh:Bucharest_Bucuresţi_Rumanía_Rumanía_Bucharest a lh:Organization .
 
-lh:Bastillien a lh:Person .
+lh:Bucharest_București_Bucuresti a lh:Organization .
 
-lh:CHAISE___Meuble a lh:Organization .
+lh:Bucharest_CNRS_Institut_de_Paléontologie_Humaine a lh:Organization .
 
-lh:C_Caffieri a lh:Person .
+lh:Bucharest_Universitatea_Creștină a lh:Organization .
 
-lh:De_La_Ménagerie a lh:Organization .
+lh:Bucureşti_Municipalité_de_Bucarest a lh:Person .
 
-lh:Des_Galeries_De_Minéralogie_Et_D_Anatomy_Et_De_La_Vallée_Suisse a lh:Organization .
+lh:București_București a lh:Person .
 
-lh:Dyrlægegården_i_Trørød a lh:Organization .
+lh:București_Facultatea_de_Istorie a lh:Organization .
 
-lh:Eiffel_Tower_KU_Leuven a lh:Place .
+lh:Bucureștiul_Bukarest a lh:Organization .
 
-lh:Elsässer_Firma a lh:Person .
+lh:Carol_Căpiță a lh:Person .
 
-lh:Exposition_Universelle_de_19001245 a lh:Person .
+lh:Casa_Economiștilor a lh:Organization .
 
-lh:God_Kulturstyrelsen_Country a lh:Person .
+lh:Centrul_Istoric___Curtea_Veche a lh:Person .
 
-lh:God_Kulturstyrelsen_Støbejern_L_267_cm a lh:Person .
+lh:Cronica_1574_ro_CARARE a lh:Person .
 
-lh:Hauptsitz_des_Naturkundemuseums a lh:Organization .
+lh:Cronica_1895_ro_CARARE a lh:Person .
 
-lh:Heuguet_M_de_Cartes_Géographiques a lh:Person .
+lh:Edad_Moderna_Medieval a lh:Person .
 
-lh:La_Bourse_de_Paris_KU_Leuven a lh:Organization .
+lh:Eneolithic_La_Tène a lh:Person .
 
-lh:Larc_de_Triomphe_De_lensemble a lh:Organization .
+lh:Eneolítico_Asentamiento a lh:Person .
 
-lh:Louis_Blanquart_Evrard a lh:Person .
+lh:Errumania_Bucarest a lh:Person .
 
-lh:Luvru_Louvre a lh:Organization .
+lh:Errumania_Rumunsko_An_Rómáin_An_Rómáin a lh:Person .
 
-lh:Léon_Cogniet_et_Raffet a lh:Organization .
+lh:Franța_Institutul_de_Arheologie a lh:Person .
 
-lh:M_F_Hoffbauer a lh:Person .
+lh:Fundațiile_Hanului_Filaret a lh:Person .
 
-lh:Magyar_Film_Irodához a lh:Person .
+lh:Gheorghe_Mănucu_Adameșteanu a lh:Person .
 
-lh:MovementStyle_Gothic a lh:Organization .
+lh:Gorj_Boroșteni a lh:Person .
 
-lh:Musee_du_Louvresur a lh:Organization .
+lh:Grabmal_Idade_Média a lh:Organization .
 
-lh:Museen_von_Basel a lh:Person .
+lh:Gyvenvietė_Apdzīvota a lh:Place .
 
-lh:Musée_du_Louvre___Raphael_Sanzio_Die_Fotografie a lh:Person .
+lh:Gyvenvietė_Naujieji a lh:Organization .
 
-lh:N_Ransonnette_Gr_Orde_de_Monsieur a lh:Person .
+lh:Gyvenvietė_Novi a lh:Organization .
 
-lh:Panorama_du_Trocadéro a lh:Person .
+lh:Hallstatt_Edad_de_Bronce a lh:Person .
 
-lh:Par_B_Renault a lh:Person .
+lh:Hallstatt_Neolithisch_Bronstijd a lh:Organization .
 
-lh:Paris_Plan_Topographique a lh:Organization .
+lh:Hallstatt_Település a lh:Organization .
 
-lh:Paryżu a lh:Organization .
+lh:Hallstattkultur_Siedlung a lh:Person .
 
-lh:Pflanzen_und_Stillleben a lh:Person .
+lh:Hallstattkultur_Siedlung_Asutus_Населённый a lh:Person .
 
-lh:Porte_Saint_Denis_KU_Leuven a lh:Place .
+lh:Hellenistisch_Grieks a lh:Organization .
 
-lh:Porte_de_St_Antoine a lh:Organization .
+lh:Ion_Câmpineanu___Hanu_Filaret a lh:Person .
 
-lh:Privatsammlungen a lh:Organization .
+lh:Jahrhundert_XX a lh:Person .
 
-lh:Quai_Voltaire_11 a lh:Person .
+lh:Jahrhundert_XXI_век a lh:Person .
 
-lh:Roberta_Sayera a lh:Person .
+lh:La_Tène_Prerrománico a lh:Organization .
 
-lh:Rostóczky_Alfonz a lh:Person .
+lh:Localité_Asutus_Населённый a lh:Person .
 
-lh:Rue_Montfaucon_N_1 a lh:Person .
+lh:Localité_Idade_Média a lh:Organization .
 
-lh:Rue_Rivoli a lh:Person .
+lh:Localité_Muzeul_Municipiului_București a lh:Person .
 
-lh:Ruined_Buildings_on_Place_de_la_Bastille a lh:Organization .
+lh:Medieval_Asentamiento a lh:Person .
 
-lh:SLUB_Histnat a lh:Person .
+lh:Medieval_Edad_de_Bronce_La_Tène a lh:Person .
 
-lh:Sainte_Chapelle_Exterior a lh:Organization .
+lh:Medieval_Edad_de_Bronce_Prerrománico a lh:Person .
 
-lh:Seite_XXIV_aus a lh:Organization .
+lh:Medieval_Muzeul a lh:Person .
 
-lh:Sohnes_Henri a lh:Person .
+lh:Medieval_Neolítico_Edad_de_Bronce_Bronce a lh:Person .
 
-lh:Stoffmustervorlagen a lh:Person .
+lh:Medieval_Prerrománico a lh:Person .
 
-lh:Szoknyalibbentő a lh:Person .
+lh:Medieval_Romano a lh:Person .
 
-lh:TM_Country a lh:Organization .
+lh:Miejscowość_Bebyggelse a lh:Person .
 
-lh:Tapisserie_de_Beauvais a lh:Person .
+lh:Moderna_Idade_Média_Povoamento a lh:Organization .
 
-lh:Tatiana_Moscu a lh:Person .
+lh:Municipiului_București a lh:Person .
 
-lh:The_Champ_de_Mars a lh:Organization .
+lh:Municipiului_București_Medieval a lh:Person .
 
-lh:The_Destroyed_Ministry_of_Finance a lh:Organization .
+lh:Média_Населено a lh:Organization .
 
-lh:Théâtre_Français_KU_Leuven a lh:Place .
+lh:Média_Съвременна a lh:Person .
 
-lh:Verkauf_von_Stereobildern a lh:Person .
+lh:Naselje_Apdzīvota a lh:Person .
 
-lh:Versailles_Aerial a lh:Person .
+lh:Naselje_Haut_Moyen a lh:Organization .
 
-lh:Veue_de_la_Bastille_de_Paris a lh:Person .
+lh:Naselje_Localité a lh:Organization .
 
-lh:Wiedergabe_von_Gemälden a lh:Person .
+lh:Naselje_Település a lh:Organization .
 
-lh:angielskim a lh:Person .
+lh:Naselje_jaunie a lh:Person .
 
-lh:au_cm_Carton_fond_de_chaise a lh:Person .
+lh:Naselje_nua_stair a lh:Person .
 
-lh:authentiquespar_M_F_Hoffbauer a lh:Person .
+lh:Negru_Mircea_Negru a lh:Person .
 
-lh:between_1839_and_1939 a lh:Temporal .
+lh:Neolithic_Hellenistic a lh:Person .
 
-lh:das_Kohledruckverfahren_spezialisiert a lh:Person .
+lh:Neolithisch_Bronstijd_Vroege_Bronstijd_La_Tène a lh:Organization .
 
-lh:der_Place_de_la_Bastille a lh:Person .
+lh:Neolítico_Edad_de_Bronce_Griego_protohistórico a lh:Person .
 
-lh:der_sich_auf a lh:Person .
+lh:Nestorescu_Gheorghe_Mănucu_Adameșteanu a lh:Person .
 
-lh:doch_Braun a lh:Person .
+lh:Otte_Patrick a lh:Person .
 
-lh:jos_de_două a lh:Organization .
+lh:Paleolithic_Insediamento a lh:Organization .
 
-lh:jusquà a lh:Person .
+lh:Paleolítico_Mesolítico_Asentamiento a lh:Person .
 
-lh:kép_készítője a lh:Place .
+lh:Prerrománico_Helenístico a lh:Person .
 
-lh:lewej_s___levé a lh:Person .
+lh:Prerrománico_Helenístico_La_Tène a lh:Person .
+
+lh:Prerrománico_La_Tène a lh:Organization .
+
+lh:Prerrománico_protohistórico_Romano a lh:Organization .
+
+lh:Roemenie_Bucharest a lh:Person .
+
+lh:Roemenie_Romania_România a lh:Person .
+
+lh:Romania_Bucarest a lh:Person .
+
+lh:Romania_Bucharest a lh:Person .
+
+lh:Romania_National_Heritage_Institute a lh:Organization .
+
+lh:Romania_Romania a lh:Place .
+
+lh:Romania_Rumunjska a lh:Person .
+
+lh:Románia_Rumanía_Rumanía a lh:Organization .
+
+lh:România_La_Roumanie_Roum a lh:Person .
+
+lh:România_România a lh:Person .
+
+lh:România_România_Roemenië_Roemenië a lh:Person .
+
+lh:Roumanie_Roum a lh:Person .
+
+lh:Roumanie_Roumanie a lh:Person .
+
+lh:Roumanie_Roumanie_Bucarest a lh:Person .
+
+lh:Rumania_Bucarest a lh:Person .
+
+lh:Rumania_România a lh:Person .
+
+lh:Rumanija_Bukarest a lh:Person .
+
+lh:Rumanija_Romania a lh:Person .
+
+lh:Rumanija_Romanian a lh:Person .
+
+lh:Rumanija_Rumunija a lh:Person .
+
+lh:Rumeenia_Rumunsko a lh:Person .
+
+lh:Rumunsko_An_Rómáin_An_Rómáin_Romania a lh:Person .
+
+lh:Rumunsko_Bucureşti a lh:Person .
+
+lh:Rumunsko_Bukurešť a lh:Person .
+
+lh:Rumunsko_Bukurešť_Romunija_Bukarešta a lh:Person .
+
+lh:Rumunsko_Romunija a lh:Person .
+
+lh:Rumunsko_Romunija_An_Rómáin a lh:Person .
+
+lh:Rumänien_Bucharest_București a lh:Person .
+
+lh:Rumänien_Bukarest_Ρουμανία_Βουκουρέστι a lh:Organization .
+
+lh:Rumänien_Romania_Roménia a lh:Organization .
+
+lh:Rumänien_Rumänien a lh:Person .
+
+lh:Rumänien_Rumänien_Bukarest a lh:Person .
+
+lh:Rumänien_Rumänien_Румыния a lh:Person .
+
+lh:Segle_XXI_2000 a lh:Person .
+
+lh:Segle_XX_1900_talet a lh:Person .
+
+lh:Siedlung_Asutus_Населённый a lh:Person .
+
+lh:Siedlung_Siedlung a lh:Person .
+
+lh:Siglo_XX_20 a lh:Person .
+
+lh:Sídlo_Naselje a lh:Person .
+
+lh:Sídlo_Naselje_Áit a lh:Person .
+
+lh:Tène_Localité a lh:Person .
+
+lh:Tène_Musée a lh:Person .
+
+lh:Universitatea_București_Universitatea_Liège a lh:Organization .
+
+lh:Volksverhuizingstijd a lh:Organization .
+
+lh:Volksverhuizingstijd_Grieks a lh:Organization .
+
+lh:Volksverhuizingstijd_Woonplaats_Idade_Média_Povoamento a lh:Organization .
+
+lh:Vroege_Bronstijd_Volksverhuizingstijd a lh:Organization .
+
+lh:Woonplaats_Antiquité a lh:Person .
+
+lh:Woonplaats_Siedlung a lh:Person .
+
+lh:Woonplaats_Siedlung_Neuzeit a lh:Person .
+
+lh:Woonplaats_Siedlung_Siedlung a lh:Person .
+
+lh:de_la_Boroșteni___ a lh:Person .
+
+lh:de_la_București___Biserica a lh:Person .
+
+lh:helenística_arte a lh:Person .
+
+lh:humano_comercio a lh:Person .
+
+lh:humano_Населено a lh:Person .
 
 lh:locatedIn rdfs:domain lh:Thing ;
     rdfs:range lh:Place .
 
-lh:rM_Padua a lh:Person .
+lh:prehistórico_La_Tène a lh:Person .
 
-lh:rM_Padua_Bleistift a lh:Person .
+lh:prehistórico_Mesolítico a lh:Person .
 
-lh:the_Hungarian_Film_Office a lh:Organization .
+lh:protohistoric_Roman a lh:Person .
 
-lh:vede_o_parte a lh:Organization .
+lh:racimo_periodo_de_las a lh:Person .
 
-lh:versucht_1855 a lh:Person .
+lh:romana_Povoamento a lh:Organization .
 
-lh:wzoru_pod_kompoz a lh:Person .
+lh:the_East_București_Bucureşti_Bucuresti_Bucharest a lh:Organization .
 
-lh:în_monogramă_cu_negru a lh:Person .
+lh:vieta_jaunie_laiki a lh:Person .
 
-lh:încadrat_de_copaci_cu a lh:Person .
+lh:Букурещ_Rumunija_Bukareštas a lh:Person .
+
+lh:Република_Румъния_Rumunija a lh:Person .
+
+lh:Румъния_Rumunija a lh:Person .
+
+lh:пункт_arte a lh:Person .
 

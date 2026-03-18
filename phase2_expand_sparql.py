@@ -343,7 +343,7 @@ def main():
     if n > 0:
         # Save to a file that phase2_expand_kb can merge
         out = Path(config.LIVRABLE_DIR) / "kb_sparql_expansion.nt"
-        g.serialize(destination=str(out), format="nt")
+        g.serialize(destination=str(out), format="nt", encoding="utf-8")
         print(f"  Saved to {out} (to be merged by phase2_expand_kb)")
 
 
