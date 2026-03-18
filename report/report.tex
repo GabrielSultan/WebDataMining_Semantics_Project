@@ -25,7 +25,7 @@ This report describes a two-phase pipeline for building a Knowledge Base (KB) in
 
 \textbf{Domain and sources.} We focus on cultural heritage objects (monuments, historical figures, places) using the \textbf{Europeana API} as the primary data source. Europeana provides metadata for millions of digitized cultural items; we extract text from the Search API JSON response rather than scraping HTML, which avoids anti-robot issues and simplifies content extraction.
 
-\textbf{Scope.} Phase~1 covers crawling, cleaning, Named Entity Recognition (NER), and Relation Extraction (RE). Phase~2 covers KB construction, entity and predicate alignment with Wikidata/DBpedia, and expansion via SPARQL to reach the target volume (50k--200k triplets, 5k--30k entities, 50--200 relations).
+\textbf{Scope.} Phase~1 covers crawling, cleaning, Named Entity Recognition (NER), and Relation Extraction (RE). Phase~2 covers KB construction, entity and predicate alignment with Wikidata/DBpedia, and expansion via SPARQL to reach the target volume (50k--200k triplets, 5k--30k entities, 50--200 relations). Phase~3 adds knowledge reasoning: SWRL rule-based inference with OWLReady2 and Pellet, and Knowledge Graph Embedding (KGE) with TransE and ComplEx for link prediction.
 
 %=============================================================================
 \section{Phase 1: From Unstructured Web to Structured Entities}
@@ -230,6 +230,138 @@ Suite à l'évaluation du projet, les améliorations suivantes ont été implém
 \textbf{Script de connectivité.} \texttt{scripts/analyze\_connectivity.py} calcule les composantes connexes du graphe d'entités (BFS), affiche la taille de la plus grande composante, le nombre de composantes et les entités isolées. Utile pour diagnostiquer la qualité du graphe avant KGE.
 
 %=============================================================================
+\section{Phase 3: Knowledge Reasoning with SWRL and Knowledge Graph Embedding}
+%=============================================================================
+
+Phase~3 extends the pipeline with two complementary reasoning approaches: rule-based reasoning using SWRL (Semantic Web Rule Language) and OWLReady2, and embedding-based reasoning using Knowledge Graph Embedding (KGE) models. This phase leverages the expanded KB produced in Phase~2 to train embedding models and evaluate link prediction performance, while also demonstrating how symbolic rules can infer new facts from an ontology.
+
+\subsection{Part 1: Knowledge Reasoning with SWRL}
+
+The first part of Phase~3 applies SWRL rules on a prepared ontology to infer new class memberships. We use the \texttt{family.owl} ontology, which defines classes such as \texttt{Person}, \texttt{oldPerson}, and properties such as \texttt{age}. The objective is to infer that any person older than 60 years belongs to the \texttt{oldPerson} class.
+
+\textbf{Implementation.} We use OWLReady2 as the Python interface to load the ontology and define SWRL rules. The rule is expressed in Horn-clause form: \texttt{Person(?p), age(?p, ?a), greaterThan(?a, 60) -> oldPerson(?p)}. This rule states that if an individual is a Person and has an age greater than 60, then that individual is an instance of \texttt{oldPerson}. The Pellet reasoner (invoked via \texttt{sync\_reasoner\_pellet}) is used to execute the rule, as it supports SWRL and data property inference.
+
+\textbf{Results.} After running the reasoner with \texttt{infer\_property\_values=True} and \texttt{infer\_data\_property\_values=True}, the inferred instances of \texttt{oldPerson} are Peter (age~70) and Marie (age~69). These two individuals satisfy the rule condition and are correctly classified as \texttt{oldPerson}. The rule-based approach is deterministic and interpretable: the reasoning trace is explicit and can be validated against the ontology semantics.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  node distance=0.6cm,
+  box/.style={rectangle, draw, minimum width=2cm, minimum height=0.5cm, font=\small},
+  arrow/.style={-Stealth}
+]
+  \node[box] (owl) {family.owl};
+  \node[box, right=of owl] (rule) {SWRL Rule};
+  \node[box, right=of rule] (pellet) {Pellet Reasoner};
+  \node[box, right=of pellet] (inf) {Inferred Facts};
+  \draw[arrow] (owl) -- (rule) -- (pellet) -- (inf);
+\end{tikzpicture}
+\caption{SWRL reasoning pipeline: ontology and rule (Person, age$>$60 $\rightarrow$ oldPerson) are loaded; Pellet infers new class memberships.}
+\end{figure}
+
+\subsection{Part 2: Knowledge Graph Embedding}
+
+\subsubsection{Data Preparation}
+
+The expanded KB (\texttt{kb\_expanded.nt}) contains 109,721 triples. Before training embeddings, we apply the cleaning steps specified in the lab instructions. First, we remove all triples whose object is a literal, since KGE models typically operate on entity-relation-entity triples only. Second, we filter out literal-heavy predicates (e.g.\ \texttt{dcterms:temporal}, \texttt{dc:language}, \texttt{dc:title}, \texttt{edm:dataProvider}, \texttt{edm:provider}, \texttt{dcterms:created}) to avoid mixed usage and reduce noise. Third, we normalize URIs by removing trailing slashes to ensure consistent indexing. After deduplication, we obtain 91,955 entity-relation-entity triples.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  node distance=0.5cm,
+  box/.style={rectangle, draw, minimum width=1.8cm, minimum height=0.45cm, font=\footnotesize},
+  arrow/.style={-Stealth}
+]
+  \node[box] (kb) {kb\_expanded.nt};
+  \node[box, right=of kb] (clean) {Clean};
+  \node[box, right=of clean] (split) {Train/Valid/Test};
+  \node[box, right=of split] (train) {TransE / ComplEx};
+  \node[box, right=of train] (eval) {Link Prediction};
+  \draw[arrow] (kb) -- (clean) -- (split) -- (train) -- (eval);
+\end{tikzpicture}
+\caption{KGE pipeline: KB is cleaned (literals removed), split, then used to train TransE and ComplEx for link prediction evaluation.}
+\end{figure}
+
+The dataset is split into training (80\%), validation (10\%), and test (10\%) sets. We use a stratified split with a fixed seed for reproducibility. A critical constraint is that no entity may appear only in validation or test; such entities would be unseen at training time and would break the embedding lookup. We implement an iterative correction: whenever an orphan entity is detected in validation or test, we move the corresponding triples to the training set until all entities in validation and test also appear in training. The final split yields 73,781 training triples, 9,060 validation triples, and 9,114 test triples. The training set contains 7,327 entities and 36 relations (after filtering literal-heavy predicates, some relations are dropped from the cleaned graph).
+
+\subsubsection{Embedding Models and Training Configuration}
+
+We implement two embedding models using the PyKEEN framework: TransE and ComplEx. TransE is a translational model that represents relations as translations in the embedding space, i.e.\ $\mathbf{h} + \mathbf{r} \approx \mathbf{t}$ for a triple $(h, r, t)$. ComplEx is a bilinear model that uses complex-valued embeddings and can capture asymmetric relations, which TransE struggles with. Both models are trained with identical hyperparameters for fair comparison: embedding dimension 100, learning rate 0.01, batch size 256, 100 epochs, and 10 negative samples per positive triple. We use the default negative sampling strategy of PyKEEN (random replacement of head or tail).
+
+\subsubsection{Evaluation: Link Prediction}
+
+We evaluate both models on the link prediction task using filtered metrics. For each test triple $(h, r, t)$, we perform head prediction (predict $h$ given $r$ and $t$) and tail prediction (predict $t$ given $h$ and $r$). The filtered setting removes known true triples from the candidate set before ranking, which avoids overly optimistic scores. We report Mean Reciprocal Rank (MRR), Hits@1, Hits@3, and Hits@10, aggregated over both head and tail prediction.
+
+\begin{table}[ht]
+\centering
+\caption{Link prediction results (filtered metrics, both head and tail).}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Model} & \textbf{MRR} & \textbf{Hits@1} & \textbf{Hits@3} & \textbf{Hits@10} \\
+\midrule
+TransE  & 0.1787 & 0.0976 & 0.2013 & 0.3286 \\
+ComplEx & 0.5307 & 0.4626 & 0.5621 & 0.6624 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+ComplEx significantly outperforms TransE across all metrics. The MRR of ComplEx (0.53) is approximately three times that of TransE (0.18). This result aligns with the expected observations from the lab instructions: TransE struggles with complex relations (symmetric, inverse, many-to-many), whereas ComplEx, by virtue of its complex-valued bilinear scoring function, handles asymmetric relations more effectively. Our KB contains a mix of relation types from Dublin Core, EDM, and Wikidata; many of these are not simple 1-to-1 translations, which explains TransE's lower performance.
+
+\subsubsection{KB Size Sensitivity}
+
+To analyze how embedding quality scales with KB size, we subsample the cleaned triples to 20k, 50k, and the full 91,955 triples. For each subsample, we retrain TransE (as a representative model for this experiment) with the same hyperparameters and evaluate on the same test set. The results are summarised in Table~\ref{tab:kbsize}.
+
+\begin{table}[ht]
+\centering
+\caption{TransE performance vs.\ KB size.}
+\label{tab:kbsize}
+\begin{tabular}{lcc}
+\toprule
+\textbf{KB Size} & \textbf{MRR} & \textbf{Hits@10} \\
+\midrule
+20,000 triples & 0.0511 & 0.1169 \\
+50,000 triples & 0.0695 & 0.1752 \\
+91,955 triples & 0.1620 & 0.3355 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Performance increases monotonically with KB size. At 20k triples, the model achieves an MRR of only 0.05, indicating unstable and sparse embeddings. At 50k triples, MRR rises to 0.07, and with the full dataset it reaches 0.16. This confirms that larger KBs produce more stable and informative embeddings, as the model has more training signal to learn entity and relation structure. The lab instructions note that small KBs produce unstable embeddings; our results are consistent with this observation. Training time also increases with size (e.g.\ TransE on the full dataset takes approximately 8--9 minutes on CPU).
+
+\subsection{Embedding Analysis}
+
+\subsubsection{Nearest Neighbors}
+
+Using the best model (ComplEx), we extract entity embeddings and compute nearest neighbors in the embedding space via cosine similarity. For selected entities (e.g.\ those with \texttt{Person} or \texttt{Place} in their URI, or entities from the Local History domain such as \texttt{Balkans\_București\_România}), we retrieve the top-$k$ most similar entities. The results show partial semantic coherence: entities of the same type (e.g.\ places in the Balkans) tend to cluster together, and cultural heritage items with similar metadata (e.g.\ \texttt{dc:subject}, \texttt{dc:spatial}) appear as neighbors. However, the embedding space does not perfectly align with the ontology: some nearest neighbors belong to different classes (e.g.\ a \texttt{Thing} may appear near a \texttt{Place}) because the model learns from co-occurrence patterns in triples rather than from explicit type hierarchies. This is an expected limitation when ontology classes are not heavily used in the training triples.
+
+\subsubsection{Clustering Analysis (t-SNE)}
+
+We apply t-SNE to reduce the entity embeddings to 2D and plot them, colouring points by ontology class (e.g.\ Place, Person, Thing). Due to the large number of entities (7,327), we subsample for visualization. The resulting scatter plot shows partial clustering: entities of the same class tend to form loose groups, but there is significant overlap between classes. For instance, \texttt{Place} and \texttt{Thing} entities may intermingle because many cultural heritage items (Things) are linked to places via \texttt{dc:spatial}. The embedding captures some semantic structure (e.g.\ geographic or thematic proximity), but it does not strictly separate ontology classes. Unexplainable results can occur when entities from different classes share similar relation patterns; the embedding model has no direct access to the ontology and learns purely from the triple structure.
+
+\subsubsection{Relation Behaviour}
+
+We analyse how different relation types are handled by TransE and ComplEx. Symmetric relations (e.g.\ \texttt{dc:subject}, \texttt{dc:spatial}) pose a challenge for TransE, which assumes $\mathbf{h}+\mathbf{r} \approx \mathbf{t}$ and thus implicitly favours asymmetric structure. ComplEx, with its complex-valued scoring, can represent symmetry more naturally. Inverse relations (e.g.\ \texttt{creator} and \texttt{createdBy}) require $\mathbf{r}_{\mathrm{inv}} \approx -\mathbf{r}$ in TransE; ComplEx uses a different mechanism in complex space. For composition (e.g.\ \texttt{spatial} $\circ$ \texttt{locatedIn} $\approx$ \texttt{hasSpatialContext}), TransE can model $\mathbf{r}_1 + \mathbf{r}_2 \approx \mathbf{r}_3$, whereas DistMult (a simpler bilinear model) fails on antisymmetric relations. Our empirical results support these theoretical differences: ComplEx achieves MRR 0.53 vs.\ TransE 0.18, consistent with the KB containing many symmetric and mixed relation types.
+
+\subsection{Critical Reflection}
+
+The quality of embeddings is strongly dependent on the design choices made in Phases~1 and~2. Predicate alignment quality directly affects the relation vocabulary: incorrect mappings (e.g.\ conflating \texttt{dc:creator} with \texttt{edm:provider}) introduce semantic noise. Noisy expansion from Wikidata or Europeana can add triples that contradict the initial KB or that use inconsistent URIs; our cleaning step (removing literals, normalising URIs) mitigates some of this, but expansion noise remains a factor. Ontology modelling choices (e.g.\ whether to use fine-grained types like \texttt{Place} vs.\ coarse \texttt{Thing}) influence the structure of the graph; sparse type assertions limit the extent to which embeddings can capture class-level structure. Finally, the open-world assumption of RDF (we do not assume all facts are known) contrasts with the closed-world behaviour of embeddings: the model learns only from observed triples and cannot infer facts that require external knowledge or rules not represented in the graph.
+
+\subsection{Rule-Based vs.\ Embedding-Based Reasoning (Exercise 8)}
+
+The lab asks whether a SWRL rule can be mirrored by the embedding model. We design a conceptual SWRL rule for the expanded KB: \texttt{Thing(?x), type(?x, ?t), spatial(?x, ?s), Place(?s) -> hasSpatialContext(?x, ?s)}. This rule states that if an item has a spatial reference to an entity that is a Place, then that item has a spatial context. The rule combines the relations \texttt{spatial} and \texttt{type} (with \texttt{Place}) to infer a composed relation \texttt{hasSpatialContext}.
+
+To check if the embedding captures a similar composition, we compute $\mathbf{r}_{\mathrm{spatial}} + \mathbf{c}_{\mathrm{Place}}$ (where $\mathbf{c}_{\mathrm{Place}}$ is the centroid of Place entity embeddings) and find the closest relation vectors. The closest relations include \texttt{dcterms:spatial} and \texttt{wdt:P19} (place of birth), with moderate similarity scores. This suggests that the embedding space encodes some notion of ``spatial + Place'' near spatial relations, but the correspondence is approximate rather than exact. Full SWRL execution would require loading \texttt{kb\_expanded.nt} into an OWL reasoner; our expanded KB uses a flat triple structure without OWL class axioms, so we cannot run the rule directly. The embedding-based check provides a heuristic indication that relation composition is partially learned, but rule-based reasoning remains more precise and interpretable for explicitly defined Horn rules.
+
+\subsection{Phase 3 Deliverables}
+
+The following artefacts are produced by Phase~3 and complement the Phase~2 deliverables:
+
+\begin{itemize}
+\item \texttt{livrable/kge\_splits/train.txt}, \texttt{valid.txt}, \texttt{test.txt} -- Cleaned triple splits for KGE training
+\item \texttt{livrable/kge\_splits/transe\_result/}, \texttt{complex\_result/} -- Trained TransE and ComplEx models and evaluation results
+\end{itemize}
+
+%=============================================================================
 \section{References}
 %=============================================================================
 
@@ -237,16 +369,20 @@ Suite à l'évaluation du projet, les améliorations suivantes ont été implém
 \item \textbf{Europeana API.} Search API documentation and key registration. \url{https://pro.europeana.eu/page/search-api} and \url{https://pro.europeana.eu/page/get-api}
 \item \textbf{Europeana Data Model (EDM).} Semantic model for cultural heritage metadata. \url{https://pro.europeana.eu/page/edm-documentation}
 \item \textbf{Dublin Core.} Metadata element set and terms used for predicate alignment fallback. \url{https://dublincore.org/specifications/dublin-core/dcmi-terms/}
+\item \textbf{PyKEEN.} Ali et al., ``PyKEEN: A Python Library for Learning and Evaluating Knowledge Graph Embeddings,'' JMLR 22, 2021. \url{https://github.com/pykeen/pykeen}
+\item \textbf{OWLReady2.} Lamy, ``OWLReady2: A Python package for ontology-oriented programming,'' J. Biomedical Semantics 8, 2017.
+\item \textbf{TransE.} Bordes et al., ``Translating Embeddings for Modeling Multi-relational Data,'' NeurIPS 2013.
+\item \textbf{ComplEx.} Trouillon et al., ``Complex Embeddings for Simple Link Prediction,'' ICML 2016.
 \end{itemize}
 
 %=============================================================================
 \section{Conclusion}
 %=============================================================================
 
-We have implemented a complete pipeline from unstructured web data (Europeana API) to a structured Knowledge Base aligned with Wikidata/DBpedia. The pipeline uses transformer-based NER for entity recognition, dependency parsing for relation extraction, and SPARQL-based expansion (1-hop, 2-hop, predicate-controlled) to reach the target volume and relation diversity.
+We have implemented a complete pipeline from unstructured web data (Europeana API) to a structured Knowledge Base aligned with Wikidata/DBpedia, and extended it with knowledge reasoning in Phase~3. The pipeline uses transformer-based NER for entity recognition, dependency parsing for relation extraction, and SPARQL-based expansion (1-hop, 2-hop, predicate-controlled) to reach the target volume and relation diversity. Phase~3 adds rule-based reasoning with SWRL (OWLReady2, Pellet) and embedding-based reasoning with TransE and ComplEx, achieving a link prediction MRR of 0.53 with ComplEx on the expanded KB.
 
-\textbf{Limitations.} Multilingual content (Dutch, German, Polish, etc.) in Europeana metadata can cause NER errors; we mitigate with \texttt{ENTITY\_TYPE\_OVERRIDES}, \texttt{FILTER\_ENTITIES}, \texttt{FILTER\_FRAGMENTS}, sentence-level language heuristics, and \texttt{ENTITY\_BLACKLIST}. The relation count is controlled by predicate whitelisting and consolidation to meet the 50--200 target.
+\textbf{Limitations.} Multilingual content (Dutch, German, Polish, etc.) in Europeana metadata can cause NER errors; we mitigate with \texttt{ENTITY\_TYPE\_OVERRIDES}, \texttt{FILTER\_ENTITIES}, \texttt{FILTER\_FRAGMENTS}, sentence-level language heuristics, and \texttt{ENTITY\_BLACKLIST}. The relation count is controlled by predicate whitelisting and consolidation to meet the 50--200 target. KGE performance is sensitive to KB quality: predicate alignment errors, expansion noise, and sparse type assertions limit embedding quality. TransE underperforms on our KB due to its inability to model symmetric and complex relations effectively.
 
-\textbf{Pistes d'amélioration.} (1) Federated SPARQL across DBpedia and Wikidata; (2) DBpedia Spotlight for context-aware entity linking; (3) evaluation metrics (precision, recall) for NER and RE; (4) expansion 2-hop on a larger subset of entities.
+\textbf{Future work.} (1) Federated SPARQL across DBpedia and Wikidata; (2) DBpedia Spotlight for context-aware entity linking; (3) evaluation metrics (precision, recall) for NER and RE; (4) expansion 2-hop on a larger subset of entities; (5) integrating SWRL rules with the expanded KB in an OWL reasoner for hybrid rule-embedding reasoning.
 
 \end{document}
