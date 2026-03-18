@@ -63,6 +63,15 @@ python -m spacy download en_core_web_sm
    Ouvrir et exécuter le notebook `TD5/phase3_knowledge_reasoning.ipynb` (Jupyter ou VS Code).
    Partie 1 : raisonnement SWRL avec OWLReady2. Partie 2 : Knowledge Graph Embedding (PyKEEN).
 
+### Phase 4 (TD6)
+
+8. **RAG with Knowledge Graphs:**
+   ```bash
+   ollama run gemma:2b   # Start Ollama first
+   python TD6/lab_rag_sparql_gen.py
+   ```
+   RAG avec RDF/SPARQL et LLM local (Ollama). Convertit les questions en langage naturel en SPARQL, exécute sur la KB et affiche les résultats. Voir `TD6/README.md` pour les détails.
+
 ## Où sont les statistiques (triplets, entités, relations) ?
 
 Les statistiques de la dernière exécution se trouvent dans **`livrable/statistics_report.txt`**.  

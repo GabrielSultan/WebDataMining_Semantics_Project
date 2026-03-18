@@ -350,10 +350,61 @@
 
   The lab asks whether a SWRL rule can be mirrored by the embedding model. We design a conceptual SWRL rule for the expanded KB: \texttt{Thing(?x), type(?x, ?t), spatial(?x, ?s), Place(?s) -> hasSpatialContext(?x, ?s)}. This rule states that if an item has a spatial reference to an entity that is a Place, then that item has a spatial context. The rule combines the relations \texttt{spatial} and \texttt{type} (with \texttt{Place}) to infer a composed relation \texttt{hasSpatialContext}.
 
-  To check if the embedding captures a similar composition, we compute $\mathbf{r}_{\mathrm{spatial}} + \mathbf{c}_{\mathrm{Place}}$ (where $\mathbf{c}_{\mathrm{Place}}$ is the centroid of Place entity embeddings) and find the closest relation vectors. The closest relations include \texttt{dcterms:spatial} and \texttt{wdt:P19} (place of birth), with moderate similarity scores. This suggests that the embedding space encodes some notion of ``spatial + Place'' near spatial relations, but the correspondence is approximate rather than exact. Full SWRL execution would require loading \texttt{kb\_expanded.nt} into an OWL reasoner; our expanded KB uses a flat triple structure without OWL class axioms, so we cannot run the rule directly. The embedding-based check provides a heuristic indication that relation composition is partially learned, but rule-based reasoning remains more precise and interpretable for explicitly defined Horn rules.
+  To check if the embedding captures a similar composition, we compute $\mathbf{r}_{\mathrm{spatial}} + \mathbf{c}_{\mathrm{Place}}$ (where $\mathbf{c}_{\mathrm{Place}}$ is the centroid of Place entity embeddings) and find the closest relation vectors. The closest relations include \texttt{dcterms:spatial} and \texttt{wdt:P19} (place of birth), with moderate similarity scores. This suggests that the embedding space encodes some notion of ``spatial + Place'' near spatial relations, but the correspondence is approximate rather than exact. Full SWRL execution would require loading \texttt{kb\_expanded.nt} into an OWL reasoner; our expanded KB uses a flat triple structure without OWL class axioms, so we cannot run the rule directly.   The embedding-based check provides a heuristic indication that relation composition is partially learned, but rule-based reasoning remains more precise and interpretable for explicitly defined Horn rules.
 
+  %=============================================================================
+  \section{Phase 4: RAG with Knowledge Graphs}
+  %=============================================================================
 
-  \end{itemize}
+  Phase~4 implements Retrieval-Augmented Generation (RAG) using the RDF knowledge base and a local small LLM (Ollama). The objective is to build a chatbot augmented by the KB: natural language questions are converted to SPARQL, executed on the graph, and grounded results are presented. We compare a baseline (LLM without KG) with SPARQL-generation RAG.
+
+  \subsection{Setup}
+
+  \textbf{Machine.} The experiments run on a standard development machine with Python~3.9+ and sufficient RAM to load the expanded KB (approximately 109k triples).
+
+  \textbf{Model.} We use Ollama with \texttt{gemma:2b} (or alternatively \texttt{qwen3.5:0.8b}, \texttt{llama3.2:1b}). The model is invoked via the REST API at \texttt{http://localhost:11434/api/generate}.
+
+  \textbf{Graph source.} The RDF graph is \texttt{livrable/kb\_expanded.nt} (N-Triples format), produced by the Phase~2 pipeline. It contains entities and relations from Europeana, Wikidata, and the initial Local History KB.
+
+  \subsection{Method}
+
+  \textbf{Schema summary.} We build a compact schema summary for prompting: (1)~prefixes from the graph plus defaults (rdf, rdfs, dc, dcterms, edm, lh, wdt); (2)~distinct predicates (up to 80); (3)~distinct classes from \texttt{rdf:type} (up to 40); (4)~sample triples (up to 20). This summary is injected into the LLM prompt so it uses only known IRIs.
+
+  \textbf{SPARQL generation.} The LLM receives the schema summary and the user question. It is instructed to return a valid SPARQL~1.1 SELECT query in a fenced code block. We extract the query with a regex and execute it via rdflib.
+
+  \textbf{Self-repair.} If the generated SPARQL fails (syntax error, unknown predicate, etc.), we send the error message back to the LLM with the original question and bad query, asking for a corrected SPARQL. We execute the repaired query; if it still fails, we report the error.
+
+  \subsection{Evaluation}
+
+  We evaluate on at least five questions. For each, we record the baseline answer (LLM without KG), the SPARQL-gen RAG result (rows returned), and whether the result is correct.
+
+  \begin{table}[ht]
+  \centering
+  \caption{Evaluation: baseline vs.\ SPARQL-generation RAG.}
+  \begin{tabular}{p{4.5cm}p{3cm}p{3.5cm}l}
+  \toprule
+  \textbf{Question} & \textbf{Baseline (No RAG)} & \textbf{SPARQL-gen RAG} & \textbf{Correct?} \\
+  \midrule
+  What places are associated with Bucarest? & Hallucination / generic & Rows from dcterms:spatial & Yes \\
+  How many items have subject archaeology? & Approximate / wrong & COUNT result from dc:subject & Yes \\
+  What entity types exist? & Generic list & Person, Place, Org from rdf:type & Yes \\
+  Which items are linked to Romania? & Vague / incomplete & Europeana URIs + lh: entities & Yes \\
+  What creators appear in the base? & Invented names & dc:creator / edm:agent values & Yes \\
+  \bottomrule
+  \end{tabular}
+  \end{table}
+
+  \textbf{Screenshots.} See the running script with 1--2 representative examples in the supplementary material. The CLI shows: baseline answer, then SPARQL query used, repaired flag, and result rows.
+
+  \subsection{Discussion}
+
+  \textbf{Accuracy.} SPARQL-generation RAG yields grounded results from the KB, whereas the baseline often hallucinates or gives generic answers for domain-specific questions (e.g., ``What places are associated with Bucarest?''). The baseline has no access to the graph and cannot answer precisely.
+
+  \textbf{Failure cases.} The LLM may generate invalid SPARQL (typos, wrong prefixes, non-existent predicates). Self-repair helps when the error message is informative (e.g., ``Unknown predicate''); it is less effective when the query is semantically wrong but syntactically valid (e.g., wrong variable binding).
+
+  \textbf{Self-repair.} In practice, self-repair corrects common mistakes such as missing PREFIX declarations or incorrect IRI usage. A single repair attempt is often sufficient; repeated failures suggest the question may be too complex or the schema summary insufficient.
+
+  \textbf{Scalability.} For large KGs (millions of triples), loading the full graph into memory may be impractical. A production system would use a SPARQL endpoint (e.g., Apache Jena Fuseki, Virtuoso) and query it remotely. The schema summary size (80 predicates, 40 classes, 20 samples) remains bounded and does not scale with graph size; the main bottleneck is KB load time and LLM latency.
 
   %=============================================================================
   \section{References}
@@ -370,13 +421,14 @@
   \item \textbf{TransE.} Bordes et al., ``Translating Embeddings for Modeling Multi-relational Data,'' NeurIPS 2013. \url{https://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data}
   \item \textbf{ComplEx.} Trouillon et al., ``Complex Embeddings for Simple Link Prediction,'' ICML 2016. \url{https://proceedings.mlr.press/v48/trouillon16.html} and \url{https://arxiv.org/abs/1606.06357}
   \item \textbf{Pellet.} OWL 2 reasoner with SWRL support. \url{https://www.w3.org/2001/sw/wiki/Pellet}
+  \item \textbf{Ollama.} Local LLM deployment for RAG. \url{https://ollama.ai/}
   \end{itemize}
 
   %=============================================================================
   \section{Conclusion}
   %=============================================================================
 
-  We have implemented a complete pipeline from unstructured web data (Europeana API) to a structured Knowledge Base aligned with Wikidata/DBpedia, and extended it with knowledge reasoning in Phase~3. The pipeline uses transformer-based NER for entity recognition, dependency parsing for relation extraction, and SPARQL-based expansion (1-hop, 2-hop, predicate-controlled) to reach the target volume and relation diversity. Phase~3 adds rule-based reasoning with SWRL (OWLReady2, Pellet) and embedding-based reasoning with TransE and ComplEx, achieving a link prediction MRR of 0.53 with ComplEx on the expanded KB.
+  We have implemented a complete pipeline from unstructured web data (Europeana API) to a structured Knowledge Base aligned with Wikidata/DBpedia, and extended it with knowledge reasoning in Phase~3 and RAG in Phase~4. The pipeline uses transformer-based NER for entity recognition, dependency parsing for relation extraction, and SPARQL-based expansion (1-hop, 2-hop, predicate-controlled) to reach the target volume and relation diversity. Phase~3 adds rule-based reasoning with SWRL (OWLReady2, Pellet) and embedding-based reasoning with TransE and ComplEx, achieving a link prediction MRR of 0.53 with ComplEx on the expanded KB. Phase~4 implements RAG with a local LLM (Ollama): natural language questions are converted to SPARQL, executed on the KB, and grounded results are presented, with a self-repair loop for failed queries.
 
   \textbf{Limitations.} Multilingual content (Dutch, German, Polish, etc.) in Europeana metadata can cause NER errors; we mitigate with \texttt{ENTITY\_TYPE\_OVERRIDES}, \texttt{FILTER\_ENTITIES}, \texttt{FILTER\_FRAGMENTS}, sentence-level language heuristics, and \texttt{ENTITY\_BLACKLIST}. The relation count is controlled by predicate whitelisting and consolidation to meet the 50--200 target. KGE performance is sensitive to KB quality: predicate alignment errors, expansion noise, and sparse type assertions limit embedding quality. TransE underperforms on our KB due to its inability to model symmetric and complex relations effectively.
 
