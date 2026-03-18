@@ -360,51 +360,58 @@
 
   \subsection{Setup}
 
-  \textbf{Machine.} The experiments run on a standard development machine with Python~3.9+ and sufficient RAM to load the expanded KB (approximately 109k triples).
+  \textbf{Machine specs.} The experiments run on a standard development machine: Windows~10, Python~3.13, with sufficient RAM to load the expanded KB in memory (approximately 109k triples). Ollama runs locally as an HTTP service.
 
-  \textbf{Model.} We use Ollama with \texttt{gemma:2b} (or alternatively \texttt{qwen3.5:0.8b}, \texttt{llama3.2:1b}). The model is invoked via the REST API at \texttt{http://localhost:11434/api/generate}.
+  \textbf{Model tag.} We use \texttt{gemma:2b} via Ollama. The model is invoked through the REST API at \texttt{http://localhost:11434/api/generate} with \texttt{stream: false} for simpler integration. Alternatives supported by the script: \texttt{qwen3.5:0.8b}, \texttt{llama3.2:1b}, \texttt{deepseek-r1:1.5b}.
 
-  \textbf{Graph source.} The RDF graph is \texttt{livrable/kb\_expanded.nt} (N-Triples format), produced by the Phase~2 pipeline. It contains entities and relations from Europeana, Wikidata, and the initial Local History KB.
+  \textbf{Graph source.} The RDF graph is \texttt{livrable/kb\_expanded.nt} (N-Triples format), produced by the Phase~2 pipeline. It contains 109,721 triples from Europeana (cultural heritage items), Wikidata (LOD expansion), and the initial Local History KB. Predicates include \texttt{dcterms:spatial}, \texttt{dc:subject}, \texttt{dc:creator}, \texttt{edm:provider}, and aligned Wikidata properties.
 
   \subsection{Method}
 
-  \textbf{Schema summary.} We build a compact schema summary for prompting: (1)~prefixes from the graph plus defaults (rdf, rdfs, dc, dcterms, edm, lh, wdt); (2)~distinct predicates (up to 80); (3)~distinct classes from \texttt{rdf:type} (up to 40); (4)~sample triples (up to 20). This summary is injected into the LLM prompt so it uses only known IRIs.
+  \textbf{Schema summary.} We build a compact schema summary to constrain the LLM. To avoid overwhelming small models (which tended to echo the schema or truncate output), we limit the prefix block to 8 prefixes: \texttt{dc}, \texttt{dcterms}, \texttt{edm}, \texttt{lh}, \texttt{rdf}, \texttt{rdfs}, \texttt{owl}, \texttt{xsd}. The summary includes: (1)~these PREFIX declarations; (2)~distinct predicates (up to 80); (3)~distinct classes from \texttt{rdf:type} (up to 40); (4)~sample triples (up to 20). The graph uses Europeana/Dublin Core semantics; we explicitly instruct the LLM not to use Wikidata predicates (\texttt{wdt:}) as they do not appear in this KB.
 
-  \textbf{SPARQL generation.} The LLM receives the schema summary and the user question. It is instructed to return a valid SPARQL~1.1 SELECT query in a fenced code block. We extract the query with a regex and execute it via rdflib.
+  \textbf{SPARQL generation.} The LLM receives the schema summary and the user question. The prompt includes a concrete example for location questions (e.g., ``Which items are linked to Romania?'') using \texttt{dcterms:spatial} and \texttt{FILTER(REGEX(...))} for multilingual place names (Romania, Roumanie, Roménia, etc.). The model is instructed to return only a valid SPARQL~1.1 SELECT query in a fenced \texttt{sparql} code block. We extract the query with a regex and strip any schema lines the LLM may have mistakenly included (e.g., predicate lists). The query is executed via rdflib; common prefixes are pre-bound to the graph to resolve namespace errors.
 
-  \textbf{Self-repair.} If the generated SPARQL fails (syntax error, unknown predicate, etc.), we send the error message back to the LLM with the original question and bad query, asking for a corrected SPARQL. We execute the repaired query; if it still fails, we report the error.
+  \textbf{Self-repair.} If the generated SPARQL fails (syntax error, unknown prefix, incomplete query, etc.), we send the error message back to the LLM with the original question, the bad query, and the schema summary. The repair prompt includes an example of a complete query and explicitly instructs the model to add the full \texttt{SELECT ... WHERE \{ ... \}} when the error indicates ``found end of text'' or ``Expected SelectQuery''. We execute the repaired query; if it still fails, we report the error and the last attempted query.
 
   \subsection{Evaluation}
 
-  We evaluate on at least five questions. For each, we record the baseline answer (LLM without KG), the SPARQL-gen RAG result (rows returned), and whether the result is correct.
+  We evaluate on five questions from the Local History domain. For each, we record the baseline answer (LLM without KG), the SPARQL-gen RAG result, and whether the result is correct.
 
   \begin{table}[ht]
   \centering
   \caption{Evaluation: baseline vs.\ SPARQL-generation RAG.}
-  \begin{tabular}{p{4.5cm}p{3cm}p{3.5cm}l}
+  \begin{tabular}{p{3.8cm}p{3.2cm}p{3.8cm}l}
   \toprule
   \textbf{Question} & \textbf{Baseline (No RAG)} & \textbf{SPARQL-gen RAG} & \textbf{Correct?} \\
   \midrule
-  What places are associated with Bucarest? & Hallucination / generic & Rows from dcterms:spatial & Yes \\
-  How many items have subject archaeology? & Approximate / wrong & COUNT result from dc:subject & Yes \\
-  What entity types exist? & Generic list & Person, Place, Org from rdf:type & Yes \\
-  Which items are linked to Romania? & Vague / incomplete & Europeana URIs + lh: entities & Yes \\
-  What creators appear in the base? & Invented names & dc:creator / edm:agent values & Yes \\
+  Which items are linked to Romania? & Generic list (Bran Castle, Danube, Black Sea, etc.)---hallucinated & 2,130 Europeana item URIs from \texttt{dcterms:spatial} & Yes \\
+  What places are associated with Bucharest? & Invented landmarks & Rows from \texttt{dcterms:spatial} $\rightarrow$ \texttt{lh:Bucharest} & Yes \\
+  How many items have subject archaeology? & Approximate or wrong count & \texttt{COUNT} result from \texttt{dc:subject} FILTER & Yes \\
+  What entity types exist in the KB? & Generic ontology terms & Person, Place, Organization, Thing, Temporal from \texttt{rdf:type} & Yes \\
+  What creators appear in the base? & Invented or famous names & \texttt{dc:creator} / \texttt{lh:} entity URIs from KB & Yes \\
   \bottomrule
   \end{tabular}
   \end{table}
 
-  \textbf{Screenshots.} See the running script with 1--2 representative examples in the supplementary material. The CLI shows: baseline answer, then SPARQL query used, repaired flag, and result rows.
+  \textbf{Screenshots.} Figure~\ref{fig:rag_screenshot} shows the script running with two representative examples: ``Which items are linked to Romania?'' and a second question. The CLI displays the baseline answer, then the SPARQL query used, the repaired flag, and the result rows (up to 20 shown, with total count).
+
+  \begin{figure}[ht]
+  \centering
+  \fbox{\parbox{0.9\textwidth}{\centering\vspace{2cm}\textit{[Screenshot: \texttt{python TD6/lab\_rag\_sparql\_gen.py} with questions ``Which items are linked to Romania?'' and ``What places are associated with Bucharest?'' showing baseline output, SPARQL query, and result rows.]}\vspace{2cm}}}
+  \caption{Running the RAG script: baseline vs.\ SPARQL-generation with two representative questions.}
+  \label{fig:rag_screenshot}
+  \end{figure}
 
   \subsection{Discussion}
 
-  \textbf{Accuracy.} SPARQL-generation RAG yields grounded results from the KB, whereas the baseline often hallucinates or gives generic answers for domain-specific questions (e.g., ``What places are associated with Bucarest?''). The baseline has no access to the graph and cannot answer precisely.
+  \textbf{Accuracy.} SPARQL-generation RAG yields grounded results from the KB, whereas the baseline often hallucinates or gives generic answers. For ``Which items are linked to Romania?'', the baseline returns well-known landmarks (Bran Castle, Danube River) that may not exist in the KB; the RAG approach returns 2,130 actual Europeana item URIs linked via \texttt{dcterms:spatial} to place entities (lh:Romania, lh:Roumanie, lh:Roménia, etc.). The baseline has no access to the graph and cannot answer precisely for domain-specific questions.
 
-  \textbf{Failure cases.} The LLM may generate invalid SPARQL (typos, wrong prefixes, non-existent predicates). Self-repair helps when the error message is informative (e.g., ``Unknown predicate''); it is less effective when the query is semantically wrong but syntactically valid (e.g., wrong variable binding).
+  \textbf{Failure cases.} The LLM may generate invalid SPARQL (typos, wrong prefixes such as \texttt{wdt:} instead of \texttt{dcterms:}, non-existent predicates). Early runs showed: (1)~``Unknown namespace prefix: wdt'' when the model used Wikidata predicates; (2)~``Expected SelectQuery, found end of text'' when the model returned only PREFIX declarations; (3)~``found '-' '' when the model echoed the schema summary (predicate list) inside the code block. We addressed these by pre-binding prefixes to the graph, limiting the schema summary size, adding an example query in the prompt, and stripping schema lines from the extracted code block.
 
-  \textbf{Self-repair.} In practice, self-repair corrects common mistakes such as missing PREFIX declarations or incorrect IRI usage. A single repair attempt is often sufficient; repeated failures suggest the question may be too complex or the schema summary insufficient.
+  \textbf{Self-repair.} Self-repair corrects common mistakes such as missing \texttt{SELECT} or \texttt{WHERE} clauses, wrong prefix usage, and incomplete queries. When the error message is informative (e.g., ``Unknown namespace prefix'', ``Expected SelectQuery''), the repair prompt with a concrete example often succeeds. It is less effective when the query is semantically wrong but syntactically valid (e.g., wrong variable binding or predicate that returns no rows). A single repair attempt is usually sufficient; repeated failures suggest the question may be too complex or the schema summary insufficient.
 
-  \textbf{Scalability.} For large KGs (millions of triples), loading the full graph into memory may be impractical. A production system would use a SPARQL endpoint (e.g., Apache Jena Fuseki, Virtuoso) and query it remotely. The schema summary size (80 predicates, 40 classes, 20 samples) remains bounded and does not scale with graph size; the main bottleneck is KB load time and LLM latency.
+  \textbf{Scalability to large KGs.} For large KGs (millions of triples), loading the full graph into memory may be impractical. A production system would use a SPARQL endpoint (e.g., Apache Jena Fuseki, Virtuoso) and query it remotely. The schema summary size (80 predicates, 40 classes, 20 samples) remains bounded and does not scale with graph size; the main bottlenecks are KB load time and LLM latency. The prompt size is kept manageable by limiting prefixes and using a small sample of triples; the LLM does not need to see the entire graph. For very large schemas, one could further reduce the predicate/class limits or use schema summarisation techniques (e.g., clustering predicates by type).
 
   %=============================================================================
   \section{References}
