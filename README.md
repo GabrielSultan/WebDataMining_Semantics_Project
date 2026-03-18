@@ -20,42 +20,48 @@ python -m spacy download en_core_web_sm
 
 ## Pipeline
 
-### Phase 1
+### Phase 1 (TD1)
 
 1. **Crawling (Europeana API):**
    ```bash
-   python phase1_crawler.py
+   python TD1/phase1_crawler.py
    ```
    With `EUROPEANA_API_KEY` set, the crawler uses the Europeana API (no scraping, no 403).
 
 2. **Extraction (NER + relations):**
    ```bash
-   python phase1_extraction.py
+   python TD1/phase1_extraction.py
    ```
 
-### Phase 2
+### Phase 2 (TD4)
 
 3. **Build initial KB:**
    ```bash
-   python phase2_build_kb.py
+   python TD4/phase2_build_kb.py
    ```
 
 4. **Entity linking:**
    ```bash
-   python phase2_entity_linking.py
+   python TD4/phase2_entity_linking.py
    ```
 
 5. **Predicate alignment:**
    ```bash
-   python phase2_predicate_alignment.py
+   python TD4/phase2_predicate_alignment.py
    ```
 
 6. **KB expansion:**
    ```bash
-   python phase2_expand_kb.py
+   python TD4/phase2_expand_kb.py
    ```
    Per InstructionPhase2: SPARQL 1-Hop expansion on Wikidata (from aligned entities), then Europeana API complement if volume < 50k triplets. Target: 50k--200k triplets, 5k--30k entities.
    Options: `--quick` (skip SPARQL, 500 Europeana records), `--no-sparql`, `--target N`.
+
+### Phase 3 (TD5)
+
+7. **Knowledge Reasoning (SWRL + KGE):**
+   Ouvrir et exécuter le notebook `TD5/phase3_knowledge_reasoning.ipynb` (Jupyter ou VS Code).
+   Partie 1 : raisonnement SWRL avec OWLReady2. Partie 2 : Knowledge Graph Embedding (PyKEEN).
 
 ## Où sont les statistiques (triplets, entités, relations) ?
 

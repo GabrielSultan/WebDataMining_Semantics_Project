@@ -22,14 +22,14 @@ def run(cmd: list[str], desc: str) -> bool:
 
 
 def main():
-    crawler_cmd = ["phase1_crawler.py"]
+    crawler_cmd = ["TD1/phase1_crawler.py"]
     steps = [
         (crawler_cmd, "Phase 1: Crawling (Europeana API)"),
-        (["phase1_extraction.py"], "Phase 1: NER + Relation extraction"),
-        (["phase2_build_kb.py"], "Phase 2: Build initial KB"),
-        (["phase2_entity_linking.py"], "Phase 2: Entity linking (Wikidata)"),
-        (["phase2_predicate_alignment.py"], "Phase 2: Predicate alignment (SPARQL + EDM)"),
-        (["phase2_expand_kb.py"], "Phase 2: KB expansion (SPARQL Wikidata + Europeana)"),
+        (["TD1/phase1_extraction.py"], "Phase 1: NER + Relation extraction"),
+        (["TD4/phase2_build_kb.py"], "Phase 2: Build initial KB"),
+        (["TD4/phase2_entity_linking.py"], "Phase 2: Entity linking (Wikidata)"),
+        (["TD4/phase2_predicate_alignment.py"], "Phase 2: Predicate alignment (SPARQL + EDM)"),
+        (["TD4/phase2_expand_kb.py"], "Phase 2: KB expansion (SPARQL Wikidata + Europeana)"),
     ]
 
     for cmd, desc in steps:
