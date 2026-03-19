@@ -25,7 +25,7 @@
 
 This report describes a complete pipeline for building a Knowledge Base (KB) in the domain of \textbf{Local History} (monuments, historical figures, places), from raw web data to a structured RDF graph aligned with Linked Open Data (LOD). The pipeline integrates four lab sessions: Data Acquisition \& Information Extraction (Phase~1), KB Construction \& Expansion (Phase~2), Knowledge Reasoning with SWRL and KGE (Phase~3), and RAG over RDF/SPARQL (Phase~4).
 
-\textbf{Data source.} We use the \textbf{Europeana API} as the primary source. Europeana provides metadata for millions of digitized cultural heritage items; extracting text from the Search API JSON response avoids anti-robot issues and simplifies content extraction compared to HTML scraping.
+\textbf{Data source.} We use the \textbf{Europeana API} (and Wikidata) as the primary source. Europeana provides metadata for millions of digitized cultural heritage items; extracting text from the Search API JSON response avoids anti-robot issues and simplifies content extraction compared to HTML scraping.
 
 %=============================================================================
 \section{Data Acquisition \& Information Extraction}
@@ -33,15 +33,21 @@ This report describes a complete pipeline for building a Knowledge Base (KB) in 
 
 \subsection{Domain and Seed URLs}
 
-Domain: \textbf{Local History} (cultural heritage objects). Per Phase~1 instructions (5--10 seed URLs), we use the Europeana Search API with queries as equivalent ``seeds'': \texttt{Paris history}, \texttt{Notre-Dame Paris}, \texttt{Eiffel Tower}, \texttt{Louvre Museum}, \texttt{Palace of Versailles}, \texttt{Arc de Triomphe Paris}, \texttt{Bastille Paris}, \texttt{Sainte-Chapelle Paris}. Each query returns multiple records; items with $\geq$500 words are kept.
+Domain: \textbf{Local History} (cultural heritage objects). Per Phase~1 instructions (5--10 seed URLs), we use the Europeana Search API with queries as equivalent ``seeds'': \texttt{Paris history}, \texttt{Notre-Dame Paris}, \texttt{Eiffel Tower}, \texttt{Louvre Museum}, \texttt{Palace of Versailles}, \texttt{Arc de Triomphe Paris}, \texttt{Bastille Paris}, \texttt{Sainte-Chapelle Paris}. Each query returns multiple records, items with $\geq$500 words are kept.
 
 \subsection{Crawler Design and Ethics}
 
-Per instructions, we use APIs when anti-robot checking occurs. The crawler respects web ethics: (1)~identifiable \texttt{User-Agent} (\texttt{WebMiningSemanticsStudent/1.0}); (2)~robots.txt check via \texttt{urllib.robotparser} before fetching; (3)~rate limiting to avoid overloading the API. No trafilatura is needed---text is extracted directly from the JSON response.
+Per instructions, we use APIs when anti-robot checking occurs. The crawler respects web ethics:
+\begin{itemize}
+\item identifiable \texttt{User-Agent} (\texttt{WebMiningSemanticsStudent/1.0})
+\item robots.txt check via \texttt{urllib.robotparser} before fetching
+\item rate limiting to avoid overloading the API
+\end{itemize}
+No trafilatura is needed because text is extracted directly from the JSON response.
 
 \subsection{Cleaning Pipeline}
 
-The extraction pipeline: (1)~flatten text from nested API payloads; (2)~filter URL literals (not useful for NLP); (3)~normalize whitespace; (4)~apply a useful-page threshold ($\geq$500 words). Results are stored in JSONL format (\texttt{url}, \texttt{text}, \texttt{title}, \texttt{word\_count}).
+The extraction pipeline: First, flatten text from nested API payloads; Second, filter URL literals (not useful for NLP); Then, normalize whitespace; Finally, apply a useful-page threshold ($\geq$500 words). Results are stored in JSONL format (\texttt{url}, \texttt{text}, \texttt{title}, \texttt{word\_count}).
 
 \subsection{NER and Relation Extraction}
 
