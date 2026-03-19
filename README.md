@@ -102,6 +102,8 @@ We use the **Europeana Search API** with queries: `Paris history`, `Notre-Dame P
    ```
    Follow the script’s prompts. Ensure KB / SPARQL-related paths expected by `src/rag/` match your local `kg_artifacts/` (see `src/rag/README.md` if present).
 
+**Note** : here is an example of a question to enter : "Which items are linked to Romania?"
+
 ## Statistics
 
 Statistics: `kg_artifacts/statistics_report.txt`  
@@ -129,6 +131,6 @@ You can also see it as a PDF on DVL.
 
 ## Screenshot
 
-RAG demo (output / UI illustration):
+RAG demo (output / UI illustration) — image synchronisée depuis `C:\Users\sulta\OneDrive\Bureau\Rag_example.png` :
 
-![RAG Demo](screenshots/rag_demo.svg)
+![RAG Demo](screenshots/Rag_example.png)
