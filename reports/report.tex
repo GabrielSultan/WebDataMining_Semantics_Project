@@ -1,0 +1,333 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{parskip}
+\usepackage{tikz}
+\usepackage{seqsplit}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+\geometry{margin=2.5cm}
+\sloppy
+
+\title{Web Mining and Semantics\\Lab Report: From Unstructured Web to Knowledge Base}
+\author{Student Project}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+%=============================================================================
+\section{Introduction}
+%=============================================================================
+
+This report describes a complete pipeline for building a Knowledge Base (KB) in the domain of \textbf{Local History} (monuments, historical figures, places), from raw web data to a structured RDF graph aligned with Linked Open Data (LOD). The pipeline integrates four lab sessions: Data Acquisition \& Information Extraction (Phase~1), KB Construction \& Expansion (Phase~2), Knowledge Reasoning with SWRL and KGE (Phase~3), and RAG over RDF/SPARQL (Phase~4).
+
+\textbf{Data source.} We use the \textbf{Europeana API} as the primary source. Europeana provides metadata for millions of digitized cultural heritage items; extracting text from the Search API JSON response avoids anti-robot issues and simplifies content extraction compared to HTML scraping.
+
+%=============================================================================
+\section{Data Acquisition \& Information Extraction}
+%=============================================================================
+
+\subsection{Domain and Seed URLs}
+
+Domain: \textbf{Local History} (cultural heritage objects). Per Phase~1 instructions (5--10 seed URLs), we use the Europeana Search API with queries as equivalent ``seeds'': \texttt{Paris history}, \texttt{Notre-Dame Paris}, \texttt{Eiffel Tower}, \texttt{Louvre Museum}, \texttt{Palace of Versailles}, \texttt{Arc de Triomphe Paris}, \texttt{Bastille Paris}, \texttt{Sainte-Chapelle Paris}. Each query returns multiple records; items with $\geq$500 words are kept.
+
+\subsection{Crawler Design and Ethics}
+
+Per instructions, we use APIs when anti-robot checking occurs. The crawler respects web ethics: (1)~identifiable \texttt{User-Agent} (\texttt{WebMiningSemanticsStudent/1.0}); (2)~robots.txt check via \texttt{urllib.robotparser} before fetching; (3)~rate limiting to avoid overloading the API. No trafilatura is needed---text is extracted directly from the JSON response.
+
+\subsection{Cleaning Pipeline}
+
+The extraction pipeline: (1)~flatten text from nested API payloads; (2)~filter URL literals (not useful for NLP); (3)~normalize whitespace; (4)~apply a useful-page threshold ($\geq$500 words). Results are stored in JSONL format (\texttt{url}, \texttt{text}, \texttt{title}, \texttt{word\_count}).
+
+\subsection{NER and Relation Extraction}
+
+\textbf{NER.} We use spaCy with \texttt{en\_core\_web\_trf} (transformer-based) to extract PERSON, ORG, GPE, and DATE. Common nouns are filtered out. The lemmatizer normalizes verb forms for consistent predicate naming.
+
+\textbf{Relations.} For each sentence with at least two entities, we use dependency tags (\texttt{nsubj}, \texttt{dobj}, \texttt{pobj}) to find a verb connecting them. Example: ``Marie Curie discovered Polonium'' $\rightarrow$ \texttt{(Marie Curie, discovered, Polonium)}. When no verb is found, we use \texttt{relatedTo} as fallback.
+
+\begin{figure}[ht]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+  node distance=0.6cm,
+  box/.style={rectangle, draw, minimum width=1.8cm, minimum height=0.5cm, font=\small},
+  arrow/.style={-Stealth}
+]
+  \node[box] (api) {Europeana API};
+  \node[box, right=of api] (extract) {Extraction};
+  \node[box, right=of extract] (ner) {spaCy NER};
+  \node[box, right=of ner] (re) {Relation Ext.};
+  \node[box, right=of re] (kb) {Initial KB};
+  \node[box, right=of kb] (el) {Entity Link};
+  \node[box, right=of el] (pa) {Pred. Align};
+  \node[box, right=of pa] (exp) {Expansion};
+  \draw[arrow] (api) -- (extract) -- (ner) -- (re) -- (kb) -- (el) -- (pa) -- (exp);
+\end{tikzpicture}%
+}
+\caption{Global pipeline: Phase~1 (Crawling $\rightarrow$ NER $\rightarrow$ RE) and Phase~2 (KB $\rightarrow$ alignment $\rightarrow$ expansion).}
+\end{figure}
+
+\subsection{Entity Ambiguity: Three Examples}
+
+\begin{enumerate}
+\item \textbf{``Paris''} --- Can denote the city (GPE), a person (Paris Hilton), or a document (Treaty of Paris). Context is crucial; the model may mislabel in ambiguous sentences.
+
+\item \textbf{``May''} --- May be a month (DATE), a person's name (PERSON), or a modal verb. In ``The treaty was signed in May 1919,'' it is correctly a DATE. In ``May I help you?,'' it is not an entity.
+
+\item \textbf{``Louis''} --- In ``Louis XIV built the Palace of Versailles,'' Louis refers to the king. In ``Louis, Missouri,'' it refers to a place. The model may confuse ``Louis'' with ``Saint Louis'' (person or city). Without disambiguation, entity linking can fail.
+\end{enumerate}
+
+We apply type-based filtering (GPE $\rightarrow$ place, PERSON $\rightarrow$ human) and Property Evidence when available to improve disambiguation during entity linking.
+
+\subsection{Scaling Reflection}
+
+For 10,000 pages instead of 10: (1)~parallel crawling with \texttt{asyncio} and rate limiting; (2)~incremental JSONL storage and batch NER; (3)~database (SQLite) for entity/triple storage; (4)~resumability (track crawled URLs, checkpoints); (5)~monitoring with exponential backoff.
+
+%=============================================================================
+\section{KB Construction \& Alignment}
+%=============================================================================
+
+\subsection{RDF Modeling Choices}
+
+The initial KB uses URIs (not plain strings), camelCase predicates (\texttt{relatedTo}), and separates entities from literals. New entities receive ontological definitions (Person, Place, Organization, Temporal) in \texttt{ontology.ttl}.
+
+\subsection{Entity Linking with Confidence}
+
+We search the Wikidata API (\texttt{wbsearchentities}). When a match is found, we add \texttt{owl:sameAs} to the Wikidata URI with the confidence returned by the API. The mapping table (\texttt{mapping\_table.csv}) records private entity $\rightarrow$ Wikidata URI with confidence. Entities not found in Wikidata are created in the ontology and marked as NEW. Disambiguation: type-based filtering, Property Evidence, and label match.
+
+\subsection{Predicate Alignment}
+
+We use SPARQL on \texttt{query.wikidata.org} to find equivalent properties. For each private predicate, we query by label (e.g.\ ``location'' for \texttt{locatedIn}) and select the most pertinent result. We use \texttt{owl:equivalentProperty} when semantics match exactly, and \texttt{rdfs:subPropertyOf} when our predicate is narrower. Manual priority mapping for key predicates: \texttt{locatedIn} $\rightarrow$ \texttt{wdt:P276}, \texttt{build/design} $\rightarrow$ \texttt{wdt:P170}, \texttt{crown} $\rightarrow$ \texttt{wdt:P166}. Fallback: EDM/Dublin Core (\texttt{dcterms:spatial}, \texttt{dc:creator}).
+
+\subsection{Expansion Strategy}
+
+Entity linking $\rightarrow$ subgraph extraction via SPARQL $\rightarrow$ merge. (1)~\textbf{1-Hop:} For aligned entities (confidence $\geq$ 0.85), \texttt{SELECT ?p ?o WHERE \{ wd:Qxxx ?p ?o \} LIMIT 1000} with a predicate whitelist. (2)~\textbf{2-Hop:} Sample of entities, triples via intermediate nodes. (3)~\textbf{Predicate-controlled:} \texttt{SELECT ?s ?p ?o WHERE \{ ?s wdt:Pxxx ?o \}} for key properties. (4)~\textbf{Europeana complement:} If volume $<$ 50k triplets, add Europeana API records. (5)~\textbf{Cleanup:} Fix malformed literals, deduplicate, export to N-Triples.
+
+\subsection{Final KB Statistics}
+
+From \texttt{livrable/statistics\_report.txt}:
+
+\begin{itemize}
+\item \textbf{Triplets:} 109,721
+\item \textbf{Entities:} 7,327
+\item \textbf{Relations:} 50
+\item \textbf{Connected components:} 16; largest component: 6,922; isolated entities: 0
+\end{itemize}
+
+These values satisfy the target (50k--200k triplets, 5k--30k entities, 50--200 relations). Europeana contributes substantially: without it, the volume would drop to $\sim$1,600 triplets. Predicate whitelisting and consolidation ensure the relation count stays within 50--200.
+
+\subsection{Challenges and Refinements}
+
+\textbf{Entity name normalization:} Spaces, apostrophes, special characters $\rightarrow$ URI-safe form. \textbf{Predicate semantics:} EDM properties may differ from extracted predicates; manual validation required. \textbf{Multilingual filtering:} False positives in Polish, German, Dutch mitigated via \texttt{FILTER\_ENTITIES}, \texttt{FILTER\_FRAGMENTS}, and sentence-level language heuristics. \textbf{Literal cleaning:} URL values stored as literals filtered; malformed JSON artifacts removed.
+
+%=============================================================================
+\section{Reasoning (SWRL)}
+%=============================================================================
+
+\subsection{SWRL Rule on family.owl}
+
+We load \texttt{family.owl} and apply a SWRL rule: a person older than 60 years is an \texttt{oldPerson}. Implementation: OWLReady2 with Pellet reasoner (\texttt{sync\_reasoner\_pellet}). Rule: \texttt{Person(?p), age(?p, ?a), greaterThan(?a, 60) -> oldPerson(?p)}. \textbf{Result:} Peter (age~70) and Marie (age~69) are inferred as \texttt{oldPerson}.
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[
+  node distance=0.6cm,
+  box/.style={rectangle, draw, minimum width=2cm, minimum height=0.5cm, font=\small},
+  arrow/.style={-Stealth}
+]
+  \node[box] (owl) {family.owl};
+  \node[box, right=of owl] (rule) {SWRL Rule};
+  \node[box, right=of rule] (pellet) {Pellet Reasoner};
+  \node[box, right=of pellet] (inf) {Inferred Facts};
+  \draw[arrow] (owl) -- (rule) -- (pellet) -- (inf);
+\end{tikzpicture}
+\caption{SWRL pipeline: ontology + rule $\rightarrow$ Pellet $\rightarrow$ inferred class memberships.}
+\end{figure}
+
+\subsection{One SWRL Rule on Our KB}
+
+We design a conceptual SWRL rule for the expanded KB: \texttt{Thing(?x), type(?x, ?t), spatial(?x, ?s), Place(?s) -> hasSpatialContext(?x, ?s)}. This rule infers that items with a spatial reference to a Place have a spatial context. \textbf{Limitation:} Our expanded KB uses a flat triple structure without OWL class axioms; we cannot execute this rule directly in an OWL reasoner. The rule serves as a design for Exercise~8 (rule-based vs embedding comparison, see Section~\ref{sec:rule-vs-embedding}).
+
+%=============================================================================
+\section{Knowledge Graph Embeddings}
+%=============================================================================
+
+\subsection{Data Preparation and Splits}
+
+Input: \texttt{kb\_expanded.nt} (109,721 triples). Cleaning: (1)~remove triples whose object is a literal; (2)~filter literal-heavy predicates (\texttt{dcterms:temporal}, \texttt{dc:language}, \texttt{dc:title}, etc.); (3)~normalize URIs (remove trailing slashes). After deduplication: 91,955 entity-relation-entity triples. Split: 80\% train, 10\% valid, 10\% test. Critical: no entity appears only in valid/test; orphan entities are moved to train. Final: 73,781 train, 9,060 valid, 9,114 test; 7,327 entities, 36 relations.
+
+\subsection{Models and Training}
+
+We use PyKEEN: \textbf{TransE} (translational: $\mathbf{h}+\mathbf{r}\approx\mathbf{t}$) and \textbf{ComplEx} (bilinear, complex-valued, handles asymmetric relations). Same hyperparameters: dim 100, lr 0.01, batch 256, 100 epochs, 10 negative samples.
+
+\subsection{Evaluation: Link Prediction}
+
+Filtered metrics (head and tail prediction). Results:
+
+\begin{table}[ht]
+\centering
+\caption{Link prediction (filtered metrics).}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Model} & \textbf{MRR} & \textbf{Hits@1} & \textbf{Hits@3} & \textbf{Hits@10} \\
+\midrule
+TransE  & 0.1787 & 0.0976 & 0.2013 & 0.3286 \\
+ComplEx & 0.5307 & 0.4626 & 0.5621 & 0.6624 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+ComplEx outperforms TransE (MRR 0.53 vs 0.18). TransE struggles with symmetric and complex relations; ComplEx handles them better.
+
+\subsection{KB Size Sensitivity}
+
+TransE on 20k, 50k, and full 91,955 triples:
+
+\begin{table}[ht]
+\centering
+\caption{TransE vs.\ KB size.}
+\begin{tabular}{lcc}
+\toprule
+\textbf{KB Size} & \textbf{MRR} & \textbf{Hits@10} \\
+\midrule
+20,000 & 0.0511 & 0.1169 \\
+50,000 & 0.0695 & 0.1752 \\
+91,955 & 0.1620 & 0.3355 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Performance increases with KB size; small KBs produce unstable embeddings.
+
+\subsection{Embedding Analysis}
+
+\textbf{Nearest neighbors (ComplEx):} Entities of the same type (e.g.\ places in the Balkans) tend to cluster. Cultural heritage items with similar metadata appear as neighbors. Some overlap between classes (Thing/Place) because the model learns from triple co-occurrence, not ontology hierarchies.
+
+\textbf{t-SNE clustering:} 2D projection coloured by ontology class. Partial clustering; significant overlap between Place and Thing (many items linked via \texttt{dc:spatial}). The embedding captures some semantic structure but does not strictly separate classes.
+
+\textbf{Relation behaviour:} Symmetric relations (\texttt{dc:subject}, \texttt{dc:spatial}) challenge TransE; ComplEx handles them better. Inverse and composition relations: TransE requires $\mathbf{r}_{\mathrm{inv}}\approx-\mathbf{r}$; ComplEx uses complex space.
+
+\subsection{Rule-Based vs.\ Embedding-Based Reasoning}
+\label{sec:rule-vs-embedding}
+
+For the SWRL rule \texttt{hasSpatialContext} (Section~3.2), we check if the embedding captures similar composition: $\mathbf{r}_{\mathrm{spatial}} + \mathbf{c}_{\mathrm{Place}}$ vs.\ relation vectors. Closest relations: \texttt{dcterms:spatial}, \texttt{wdt:P19} (place of birth). The embedding encodes partial ``spatial + Place'' structure, but rule-based reasoning remains more precise and interpretable for explicit Horn rules.
+
+%=============================================================================
+\section{RAG over RDF/SPARQL}
+%=============================================================================
+
+\subsection{Setup}
+
+\textbf{Model:} \texttt{gemma:2b} via Ollama (REST API, \texttt{stream: false}). \textbf{Graph:} \texttt{livrable/kb\_expanded.nt} (109,721 triples). Predicates: \texttt{dcterms:spatial}, \texttt{dc:subject}, \texttt{dc:creator}, \texttt{edm:provider}, aligned Wikidata properties.
+
+\subsection{Schema Summary and NL$\rightarrow$SPARQL Prompt}
+
+We build a compact schema summary: (1)~8 PREFIX declarations (\texttt{dc}, \texttt{dcterms}, \texttt{edm}, \texttt{lh}, \texttt{rdf}, \texttt{rdfs}, \texttt{owl}, \texttt{xsd}); (2)~distinct predicates (up to 80); (3)~distinct classes (up to 40); (4)~sample triples (up to 20). The prompt includes the schema, the user question, and a concrete example for location questions (e.g.\ ``Which items are linked to Romania?'' using \texttt{dcterms:spatial} and \texttt{FILTER(REGEX(...))} for multilingual place names). The LLM is instructed to return only a valid SPARQL SELECT query in a fenced \texttt{sparql} block. We extract the query with a regex and strip schema lines if present.
+
+\subsection{Query Execution and Self-Repair}
+
+The query is executed via rdflib; common prefixes are pre-bound. If execution fails (syntax error, unknown prefix, incomplete query), we send the error back to the LLM with the original question, bad query, and schema. The repair prompt includes an example and instructs the model to add full \texttt{SELECT ... WHERE \{ ... \}}. One repair attempt; repeated failures suggest the question is too complex.
+
+\subsection{Evaluation: Baseline vs RAG}
+
+We evaluate five questions. For each: (1)~\textbf{LLM only}---direct answer (often hallucinated); (2)~\textbf{RAG}---SPARQL on KB, grounded results.
+
+\begin{table}[ht]
+\centering
+\caption{LLM only vs.\ RAG.}
+\small
+\begin{tabular}{@{}p{2.4cm}p{3cm}p{3.2cm}c@{}}
+\toprule
+\textbf{Question} & \textbf{LLM only} & \textbf{RAG} & \textbf{OK?} \\
+\midrule
+Which items are linked to Romania? &
+Hallucinated (Bran Castle, Danube\ldots) &
+2,130 Europeana URIs via \texttt{dcterms:spatial} &
+Yes \\
+What places are associated with Bucharest? &
+Invented places &
+Items linked to \texttt{lh:Bucharest} &
+Yes \\
+How many items have subject archaeology? &
+Approximate/false &
+Exact count via \texttt{dc:subject} &
+Yes \\
+What entity types exist in the KB? &
+Generic terms &
+Person, Place, Organization, Thing, Temporal &
+Yes \\
+What creators appear in the base? &
+Invented names &
+Real creators from KB &
+Yes \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+RAG yields grounded results; the baseline hallucinates for domain-specific questions.
+
+\begin{figure}[ht]
+\centering
+\fbox{\begin{minipage}{0.9\textwidth}
+\small
+\begin{verbatim}
+Question: Which items are linked to Romania?
+
+--- Baseline (No RAG) ---
+Romania has many cultural heritage items: Bran Castle, the Danube...
+
+--- SPARQL-generation RAG (Gemma 2B + rdflib) ---
+[SPARQL Query Used]
+SELECT ?item WHERE { ?item dcterms:spatial ?place .
+FILTER(REGEX(?place, "Romania|Roumanie|România")) }
+
+[Results] 2,130 Europeana item URIs linked to Romania
+
+Question: What places are associated with Bucharest?
+[Results] Items linked to lh:Bucharest via dcterms:spatial
+\end{verbatim}
+\end{minipage}}
+\caption{RAG demo: baseline vs.\ SPARQL-generation with two representative questions. See \texttt{screenshots/rag\_demo.svg} for full output.}
+\end{figure}
+
+%=============================================================================
+\section{Critical Reflection}
+%=============================================================================
+
+\textbf{KB quality impact.} Predicate alignment errors introduce semantic noise. Noisy expansion from Wikidata/Europeana can add contradictory triples; cleaning (literals, URI normalization) mitigates but does not eliminate this. Ontology modelling (fine-grained vs coarse types) influences graph structure; sparse type assertions limit embedding quality.
+
+\textbf{Noise issues.} Multilingual content (Dutch, German, Polish) causes NER errors; we use \texttt{FILTER\_ENTITIES}, \texttt{FILTER\_FRAGMENTS}, and language heuristics. Relation count is controlled by predicate whitelisting and consolidation.
+
+\textbf{Rule-based vs embedding-based.} SWRL is deterministic and interpretable; embeddings learn from observed triples and cannot infer facts requiring external knowledge. The open-world assumption of RDF contrasts with the closed-world behaviour of embeddings.
+
+\textbf{Improvements.} (1)~Federated SPARQL across DBpedia and Wikidata; (2)~DBpedia Spotlight for context-aware entity linking; (3)~NER/RE evaluation metrics; (4)~larger 2-hop expansion; (5)~integrating SWRL with the expanded KB in an OWL reasoner.
+
+%=============================================================================
+\section{Conclusion}
+%=============================================================================
+
+We implemented a complete pipeline from unstructured web data (Europeana API) to a structured KB aligned with Wikidata/DBpedia. Phase~1: transformer-based NER, dependency-based relation extraction. Phase~2: entity/predicate alignment, SPARQL expansion (1-hop, 2-hop, predicate-controlled), Europeana complement---109,721 triplets, 7,327 entities, 50 relations. Phase~3: SWRL on family.owl, KGE with TransE and ComplEx (MRR 0.53 with ComplEx). Phase~4: RAG with Ollama, NL$\rightarrow$SPARQL, self-repair, baseline vs RAG evaluation on five questions.
+
+%=============================================================================
+\section{References}
+%=============================================================================
+
+\begin{itemize}
+\item Europeana API: \url{https://pro.europeana.eu/page/search-api}
+\item EDM: \url{https://pro.europeana.eu/page/edm-documentation}
+\item Dublin Core: \url{https://dublincore.org/specifications/dublin-core/dcmi-terms/}
+\item Wikidata: \url{https://www.wikidata.org/}, \url{https://query.wikidata.org/}
+\item DBpedia: \url{https://www.dbpedia.org/}
+\item PyKEEN: Ali et al., JMLR 22, 2021. \url{https://github.com/pykeen/pykeen}
+\item OWLReady2: Lamy, Artificial Intelligence in Medicine 80, 2017. \url{https://owlready2.readthedocs.io/}
+\item TransE: Bordes et al., NeurIPS 2013. \url{https://papers.nips.cc/paper/5071-translating-embeddings-for-modeling-multi-relational-data}
+\item ComplEx: Trouillon et al., ICML 2016. \url{https://arxiv.org/abs/1606.06357}
+\item Pellet: \url{https://www.w3.org/2001/sw/wiki/Pellet}
+\item Ollama: \url{https://ollama.ai/}
+\end{itemize}
+
+\end{document}

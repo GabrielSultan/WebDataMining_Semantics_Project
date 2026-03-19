@@ -3,6 +3,6 @@
 
 
 # Project-specific (large/generated files - optional, uncomment if needed)
-# livrable/kb_expanded.nt
-# livrable/kge_splits/*.pkl
+# kg_artifacts/kb_expanded.nt
+# kg_artifacts/kge_splits/*.pkl
 # data/crawler_output.jsonl

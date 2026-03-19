@@ -1,0 +1,225 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix edm: <http://www.europeana.eu/schemas/edm/> .
+@prefix lh: <http://example.org/localhistory/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+
+lh:21e owl:sameAs <https://www.wikidata.org/entity/Q110089073> .
+
+lh:21st_century owl:sameAs <https://www.wikidata.org/entity/Q6939> .
+
+lh:Ancient_Greek owl:sameAs <https://www.wikidata.org/entity/Q35497> .
+
+lh:Apdzīvota owl:sameAs <https://www.wikidata.org/entity/Q486972> .
+
+lh:Armand_Călinescu owl:sameAs <https://www.wikidata.org/entity/Q439903> .
+
+lh:Aro_Modernoa owl:sameAs <https://www.wikidata.org/entity/Q5308718> .
+
+lh:Asentamiento owl:sameAs <https://www.wikidata.org/entity/Q486972> .
+
+lh:Asutus owl:sameAs <https://www.wikidata.org/entity/Q486972> .
+
+lh:Așezare owl:sameAs <https://www.wikidata.org/entity/Q43061312> .
+
+lh:Belgia owl:sameAs <https://www.wikidata.org/entity/Q166776> .
+
+lh:Biserica owl:sameAs <https://www.wikidata.org/entity/Q16970> .
+
+lh:Bronce owl:sameAs <https://www.wikidata.org/entity/Q34095> .
+
+lh:Bronze_Age owl:sameAs <https://www.wikidata.org/entity/Q11761> .
+
+lh:Bucareste owl:sameAs <https://www.wikidata.org/entity/Q19660> .
+
+lh:Bucureşti owl:sameAs <https://www.wikidata.org/entity/Q19660> .
+
+lh:București owl:sameAs <https://www.wikidata.org/entity/Q19660> .
+
+lh:CARARE owl:sameAs <https://www.wikidata.org/entity/Q107207056> .
+
+lh:Calea_Moșilor owl:sameAs <https://www.wikidata.org/entity/Q5019198> .
+
+lh:Comercial owl:sameAs <https://www.wikidata.org/entity/Q3813348> .
+
+lh:Comuna owl:sameAs <https://www.wikidata.org/entity/Q532> .
+
+lh:Cărămidarii_de_Jos owl:sameAs <https://www.wikidata.org/entity/Q12721824> .
+
+lh:Dimitrie_Cantemir owl:sameAs <https://www.wikidata.org/entity/Q159933> .
+
+lh:Edad_Moderna owl:sameAs <https://www.wikidata.org/entity/Q5308718> .
+
+lh:Egeïsche owl:sameAs <https://www.wikidata.org/entity/Q19067899> .
+
+lh:Gorj owl:sameAs <https://www.wikidata.org/entity/Q190406> .
+
+lh:Hallstatt owl:sameAs <https://www.wikidata.org/entity/Q131633> .
+
+lh:Haut_Moyen owl:sameAs <https://www.wikidata.org/entity/Q202763> .
+
+lh:Idade owl:sameAs <https://www.wikidata.org/entity/Q185836> .
+
+lh:Idade_Média owl:sameAs <https://www.wikidata.org/entity/Q12554> .
+
+lh:Județ owl:sameAs <https://www.wikidata.org/entity/Q1776764> .
+
+lh:Late_Antique owl:sameAs <https://www.wikidata.org/entity/Q217050> .
+
+lh:Localité owl:sameAs <https://www.wikidata.org/entity/Q486972> .
+
+lh:Medieval owl:sameAs <https://www.wikidata.org/entity/Q12554> .
+
+lh:Mesolithic_Human owl:sameAs <https://www.wikidata.org/entity/Q57890918> .
+
+lh:Miejscowość owl:sameAs <https://www.wikidata.org/entity/Q486972> .
+
+lh:Militari___Câmpul_Boja owl:sameAs <https://www.wikidata.org/entity/Q42758606> .
+
+lh:Municipiul_București owl:sameAs <https://www.wikidata.org/entity/Q19660> .
+
+lh:Musée owl:sameAs <https://www.wikidata.org/entity/Q23402> .
+
+lh:Muzeul_Municipiului owl:sameAs <https://www.wikidata.org/entity/Q12736096> .
+
+lh:Muzeul_Municipiului_București owl:sameAs <https://www.wikidata.org/entity/Q12736096> .
+
+lh:Média owl:sameAs <https://www.wikidata.org/entity/Q83> .
+
+lh:Naselje owl:sameAs <https://www.wikidata.org/entity/Q486972> .
+
+lh:Neolithisch owl:sameAs <https://www.wikidata.org/entity/Q36422> .
+
+lh:Neolítico owl:sameAs <https://www.wikidata.org/entity/Q36422> .
+
+lh:Neuzeit owl:sameAs <https://www.wikidata.org/entity/Q3281534> .
+
+lh:Paleolítico owl:sameAs <https://www.wikidata.org/entity/Q40203> .
+
+lh:Panait_I_Panait owl:sameAs <https://www.wikidata.org/entity/Q21065140> .
+
+lh:Paris owl:sameAs <https://www.wikidata.org/entity/Q90> .
+
+lh:París_París owl:sameAs <https://www.wikidata.org/entity/Q42291481> .
+
+lh:Peștișani owl:sameAs <https://www.wikidata.org/entity/Q16426644> .
+
+lh:Punct owl:sameAs <https://www.wikidata.org/entity/Q3171074> .
+
+lh:RAN owl:sameAs <https://www.wikidata.org/entity/Q194394> .
+
+lh:Romania owl:sameAs <https://www.wikidata.org/entity/Q218> .
+
+lh:Romeins owl:sameAs <https://www.wikidata.org/entity/Q85082707> .
+
+lh:România owl:sameAs <https://www.wikidata.org/entity/Q218> .
+
+lh:Roménia owl:sameAs <https://www.wikidata.org/entity/Q218> .
+
+lh:Romênia owl:sameAs <https://www.wikidata.org/entity/Q218> .
+
+lh:Roumania owl:sameAs <https://www.wikidata.org/entity/Q218> .
+
+lh:Rumania owl:sameAs <https://www.wikidata.org/entity/Q218> .
+
+lh:Rumunjska owl:sameAs <https://www.wikidata.org/entity/Q218> .
+
+lh:Secolul_al_XXI_lea owl:sameAs <https://www.wikidata.org/entity/Q6939> .
+
+lh:Secolul_al_XX_lea owl:sameAs <https://www.wikidata.org/entity/Q6927> .
+
+lh:Siedlung owl:sameAs <https://www.wikidata.org/entity/Q486972> .
+
+lh:Siglo_XXI owl:sameAs <https://www.wikidata.org/entity/Q6128174> .
+
+lh:Situl owl:sameAs <https://www.wikidata.org/entity/Q4913591> .
+
+lh:Străulești___Măicănești owl:sameAs <https://www.wikidata.org/entity/Q42758592> .
+
+lh:Século owl:sameAs <https://www.wikidata.org/entity/Q52034124> .
+
+lh:Sídelní owl:sameAs <https://www.wikidata.org/entity/Q486972> .
+
+lh:Sídlo owl:sameAs <https://www.wikidata.org/entity/Q486972> .
+
+lh:Település owl:sameAs <https://www.wikidata.org/entity/Q486972> .
+
+lh:Woonplaats owl:sameAs <https://www.wikidata.org/entity/Q1852859> .
+
+lh:XXI owl:sameAs <https://www.wikidata.org/entity/Q6939> .
+
+lh:XXI_wiek owl:sameAs <https://www.wikidata.org/entity/Q6939> .
+
+lh:build owl:equivalentProperty wdt:P170 .
+
+lh:casas owl:sameAs <https://www.wikidata.org/entity/Q16865417> .
+
+lh:choose owl:equivalentProperty wdt:P580 .
+
+lh:commission owl:equivalentProperty wdt:P170 .
+
+lh:complete owl:equivalentProperty wdt:P571 .
+
+lh:conquer owl:equivalentProperty wdt:P276 .
+
+lh:construct owl:equivalentProperty wdt:P170 .
+
+lh:crown owl:equivalentProperty wdt:P166 .
+
+lh:design owl:equivalentProperty wdt:P170 .
+
+lh:designate owl:equivalentProperty wdt:P31 .
+
+lh:establish owl:equivalentProperty wdt:P571 .
+
+lh:expand rdfs:subPropertyOf dcterms:modified .
+
+lh:flow owl:equivalentProperty wdt:P276 .
+
+lh:grow rdfs:subPropertyOf dcterms:modified .
+
+lh:imprison owl:equivalentProperty wdt:P276 .
+
+lh:locate owl:equivalentProperty wdt:P276 .
+
+lh:locatedIn owl:equivalentProperty wdt:P276 .
+
+lh:make owl:equivalentProperty wdt:P170 .
+
+lh:occupy owl:equivalentProperty wdt:P276 .
+
+lh:own rdfs:subPropertyOf edm:isShownAt .
+
+lh:paint owl:equivalentProperty wdt:P170 .
+
+lh:pledge owl:equivalentProperty wdt:P580 .
+
+lh:relatedTo owl:equivalentProperty dcterms:relation .
+
+lh:settle owl:equivalentProperty wdt:P276 .
+
+lh:sign owl:equivalentProperty wdt:P580 .
+
+lh:století owl:sameAs <https://www.wikidata.org/entity/Q2944360> .
+
+lh:storm owl:equivalentProperty wdt:P276 .
+
+lh:vieta owl:sameAs <https://www.wikidata.org/entity/Q2221906> .
+
+lh:Áit owl:sameAs <https://www.wikidata.org/entity/Q937529> .
+
+lh:århundrede owl:sameAs <https://www.wikidata.org/entity/Q578> .
+
+lh:νεότερη owl:sameAs <https://www.wikidata.org/entity/Q71533355> .
+
+lh:Населено owl:sameAs <https://www.wikidata.org/entity/Q486972> .
+
+lh:Населённый owl:sameAs <https://www.wikidata.org/entity/Q486972> .
+
+lh:Новое owl:sameAs <https://www.wikidata.org/entity/Q19887169> .
+
+lh:Република_Румъния owl:sameAs <https://www.wikidata.org/entity/Q218> .
+
+lh:Съвременна owl:sameAs <https://www.wikidata.org/entity/Q6495391> .
+

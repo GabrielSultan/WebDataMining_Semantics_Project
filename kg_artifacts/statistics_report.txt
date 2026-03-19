@@ -1,0 +1,6 @@
+Number of triplets: 109474
+Number of entities: 7310
+Number of relations: 50
+Connected components: 16
+Largest component size: 6904
+Isolated entities: 0

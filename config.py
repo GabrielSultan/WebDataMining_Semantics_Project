@@ -62,19 +62,19 @@ WIKIDATA_SPARQL_ENDPOINT = "https://query.wikidata.org/sparql"
 SPARQL_EXPANSION_LIMIT_PER_ENTITY = 1000  # 1-Hop: LIMIT per entity
 SPARQL_EXPANSION_MIN_CONFIDENCE = 0.85  # Only expand from confidently aligned entities
 
-# Output paths
+# Output paths (Grading Guide: kg_artifacts/)
 DATA_DIR = "data"
-LIVRABLE_DIR = "livrable"  # Fichiers à rendre (InstructionPhase2)
-os.makedirs(LIVRABLE_DIR, exist_ok=True)
+KG_ARTIFACTS_DIR = "kg_artifacts"
+os.makedirs(KG_ARTIFACTS_DIR, exist_ok=True)
 
 CRAWLER_OUTPUT = f"{DATA_DIR}/crawler_output.jsonl"
 EXTRACTED_KNOWLEDGE = f"{DATA_DIR}/extracted_knowledge.csv"
 EXTRACTED_TRIPLES = f"{DATA_DIR}/extracted_triples.csv"
 KB_INITIAL = f"{DATA_DIR}/kb_initial.ttl"
 
-# Livrables Phase 2 (dans livrable/)
-KB_EXPANDED = f"{LIVRABLE_DIR}/kb_expanded.nt"
-ONTOLOGY_FILE = f"{LIVRABLE_DIR}/ontology.ttl"
-ALIGNMENT_FILE = f"{LIVRABLE_DIR}/alignment.ttl"
-MAPPING_TABLE = f"{LIVRABLE_DIR}/mapping_table.csv"
-STATISTICS_REPORT = f"{LIVRABLE_DIR}/statistics_report.txt"
+# KB artifacts (Phase 2 deliverables)
+KB_EXPANDED = f"{KG_ARTIFACTS_DIR}/kb_expanded.nt"
+ONTOLOGY_FILE = f"{KG_ARTIFACTS_DIR}/ontology.ttl"
+ALIGNMENT_FILE = f"{KG_ARTIFACTS_DIR}/alignment.ttl"
+MAPPING_TABLE = f"{KG_ARTIFACTS_DIR}/mapping_table.csv"
+STATISTICS_REPORT = f"{KG_ARTIFACTS_DIR}/statistics_report.txt"
