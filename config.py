@@ -1,5 +1,5 @@
 """
-Configuration for the Web Mining and Semantics project.
+Set the static variables 
 Domain: Local History (monuments, historical figures, places).
 """
 
@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 # Load .env from project root so EUROPEANA_API_KEY is available
 load_dotenv(Path(__file__).resolve().parent / ".env")
 
-# Minimum word count for a page to be considered "useful" (Phase 1 requirement)
+# Minimum word count for a page to be considered useful
 MIN_WORD_COUNT = 500
 
 # For Phase 1 compliance: keep only "useful" pages with >= 500 words.
