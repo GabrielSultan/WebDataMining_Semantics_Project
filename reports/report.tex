@@ -118,10 +118,10 @@ Entity linking $\rightarrow$ subgraph extraction via SPARQL $\rightarrow$ merge.
 From \texttt{kg\_artifacts/statistics\_report.txt}:
 
 \begin{itemize}
-\item \textbf{Triplets:} 109,721
-\item \textbf{Entities:} 7,327
+\item \textbf{Triplets:} 109,474
+\item \textbf{Entities:} 7,310
 \item \textbf{Relations:} 50
-\item \textbf{Connected components:} 16; largest component: 6,922; isolated entities: 0
+\item \textbf{Connected components:} 16; largest component: 6,904; isolated entities: 0
 \end{itemize}
 
 These values satisfy the target (50k--200k triplets, 5k--30k entities, 50--200 relations). Europeana contributes substantially: without it, the volume would drop to $\sim$1,600 triplets. Predicate whitelisting and consolidation ensure the relation count stays within 50--200.
@@ -134,24 +134,24 @@ These values satisfy the target (50k--200k triplets, 5k--30k entities, 50--200 r
 \section{Reasoning (SWRL)}
 %=============================================================================
 
-\subsection{SWRL Rule on family.owl}
+\subsection{Reasoning on family.owl (SWRL intent, OWL~DL + HermiT)}
 
-We load \texttt{family.owl} and apply a SWRL rule: a person older than 60 years is an \texttt{oldPerson}. Implementation: OWLReady2 with Pellet reasoner (\texttt{sync\_reasoner\_pellet}). Rule: \texttt{Person(?p), age(?p, ?a), greaterThan(?a, 60) -> oldPerson(?p)}. \textbf{Result:} Peter (age~70) and Marie (age~69) are inferred as \texttt{oldPerson}.
+The pedagogical target is the SWRL rule: a person older than 60 is an \texttt{oldPerson}: \texttt{Person(?p), age(?p, ?a), greaterThan(?a, 60) -> oldPerson(?p)}. \textbf{HermiT} (default in OWLReady2's \texttt{sync\_reasoner}) does not support SWRL built-ins such as \texttt{greaterThan}; \textbf{Pellet} (\texttt{sync\_reasoner\_pellet}) would, but can fail on some Java versions bundled with OWLReady2. We therefore express the \textbf{same condition in OWL~DL}: \texttt{oldPerson} $\equiv$ \texttt{Person} $\sqcap$ $\exists$\texttt{age}.(\texttt{xsd:int}, minExclusive 60), then run \texttt{sync\_reasoner()} (HermiT). \textbf{Result:} Peter (age~70) and Marie (age~69) are inferred as \texttt{oldPerson}.
 
 \begin{figure}[ht]
 \centering
 \begin{tikzpicture}[
-  node distance=0.6cm,
-  box/.style={rectangle, draw, minimum width=2cm, minimum height=0.5cm, font=\small},
+  node distance=0.55cm,
+  box/.style={rectangle, draw, minimum width=1.85cm, minimum height=0.5cm, font=\small},
   arrow/.style={-Stealth}
 ]
   \node[box] (owl) {family.owl};
-  \node[box, right=of owl] (rule) {SWRL Rule};
-  \node[box, right=of rule] (pellet) {Pellet Reasoner};
+  \node[box, right=of owl] (rule) {OWL~DL axiom};
+  \node[box, right=of rule] (pellet) {HermiT};
   \node[box, right=of pellet] (inf) {Inferred Facts};
   \draw[arrow] (owl) -- (rule) -- (pellet) -- (inf);
 \end{tikzpicture}
-\caption{SWRL pipeline: ontology + rule $\rightarrow$ Pellet $\rightarrow$ inferred class memberships.}
+\caption{Reasoning pipeline: equivalent OWL~DL axiom (SWRL intent) $\rightarrow$ HermiT $\rightarrow$ inferred class memberships.}
 \end{figure}
 
 \subsection{One SWRL Rule on Our KB}
@@ -164,15 +164,15 @@ We design a conceptual SWRL rule for the expanded KB: \texttt{Thing(?x), type(?x
 
 \subsection{Data Preparation and Splits}
 
-Input: \texttt{kb\_expanded.nt} (109,721 triples). Cleaning: (1)~remove triples whose object is a literal; (2)~filter literal-heavy predicates (\texttt{dcterms:temporal}, \texttt{dc:language}, \texttt{dc:title}, etc.); (3)~normalize URIs (remove trailing slashes). After deduplication: 91,955 entity-relation-entity triples. Split: 80\% train, 10\% valid, 10\% test. Critical: no entity appears only in valid/test; orphan entities are moved to train. Final: 73,781 train, 9,060 valid, 9,114 test; 7,327 entities, 36 relations.
+Input: \texttt{kb\_expanded.nt} (109,474 triples). Cleaning: (1)~remove triples whose object is a literal; (2)~filter literal-heavy predicates (\texttt{dcterms:temporal}, \texttt{dc:language}, \texttt{dc:title}, etc.); (3)~normalize URIs (remove trailing slashes). After deduplication: 91,955 entity-relation-entity triples. Split: 80\% train, 10\% valid, 10\% test. Critical: no entity appears only in valid/test; orphan entities are moved to train. Final: 73,781 train, 9,060 valid, 9,114 test; 7,327 entities, 36 relations.
 
 \subsection{Models and Training}
 
-We use PyKEEN: \textbf{TransE} (translational: $\mathbf{h}+\mathbf{r}\approx\mathbf{t}$) and \textbf{ComplEx} (bilinear, complex-valued, handles asymmetric relations). Same hyperparameters: dim 100, lr 0.01, batch 256, 100 epochs, 10 negative samples.
+We use PyKEEN: \textbf{TransE} (translational: $\mathbf{h}+\mathbf{r}\approx\mathbf{t}$) and \textbf{ComplEx} (bilinear, complex-valued, handles asymmetric relations). Same hyperparameters: embedding dimension 100, learning rate 0.01, batch size 256, 100 epochs. \textbf{Negative sampling:} LCWA training with PyKEEN's default negative sampler and \texttt{num\_negs\_per\_pos=10} (see notebook).
 
 \subsection{Evaluation: Link Prediction}
 
-Filtered metrics (head and tail prediction). Results:
+Filtered metrics (head and tail prediction combined; MRR as inverse harmonic mean rank from PyKEEN \texttt{results.json}, \texttt{metrics.both.optimistic}). Results:
 
 \begin{table}[ht]
 \centering
@@ -181,13 +181,13 @@ Filtered metrics (head and tail prediction). Results:
 \toprule
 \textbf{Model} & \textbf{MRR} & \textbf{Hits@1} & \textbf{Hits@3} & \textbf{Hits@10} \\
 \midrule
-TransE  & 0.1787 & 0.0976 & 0.2013 & 0.3286 \\
-ComplEx & 0.5307 & 0.4626 & 0.5621 & 0.6624 \\
+TransE  & 0.1843 & 0.0973 & 0.2106 & 0.3443 \\
+ComplEx & 0.5254 & 0.4531 & 0.5632 & 0.6631 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-ComplEx outperforms TransE (MRR 0.53 vs 0.18). TransE struggles with symmetric and complex relations; ComplEx handles them better.
+ComplEx outperforms TransE (MRR 0.525 vs 0.184). TransE struggles with symmetric and complex relations; ComplEx handles them better.
 
 \subsection{KB Size Sensitivity}
 
@@ -202,12 +202,12 @@ TransE on 20k, 50k, and full 91,955 triples:
 \midrule
 20,000 & 0.0511 & 0.1169 \\
 50,000 & 0.0695 & 0.1752 \\
-91,955 & 0.1620 & 0.3355 \\
+91,955 & 0.1843 & 0.3443 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-Performance increases with KB size; small KBs produce unstable embeddings.
+The row for 91,955 triples matches \texttt{kg\_artifacts/kge\_splits/transe\_result/results.json} (\texttt{metrics.both.optimistic}). Subsample rows are from separate training runs in the notebook. Performance increases with KB size; small KBs produce unstable embeddings.
 
 \subsection{Embedding Analysis}
 
@@ -217,7 +217,7 @@ Performance increases with KB size; small KBs produce unstable embeddings.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[width=0.95\textwidth]{../screenshots/t-NSE.png}
+\includegraphics[width=0.95\textwidth]{../screenshots/t-SNE.png}
 \caption{t-SNE visualization of entity embeddings colored by ontology class (Thing, Place, Person, Unknown, Organization).}
 \label{fig:entity-embeddings-tsne}
 \end{figure}
@@ -235,7 +235,7 @@ For the SWRL rule \texttt{hasSpatialContext} (Section~3.2), we check if the embe
 
 \subsection{Setup}
 
-\textbf{Model:} \texttt{gemma:2b} via Ollama (REST API, \texttt{stream: false}). \textbf{Graph:} \texttt{kg\_artifacts/kb\_expanded.nt} (109,721 triples). Predicates: \texttt{dcterms:spatial}, \texttt{dc:subject}, \texttt{dc:creator}, \texttt{edm:provider}, aligned Wikidata properties.
+\textbf{Model:} \texttt{gemma:2b} via Ollama (REST API, \texttt{stream: false}). \textbf{Graph:} \texttt{kg\_artifacts/kb\_expanded.nt} (109,474 triples). Predicates: \texttt{dcterms:spatial}, \texttt{dc:subject}, \texttt{dc:creator}, \texttt{edm:provider}, aligned Wikidata properties.
 
 \subsection{Schema Summary and NL$\rightarrow$SPARQL Prompt}
 
@@ -308,7 +308,7 @@ RAG yields grounded results; the baseline hallucinates for domain-specific quest
 \section{Conclusion}
 %=============================================================================
 
-We implemented a complete pipeline from unstructured web data (Europeana API) to a structured KB aligned with Wikidata/DBpedia. Phase~1: transformer-based NER, dependency-based relation extraction. Phase~2: entity/predicate alignment, SPARQL expansion (1-hop, 2-hop, predicate-controlled), Europeana complement---109,721 triplets, 7,327 entities, 50 relations. Phase~3: SWRL on family.owl, KGE with TransE and ComplEx (MRR 0.53 with ComplEx). Phase~4: RAG with Ollama, NL$\rightarrow$SPARQL, self-repair, baseline vs RAG evaluation on five questions.
+We implemented a complete pipeline from unstructured web data (Europeana API) to a structured KB aligned with Wikidata/DBpedia. Phase~1: transformer-based NER, dependency-based relation extraction. Phase~2: entity/predicate alignment, SPARQL expansion (1-hop, 2-hop, predicate-controlled), Europeana complement---109,474 triplets, 7,310 entities, 50 relations. Phase~3: OWL~DL + HermiT on \texttt{family.owl} (equivalent to the targeted SWRL rule), KGE with TransE and ComplEx (MRR 0.525 with ComplEx on the saved PyKEEN run). Phase~4: RAG with Ollama, NL$\rightarrow$SPARQL, self-repair, baseline vs RAG evaluation on five questions.
 
 %=============================================================================
 \section{References}

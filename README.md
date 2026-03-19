@@ -60,6 +60,18 @@ IMPORTANT: I have provided my own API key (it is free, so I have no issue sharin
    ollama pull gemma:2b
    ```
 
+5. **Jupyter** (Phase 3 notebook): e.g. `pip install jupyter` or use VS Code’s Jupyter extension.
+
+### After a fresh `git clone` (large / ignored files)
+
+Some generated assets are listed in `.gitignore` and may be missing locally (e.g. `kg_artifacts/kb_expanded.nt`, `data/crawler_output.jsonl`). **Regenerate them** with a valid `EUROPEANA_API_KEY`:
+
+```bash
+python run_pipeline.py
+```
+
+Then open and run `src/kge/phase3_knowledge_reasoning.ipynb`. If you need the expanded KB without running the full pipeline, add your own copy of `kb_expanded.nt` under `kg_artifacts/` (or host a download link in your report / release, per course instructions).
+
 ## Hardware requirements
 
 - **RAM:** ≥ 8 GB recommended
