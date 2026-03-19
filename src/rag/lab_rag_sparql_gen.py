@@ -172,6 +172,7 @@ def build_schema_summary(g: Graph) -> str:
 SPARQL_INSTRUCTIONS = """
 You are a SPARQL generator. Convert the user QUESTION into a valid SPARQL 1.1 SELECT query.
 CRITICAL: Your response MUST include a complete query: PREFIX (only dc, dcterms, lh) + SELECT + WHERE {{ ... }}.
+The local-history namespace is PREFIX lh: <http://example.org/localhistory/> — use exactly the prefix lh:, never rh: or localhistory:.
 Example for "Which items are linked to Romania?":
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX lh: <http://example.org/localhistory/>
@@ -214,6 +215,19 @@ def _strip_schema_from_query(content: str) -> str:
     return "\n".join(kept).strip()
 
 
+def normalize_lh_prefix(query: str) -> str:
+    """Force local-history namespace to lh: (models sometimes emit rh: by typo)."""
+    uri = GRAPH_PREFIXES["lh"]
+    uri_esc = re.escape(uri)
+    query = re.sub(
+        rf"PREFIX\s+rh:\s*<\s*{uri_esc}\s*>",
+        f"PREFIX lh: <{uri}>",
+        query,
+        flags=re.IGNORECASE,
+    )
+    return re.sub(r"\brh:", "lh:", query, flags=re.IGNORECASE)
+
+
 def extract_sparql_from_text(text: str) -> str:
     """Extract the first code block content; fallback to whole text.
     Strips any schema summary the LLM may have mistakenly included."""
@@ -222,7 +236,7 @@ def extract_sparql_from_text(text: str) -> str:
         content = m.group(1).strip()
     else:
         content = text.strip()
-    return _strip_schema_from_query(content)
+    return normalize_lh_prefix(_strip_schema_from_query(content))
 
 
 def generate_sparql(question: str, schema_summary: str) -> str:
@@ -246,8 +260,10 @@ def run_sparql(g: Graph, query: str) -> Tuple[List[str], List[Tuple]]:
 REPAIR_INSTRUCTIONS = """
 Return a COMPLETE corrected query (PREFIX + SELECT + WHERE).
 If the error says "found end of text" or "Expected SelectQuery", the query was INCOMPLETE — you MUST add the full SELECT ... WHERE {{ ... }}.
+Local-history resources use PREFIX lh: <http://example.org/localhistory/> only — never rh:.
 Example for "items linked to Romania":
 PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX lh: <http://example.org/localhistory/>
 SELECT ?item WHERE {{ ?item dcterms:spatial ?place . FILTER(REGEX(STR(?place), "Romania|Roumanie|Roménia|Romunija|Rumunija|Errumania", "i")) }}
 - Use dcterms:spatial for locations. Do NOT use wdt:. Return ONLY the SPARQL in a ```sparql code block.
 """
