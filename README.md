@@ -131,6 +131,6 @@ You can also see it as a PDF on DVL.
 
 ## Screenshot
 
-RAG demo (output / UI illustration) — image synchronisée depuis `C:\Users\sulta\OneDrive\Bureau\Rag_example.png` :
+RAG demo (output / UI illustration). 
 
-![RAG Demo](screenshots/Rag_example.png)
+![RAG Demo](./screenshots/Rag_example.png)
