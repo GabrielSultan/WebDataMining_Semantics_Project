@@ -213,7 +213,14 @@ Performance increases with KB size; small KBs produce unstable embeddings.
 
 \textbf{Nearest neighbors (ComplEx):} Entities of the same type (e.g.\ places in the Balkans) tend to cluster. Cultural heritage items with similar metadata appear as neighbors. Some overlap between classes (Thing/Place) because the model learns from triple co-occurrence, not ontology hierarchies.
 
-\textbf{t-SNE clustering:} 2D projection coloured by ontology class. Partial clustering; significant overlap between Place and Thing (many items linked via \texttt{dc:spatial}). The embedding captures some semantic structure but does not strictly separate classes.
+\textbf{t-SNE clustering:} 2D projection coloured by ontology class (Figure~\ref{fig:entity-embeddings-tsne}). Partial clustering; significant overlap between Place and Thing (many items linked via \texttt{dc:spatial}). The embedding captures some semantic structure but does not strictly separate classes.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.95\textwidth]{../screenshots/t-NSE.png}
+\caption{t-SNE visualization of entity embeddings colored by ontology class (Thing, Place, Person, Unknown, Organization).}
+\label{fig:entity-embeddings-tsne}
+\end{figure}
 
 \textbf{Relation behaviour:} Symmetric relations (\texttt{dc:subject}, \texttt{dc:spatial}) challenge TransE; ComplEx handles them better. Inverse and composition relations: TransE requires $\mathbf{r}_{\mathrm{inv}}\approx-\mathbf{r}$; ComplEx uses complex space.
 
@@ -278,26 +285,11 @@ RAG yields grounded results; the baseline hallucinates for domain-specific quest
 
 \begin{figure}[ht]
 \centering
-\fbox{\begin{minipage}{0.9\textwidth}
-\small
-\begin{verbatim}
-Question: Which items are linked to Romania?
-
---- Baseline (No RAG) ---
-Romania has many cultural heritage items: Bran Castle, the Danube...
-
---- SPARQL-generation RAG (Gemma 2B + rdflib) ---
-[SPARQL Query Used]
-SELECT ?item WHERE { ?item dcterms:spatial ?place .
-FILTER(REGEX(?place, "Romania|Roumanie|România")) }
-
-[Results] 2,130 Europeana item URIs linked to Romania
-
-Question: What places are associated with Bucharest?
-[Results] Items linked to lh:Bucharest via dcterms:spatial
-\end{verbatim}
-\end{minipage}}
-\caption{RAG demo: baseline vs.\ SPARQL-generation with two representative questions. See \texttt{screenshots/rag\_demo.svg} for full output.}
+% Portable (repo copy): compiled from \texttt{reports/} with \texttt{pdflatex report.tex}
+\includegraphics[width=0.95\textwidth]{../screenshots/Rag_example.png}
+% Local one-off: uncomment and comment the line above if you prefer the file on Desktop
+% \includegraphics[width=0.95\textwidth]{C:/Users/sulta/OneDrive/Bureau/Rag_example.png}
+\caption{RAG demo: screenshot of baseline vs.\ SPARQL-generation output (source: \texttt{Rag\_example.png} on the project Desktop folder, copied to \texttt{screenshots/} for the PDF build).}
 \end{figure}
 
 %=============================================================================

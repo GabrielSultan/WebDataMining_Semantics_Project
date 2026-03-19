@@ -2,7 +2,7 @@
 .env.local
 
 
-# Project-specific (large/generated files - optional, uncomment if needed)
-# kg_artifacts/kb_expanded.nt
-# kg_artifacts/kge_splits/*.pkl
-# data/crawler_output.jsonl
+Project-specific (large/generated files - optional, uncomment if needed)
+kg_artifacts/kb_expanded.nt
+kg_artifacts/kge_splits/*.pkl
+data/crawler_output.jsonl
