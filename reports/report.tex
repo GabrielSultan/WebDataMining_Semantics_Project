@@ -109,7 +109,7 @@ Entity linking $\rightarrow$ subgraph extraction via SPARQL $\rightarrow$ merge.
 
 \subsection{Final KB Statistics}
 
-From \texttt{livrable/statistics\_report.txt}:
+From \texttt{kg\_artifacts/statistics\_report.txt}:
 
 \begin{itemize}
 \item \textbf{Triplets:} 109,721
@@ -222,7 +222,7 @@ For the SWRL rule \texttt{hasSpatialContext} (Section~3.2), we check if the embe
 
 \subsection{Setup}
 
-\textbf{Model:} \texttt{gemma:2b} via Ollama (REST API, \texttt{stream: false}). \textbf{Graph:} \texttt{livrable/kb\_expanded.nt} (109,721 triples). Predicates: \texttt{dcterms:spatial}, \texttt{dc:subject}, \texttt{dc:creator}, \texttt{edm:provider}, aligned Wikidata properties.
+\textbf{Model:} \texttt{gemma:2b} via Ollama (REST API, \texttt{stream: false}). \textbf{Graph:} \texttt{kg\_artifacts/kb\_expanded.nt} (109,721 triples). Predicates: \texttt{dcterms:spatial}, \texttt{dc:subject}, \texttt{dc:creator}, \texttt{edm:provider}, aligned Wikidata properties.
 
 \subsection{Schema Summary and NL$\rightarrow$SPARQL Prompt}
 
