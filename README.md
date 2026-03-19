@@ -78,7 +78,7 @@ Run commands from the **repository root** (`project-root/`).
 | **Build KB** | Phase 2: initial KB (TTL) | `python src/kg/phase2_build_kb.py` |
 | **Entity linking** | Phase 2: link entities | `python src/kg/phase2_entity_linking.py` |
 | **Predicate alignment** | Phase 2: align predicates | `python src/kg/phase2_predicate_alignment.py` |
-| **KB expansion** | Phase 2: expand KB (SPARQL / options) | `python src/kg/phase2_expand_kb.py` — options: `--quick` (500 records, skip SPARQL), `--no-sparql`, `--target N` |
+| **KB expansion** | Phase 2: expand KB (SPARQL / options) | `python src/kg/phase2_expand_kb.py` — option: `--quick` (500 records, skip SPARQL) |
 | **Knowledge reasoning** | Phase 3: SWRL + KGE notebook | Open and run all cells in `src/kge/phase3_knowledge_reasoning.ipynb` (Jupyter or VS Code) |
 | **RAG** | Phase 4: RAG with SPARQL-backed generation | See [How to run the RAG demo](#how-to-run-the-rag-demo) below |
 | **Full pipeline** | Phases 1–2 end-to-end | `python run_pipeline.py` |
@@ -116,13 +116,16 @@ Expanded KB: `kg_artifacts/kb_expanded.nt`
 | `alignment.ttl` | Entity and predicate alignments |
 | `mapping_table.csv` | Private entity → Wikidata URI mapping |
 | `statistics_report.txt` | KB statistics |
+| `kge_splits/train.txt` | KGE training split (triples) |
+| `kge_splits/valid.txt` | KGE validation split (triples) |
+| `kge_splits/test.txt` | KGE test split (triples) |
 
 ## Report
 
 ```bash
 cd reports && pdflatex report.tex
 ```
-You can aslo see it as a .pdf file on DVL.
+You can also see it as a PDF on DVL.
 
 ## Screenshot
 

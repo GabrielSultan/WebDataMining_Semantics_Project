@@ -303,9 +303,7 @@ def extract_triples_from_record(item: dict, g: Graph) -> None:
 
 def main():
     parser = argparse.ArgumentParser(description="Expand KB via SPARQL (Wikidata) + Europeana")
-    parser.add_argument("--target", type=int, default=None, help="Target Europeana records (default: from config)")
     parser.add_argument("--quick", action="store_true", help="Quick test: 500 records only, skip SPARQL")
-    parser.add_argument("--no-sparql", action="store_true", help="Skip SPARQL expansion (Europeana only)")
     args = parser.parse_args()
 
     g = Graph()
@@ -321,7 +319,7 @@ def main():
         g.add((s, p, o))
 
     # 1. SPARQL expansion on Wikidata (per InstructionPhase2)
-    if expand_via_sparql and not args.no_sparql and not args.quick:
+    if expand_via_sparql and not args.quick:
         print("Step 1: SPARQL 1-Hop expansion on Wikidata...")
         g_sparql = expand_via_sparql()
         for s, p, o in g_sparql:
@@ -336,7 +334,7 @@ def main():
             config, "EUROPEANA_EXPANSION_QUERIES",
             config.EUROPEANA_QUERIES + ["Paris", "France", "monument", "museum"],
         )
-        target = args.target or getattr(config, "EUROPEANA_EXPANSION_TARGET_RECORDS", 700)
+        target = getattr(config, "EUROPEANA_EXPANSION_TARGET_RECORDS", 700)
         if args.quick:
             target = 500
         print(f"Step 2: Europeana complement (target {target} records, max {max_triples} triplets)...")
