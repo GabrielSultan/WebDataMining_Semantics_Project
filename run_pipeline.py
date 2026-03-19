@@ -1,8 +1,12 @@
 """
-Run the full Web Mining and Semantics pipeline.
+Run the full Web Mining and Semantics pipeline (Phase 1 + Phase 2).
+
 Phase 1: Europeana API (requires EUROPEANA_API_KEY).
-Phase 2: Entity linking (Wikidata only for alignment), predicate alignment (SPARQL),
+Phase 2: Entity linking (Wikidata), predicate alignment (SPARQL),
          KB expansion (SPARQL 1-Hop on Wikidata + Europeana complement).
+
+Phase 3 (SWRL + KGE): run TD5/phase3_knowledge_reasoning.ipynb
+Phase 4 (RAG): run TD6/lab_rag_sparql_gen.py (requires Ollama)
 """
 
 import subprocess

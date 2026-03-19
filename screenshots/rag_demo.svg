@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="Consolas, Monaco, monospace" font-size="12">
+  <rect width="800" height="450" fill="#1e1e1e" rx="4"/>
+  <rect x="8" y="8" width="784" height="28" fill="#2d2d2d" rx="2"/>
+  <circle cx="20" cy="22" r="5" fill="#ff5f56"/>
+  <circle cx="40" cy="22" r="5" fill="#ffbd2e"/>
+  <circle cx="60" cy="22" r="5" fill="#27c93f"/>
+  <text x="100" y="24" fill="#888">RAG Demo - lab_rag_sparql_gen.py</text>
+  <text x="20" y="55" fill="#4ec9b0">Question (or 'quit'):</text>
+  <text x="20" y="75" fill="#d4d4d4">Which items are linked to Romania?</text>
+  <text x="20" y="100" fill="#569cd6">--- Baseline (No RAG) ---</text>
+  <text x="20" y="120" fill="#ce9178">Romania has many cultural heritage items: Bran Castle, the Danube Delta...</text>
+  <text x="20" y="145" fill="#569cd6">--- SPARQL-generation RAG (Gemma 2B + rdflib) ---</text>
+  <text x="20" y="165" fill="#9cdcfe">[SPARQL Query Used]</text>
+  <text x="20" y="185" fill="#6a9955">SELECT ?item WHERE { ?item dcterms:spatial ?place .</text>
+  <text x="20" y="200" fill="#6a9955">  FILTER(REGEX(?place, "Romania|Roumanie|România")) }</text>
+  <text x="20" y="225" fill="#9cdcfe">[Results]</text>
+  <text x="20" y="245" fill="#d4d4d4">item</text>
+  <text x="20" y="265" fill="#d4d4d4">https://www.europeana.eu/item/1442/Cronica_1021</text>
+  <text x="20" y="280" fill="#d4d4d4">https://www.europeana.eu/item/1442/Cronica_1132</text>
+  <text x="20" y="300" fill="#808080">... (showing 20 of 2130)</text>
+  <text x="20" y="330" fill="#4ec9b0">Question (or 'quit'):</text>
+  <text x="20" y="350" fill="#d4d4d4">What places are associated with Bucharest?</text>
+  <text x="20" y="375" fill="#569cd6">--- SPARQL-generation RAG ---</text>
+  <text x="20" y="395" fill="#9cdcfe">[Results]</text>
+  <text x="20" y="415" fill="#d4d4d4">place | item</text>
+  <text x="20" y="435" fill="#808080">lh:Bucharest | https://www.europeana.eu/item/...</text>
+</svg>

@@ -2,6 +2,14 @@
 
 Domain: **Local History** (monuments, historical figures, places)
 
+## Seed URLs / Data Sources (Phase 1)
+
+Per Phase 1 instructions (5–10 seed URLs): we use the **Europeana Search API** with the following queries as equivalent "seeds" (API avoids anti-robot blocking):
+
+- `Paris history`, `Notre-Dame Paris`, `Eiffel Tower`, `Louvre Museum`, `Palace of Versailles`, `Arc de Triomphe Paris`, `Bastille Paris`, `Sainte-Chapelle Paris`
+
+Each query returns multiple records; items with ≥500 words are kept. See `config.py` for `EUROPEANA_QUERIES` and `EUROPEANA_EXPANSION_QUERIES`.
+
 ## Setup
 
 ```bash
@@ -17,6 +25,14 @@ python -m spacy download en_core_web_sm
 **Europeana API key** (recommended for Phase 1 - avoids anti-robot blocking):
 1. Get a free key at https://pro.europeana.eu/page/get-api
 2. Set the environment variable: `set EUROPEANA_API_KEY=your_key` (Windows) or `export EUROPEANA_API_KEY=your_key` (Linux/Mac)
+
+**Ollama** (Phase 4 - RAG): Install from https://ollama.ai/ and run `ollama run gemma:2b` before the RAG demo.
+
+### Hardware requirements
+
+- **RAM**: ≥8 GB (KB ~110k triples loads in memory; KGE training benefits from more RAM)
+- **Disk**: ~2 GB for models (spaCy `en_core_web_trf` ~500 MB, Gemma 2B ~1.5 GB)
+- **Phase 3 (KGE)**: CPU sufficient; GPU optional for faster training
 
 ## Pipeline
 
@@ -98,6 +114,12 @@ Les fichiers à rendre (InstructionPhase2) sont dans **`livrable/`** :
 | `data/extracted_knowledge.csv` | Entities (entity, type, source_url) |
 | `data/extracted_triples.csv` | Subject-predicate-object triples |
 | `data/kb_initial.ttl` | Initial RDF KB |
+
+## Screenshot
+
+![RAG Demo](screenshots/rag_demo.svg)
+
+*RAG demo: natural language question → SPARQL generation → grounded results from the KB. Run `ollama run gemma:2b` then `python TD6/lab_rag_sparql_gen.py` to reproduce.*
 
 ## Report
 

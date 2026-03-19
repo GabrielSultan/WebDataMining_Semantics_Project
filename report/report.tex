@@ -394,11 +394,34 @@
   \end{tabular}
   \end{table}
 
-  \textbf{Screenshots.} Figure~\ref{fig:rag_screenshot} shows the script running with two representative examples: ``Which items are linked to Romania?'' and a second question. The CLI displays the baseline answer, then the SPARQL query used, the repaired flag, and the result rows (up to 20 shown, with total count).
+  \textbf{Screenshots.} Figure~\ref{fig:rag_screenshot} shows the script running with two representative examples: ``Which items are linked to Romania?'' and ``What places are associated with Bucharest?''. The CLI displays the baseline answer, then the SPARQL query used, and the result rows (up to 20 shown, with total count).
 
   \begin{figure}[ht]
   \centering
-  \fbox{\parbox{0.9\textwidth}{\centering\vspace{2cm}\textit{[Screenshot: \texttt{python TD6/lab\_rag\_sparql\_gen.py} with questions ``Which items are linked to Romania?'' and ``What places are associated with Bucharest?'' showing baseline output, SPARQL query, and result rows.]}\vspace{2cm}}}
+  \fbox{\begin{minipage}{0.9\textwidth}
+  \small
+  \begin{verbatim}
+Question (or 'quit'): Which items are linked to Romania?
+
+--- Baseline (No RAG) ---
+Romania has many cultural heritage items: Bran Castle, the Danube...
+
+--- SPARQL-generation RAG (Gemma 2B + rdflib) ---
+[SPARQL Query Used]
+SELECT ?item WHERE { ?item dcterms:spatial ?place .
+  FILTER(REGEX(?place, "Romania|Roumanie|România")) }
+
+[Results]
+item
+https://www.europeana.eu/item/1442/Cronica_1021
+https://www.europeana.eu/item/1442/Cronica_1132
+... (showing 20 of 2130)
+
+Question (or 'quit'): What places are associated with Bucharest?
+[Results] place | item
+lh:Bucharest | https://www.europeana.eu/item/...
+  \end{verbatim}
+  \end{minipage}}
   \caption{Running the RAG script: baseline vs.\ SPARQL-generation with two representative questions.}
   \label{fig:rag_screenshot}
   \end{figure}

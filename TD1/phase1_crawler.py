@@ -172,8 +172,9 @@ def main():
         print("Fetching from Europeana API...")
         results = fetch_europeana_via_api()
         for r in results:
-            t = (r['title'][:50] or "").encode("ascii", errors="replace").decode("ascii")
-            print(f"Saved: {t}... ({r['word_count']} words)")
+            title_preview = (r.get("title") or "Untitled")[:50]
+            title_safe = title_preview.encode("ascii", errors="replace").decode("ascii")
+            print(f"Saved: {title_safe}... ({r['word_count']} words)")
 
     if not results:
         if not config.EUROPEANA_API_KEY:
