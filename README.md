@@ -2,7 +2,9 @@
 
 Domain: **Local History** (monuments, historical figures, places)
 
-Project structure (per Grading Guide):
+This document includes **project structure**, **installation**, **hardware requirements**, **how to run each module**, **how to run the RAG demo**, and a **screenshot**.
+
+## Project structure 
 
 ```
 project-root/
@@ -38,91 +40,74 @@ project-root/
 └─ LICENSE
 ```
 
-## Seed URLs / Data Sources (Phase 1)
+## Installation
+
+1. **Python dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+2. **spaCy model** (used in Phase 1 extraction)
+   ```bash
+   python -m spacy download en_core_web_trf
+   ```
+   If `en_core_web_trf` is too large (~500 MB), use: `python -m spacy download en_core_web_sm`
+
+3. **Europeana API key**: request a free key at [Europeana Pro API](https://pro.europeana.eu/page/get-api), then set `EUROPEANA_API_KEY` in a `.env` file or in your environment (see project `config` / crawler).
+IMPORTANT: I have provided my own API key (it is free, so I have no issue sharing it). You will find it in a .txt file placed on DVL.
+
+4. **Ollama** (RAG demo, Phase 4): install from [ollama.ai](https://ollama.ai/), then pull the model used by the demo:
+   ```bash
+   ollama pull gemma:2b
+   ```
+
+## Hardware requirements
+
+- **RAM:** ≥ 8 GB recommended
+- **Disk:** ~2 GB for models (spaCy transformer ~500 MB, Gemma 2B ~1.5 GB)
+- **Phase 3 (KGE / notebook):** CPU is sufficient; GPU optional for faster training
+
+## How to run each module
+
+(For the TD1 and TD4, I recommand you to run the full pipeline script directly)
+Run commands from the **repository root** (`project-root/`).
+
+| Module | What it does | Command |
+|--------|----------------|--------|
+| **Crawl** | Phase 1: fetch documents (Europeana) | `python src/crawl/phase1_crawler.py` |
+| **IE** | Phase 1: NER + relation extraction → CSV / JSONL under `data/` | `python src/ie/phase1_extraction.py` |
+| **Build KB** | Phase 2: initial KB (TTL) | `python src/kg/phase2_build_kb.py` |
+| **Entity linking** | Phase 2: link entities | `python src/kg/phase2_entity_linking.py` |
+| **Predicate alignment** | Phase 2: align predicates | `python src/kg/phase2_predicate_alignment.py` |
+| **KB expansion** | Phase 2: expand KB (SPARQL / options) | `python src/kg/phase2_expand_kb.py` — options: `--quick` (500 records, skip SPARQL), `--no-sparql`, `--target N` |
+| **Knowledge reasoning** | Phase 3: SWRL + KGE notebook | Open and run all cells in `src/kge/phase3_knowledge_reasoning.ipynb` (Jupyter or VS Code) |
+| **RAG** | Phase 4: RAG with SPARQL-backed generation | See [How to run the RAG demo](#how-to-run-the-rag-demo) below |
+| **Full pipeline** | Phases 1–2 end-to-end | `python run_pipeline.py` |
+
+### Seed URLs / data sources (Phase 1)
 
 We use the **Europeana Search API** with queries: `Paris history`, `Notre-Dame Paris`, `Eiffel Tower`, `Louvre Museum`, `Palace of Versailles`, `Arc de Triomphe Paris`, `Bastille Paris`, `Sainte-Chapelle Paris`. Items with ≥500 words are kept.
 
-## Setup
+## How to run the RAG demo
 
-```bash
-pip install -r requirements.txt
-python -m spacy download en_core_web_trf
-```
-
-If `en_core_web_trf` is too large (~500MB), use: `python -m spacy download en_core_web_sm`
-
-**Europeana API key:** Get a free key at https://pro.europeana.eu/page/get-api and set `EUROPEANA_API_KEY` in `.env` or environment.
-
-**Ollama** (Phase 4 - RAG): Install from https://ollama.ai/ and run `ollama run gemma:2b` before the RAG demo.
-
-### Hardware requirements
-
-- **RAM**: ≥8 GB
-- **Disk**: ~2 GB for models (spaCy ~500 MB, Gemma 2B ~1.5 GB)
-- **Phase 3 (KGE)**: CPU sufficient; GPU optional
-
-## Pipeline
-
-### Phase 1
-
-1. **Crawling:**
+1. **Install Ollama** and ensure the **`gemma:2b`** model is available (see [Installation](#installation)).
+2. **Start the Ollama server** (if it is not already running as a background service).
+3. **Run the Gemma model** in a terminal so inference is ready (or use your usual Ollama workflow):
    ```bash
-   python src/crawl/phase1_crawler.py
+   ollama run gemma:2b
    ```
-
-2. **Extraction (NER + relations):**
+   Leave Ollama running; in **another** terminal, from the repo root:
+4. **Launch the RAG script:**
    ```bash
-   python src/ie/phase1_extraction.py
-   ```
-
-### Phase 2
-
-3. **Build initial KB:**
-   ```bash
-   python src/kg/phase2_build_kb.py
-   ```
-
-4. **Entity linking:**
-   ```bash
-   python src/kg/phase2_entity_linking.py
-   ```
-
-5. **Predicate alignment:**
-   ```bash
-   python src/kg/phase2_predicate_alignment.py
-   ```
-
-6. **KB expansion:**
-   ```bash
-   python src/kg/phase2_expand_kb.py
-   ```
-   Options: `--quick` (500 records, skip SPARQL), `--no-sparql`, `--target N`
-
-### Phase 3
-
-7. **Knowledge Reasoning (SWRL + KGE):**
-   Open and run `src/kge/phase3_knowledge_reasoning.ipynb` (Jupyter or VS Code).
-
-### Phase 4
-
-8. **RAG with Knowledge Graphs:**
-   ```bash
-   ollama run gemma:2b   # Start Ollama first
    python src/rag/lab_rag_sparql_gen.py
    ```
-
-## Run full pipeline (Phase 1 + 2)
-
-```bash
-python run_pipeline.py
-```
+   Follow the script’s prompts. Ensure KB / SPARQL-related paths expected by `src/rag/` match your local `kg_artifacts/` (see `src/rag/README.md` if present).
 
 ## Statistics
 
 Statistics: `kg_artifacts/statistics_report.txt`  
 Expanded KB: `kg_artifacts/kb_expanded.nt`
 
-## Livrables (kg_artifacts/)
+## Livrables (`kg_artifacts/`)
 
 | File | Description |
 |------|-------------|
@@ -137,7 +122,10 @@ Expanded KB: `kg_artifacts/kb_expanded.nt`
 ```bash
 cd reports && pdflatex report.tex
 ```
+You can aslo see it as a .pdf file on DVL.
 
 ## Screenshot
+
+RAG demo (output / UI illustration):
 
 ![RAG Demo](screenshots/rag_demo.svg)
