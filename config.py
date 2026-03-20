@@ -62,7 +62,7 @@ WIKIDATA_SPARQL_ENDPOINT = "https://query.wikidata.org/sparql"
 SPARQL_EXPANSION_LIMIT_PER_ENTITY = 1000  # 1-Hop: LIMIT per entity
 SPARQL_EXPANSION_MIN_CONFIDENCE = 0.85  # Only expand from confidently aligned entities
 
-# Output paths (Grading Guide: kg_artifacts/)
+# Output paths (Phase 1: data/; Phase 2: kg_artifacts/)
 DATA_DIR = "data"
 KG_ARTIFACTS_DIR = "kg_artifacts"
 os.makedirs(KG_ARTIFACTS_DIR, exist_ok=True)

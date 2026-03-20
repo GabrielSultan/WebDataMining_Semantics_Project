@@ -16,7 +16,7 @@ import config
 
 
 def run(cmd: list[str], desc: str) -> bool:
-    """Run a command and return True if successful."""
+    """Run a Python script and return True if successful."""
     print(f"\n--- {desc} ---")
     result = subprocess.run([sys.executable] + cmd)
     if result.returncode != 0:
@@ -26,6 +26,7 @@ def run(cmd: list[str], desc: str) -> bool:
 
 
 def main():
+    # Execute pipeline steps in order (Phase 1 -> Phase 2)
     steps = [
         (["src/crawl/phase1_crawler.py"], "Phase 1: Crawling (Europeana API)"),
         (["src/ie/phase1_extraction.py"], "Phase 1: NER + Relation extraction"),

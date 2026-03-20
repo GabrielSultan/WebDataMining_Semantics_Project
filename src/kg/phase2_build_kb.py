@@ -46,6 +46,7 @@ def to_predicate(verb: str) -> str:
 
 
 def main():
+    # Load Phase 1 entities and triples
     entities_df = pd.read_csv(config.EXTRACTED_KNOWLEDGE)
     triples_df = pd.read_csv(config.EXTRACTED_TRIPLES)
 
@@ -55,6 +56,7 @@ def main():
 
     type_map = {"PERSON": "Person", "ORG": "Organization", "GPE": "Place", "DATE": "Temporal"}
 
+    # Add entity types and source URLs
     for _, row in entities_df.iterrows():
         name = to_uri(row["entity"])
         if not name:
@@ -64,7 +66,7 @@ def main():
         g.add((subj, RDF.type, NS[etype]))
         g.add((subj, NS["hasSource"], Literal(str(row["source_url"]))))
 
-    # Add triples; objects in triples may not be in entities CSV
+    # Add triples; objects may not be in entities CSV (deduplicate)
     seen = set()
     for _, row in triples_df.iterrows():
         s = to_uri(row["subject"])
@@ -78,6 +80,7 @@ def main():
         seen.add(key)
         g.add((URIRef(NS[s]), NS[pred], URIRef(NS[o])))
 
+    # Persist initial KB (target: >= 100 triples, >= 50 entities)
     g.serialize(destination=config.KB_INITIAL, format="turtle")
     n_triples = len(g)
     n_entities = len(set(s for s, p, o in g) | set(o for s, p, o in g if isinstance(o, URIRef)))

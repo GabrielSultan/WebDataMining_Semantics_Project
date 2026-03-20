@@ -28,7 +28,7 @@ import config
 WIKIDATA_ENTITY = "https://www.wikidata.org/entity/"
 WIKIDATA_PROP_DIRECT = "http://www.wikidata.org/prop/direct/"
 
-# Properties to always keep (coordinates, country, dates, types)
+# Core properties to always keep (coordinates, country, dates, types)
 KEEP_PROPERTIES = {"P31", "P17", "P571", "P580", "P582", "P625", "P569", "P570"}
 # Max literal length for descriptions (filter verbose text)
 MAX_LITERAL_LENGTH = 200
@@ -286,6 +286,7 @@ def expand_via_sparql(
     min_confidence = min_confidence or getattr(config, "SPARQL_EXPANSION_MIN_CONFIDENCE", 0.85)
     limit_per_entity = limit_per_entity or getattr(config, "SPARQL_EXPANSION_LIMIT_PER_ENTITY", 1000)
 
+    # Prefer mapping table; fallback to alignment.ttl
     qids = get_wikidata_qids_from_mapping(mapping_path, min_confidence)
     if not qids:
         qids = get_wikidata_qids_from_alignment(alignment_path)
@@ -313,7 +314,7 @@ def expand_via_sparql(
                     obj = Literal(o)
                 g.add((subj, pred, obj))
 
-    # 1-Hop expansion
+    # 1-Hop expansion (primary source per InstructionPhase2)
     for i, qid in enumerate(qids):
         triples = sparql_1hop(qid, limit=limit_per_entity)
         add_triples(triples)

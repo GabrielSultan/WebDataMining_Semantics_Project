@@ -3,7 +3,7 @@ Phase 1: Web Crawling and Cleaning
 Domain: Local History
 
 Uses Europeana API only (instructions: use APIs when anti-robot checking occurs).
-No trafilatura needed - text is extracted directly from the API response.
+text is extracted directly from the API response.
 """
 
 import sys
@@ -43,6 +43,7 @@ def _flatten_text_values(value):
 
 
 def _is_http_url(text: str) -> bool:
+    """Check if string is an HTTP(S) URL."""
     t = text.strip().lower()
     return t.startswith("http://") or t.startswith("https://")
 
@@ -103,6 +104,7 @@ def fetch_europeana_via_api() -> list[dict]:
     results = []
     seen_ids = set()
 
+    # Paginate via cursor (allows >1000 results per query)
     with httpx.Client(
         headers={"User-Agent": config.USER_AGENT},
         timeout=30.0,
@@ -142,6 +144,7 @@ def fetch_europeana_via_api() -> list[dict]:
                         continue
 
                     word_count = len(text.split())
+                    # Filter low-content pages (useful-page threshold)
                     if word_count < config.MIN_WORD_COUNT_API:
                         continue
 
@@ -171,6 +174,7 @@ def main():
     output_path = config.CRAWLER_OUTPUT
     results = []
 
+    # Fetch via Europeana API (per instructions: use APIs when anti-robot)
     if config.EUROPEANA_API_KEY:
         print("Fetching from Europeana API...")
         results = fetch_europeana_via_api()
@@ -186,6 +190,7 @@ def main():
         print("No pages saved.")
         return
 
+    # Write JSONL (one JSON object per line)
     with open(output_path, "w", encoding="utf-8") as f:
         for r in results:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")

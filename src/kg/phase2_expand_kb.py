@@ -32,6 +32,7 @@ try:
 except ImportError:
     expand_via_sparql = None
 
+# Standard vocabularies for Europeana/Dublin Core metadata
 EDM = Namespace("http://www.europeana.eu/schemas/edm/")
 DCTERMS = Namespace("http://purl.org/dc/terms/")
 DC = Namespace("http://purl.org/dc/elements/1.1/")
@@ -350,7 +351,7 @@ def main():
     print("Step 3: Cleaning malformed literals...")
     g = cleanup_malformed_literals(g)
 
-    # 4. Deduplicate
+    # 4. Deduplicate triples
     seen = set()
     g_clean = Graph()
     for s, p, o in g:

@@ -117,6 +117,7 @@ def get_prefix_block(g: Graph) -> str:
 
 
 def list_distinct_predicates(g: Graph, limit: int = MAX_PREDICATES) -> List[str]:
+    """List unique predicates for schema summary (reduces prompt size)."""
     q = f"""
     SELECT DISTINCT ?p WHERE {{
         ?s ?p ?o .
@@ -126,6 +127,7 @@ def list_distinct_predicates(g: Graph, limit: int = MAX_PREDICATES) -> List[str]
 
 
 def list_distinct_classes(g: Graph, limit: int = MAX_CLASSES) -> List[str]:
+    """List unique rdf:type classes for schema summary."""
     q = f"""
     SELECT DISTINCT ?cls WHERE {{
         ?s a ?cls .
@@ -137,6 +139,7 @@ def list_distinct_classes(g: Graph, limit: int = MAX_CLASSES) -> List[str]:
 def sample_triples(
     g: Graph, limit: int = SAMPLE_TRIPLES
 ) -> List[Tuple[str, str, str]]:
+    """Sample triples to give LLM concrete examples of graph structure."""
     q = f"""
     SELECT ?s ?p ?o WHERE {{
         ?s ?p ?o .
@@ -297,6 +300,7 @@ def answer_with_sparql_generation(
     try_repair: bool = True,
 ) -> dict:
     sparql = generate_sparql(question, schema_summary)
+    # Try execution; optionally repair on parse/execution error
     try:
         vars_, rows = run_sparql(g, sparql)
         return {

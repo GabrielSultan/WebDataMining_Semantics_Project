@@ -17,6 +17,7 @@ from rdflib.namespace import OWL, RDFS
 
 import config
 
+# Local and external vocabularies for predicate alignment
 NS = Namespace("http://example.org/localhistory/")
 WDT = Namespace("http://www.wikidata.org/prop/direct/")
 EDM = Namespace("http://www.europeana.eu/schemas/edm/")
@@ -34,6 +35,7 @@ PREDICATE_TO_WIKIDATA = {
     "designate": WDT["P31"],
 }
 
+# Search terms for SPARQL lookup when no direct mapping exists
 PREDICATE_SEARCH_TERMS = {
     "locate": "location", "locatedIn": "location", "build": "creator", "design": "creator",
     "construct": "creator", "own": "owner", "occupy": "location", "expand": "modification",
@@ -43,6 +45,7 @@ PREDICATE_SEARCH_TERMS = {
     "flow": "location", "grow": "modification", "designate": "type", "relatedTo": "relation",
 }
 
+# EDM/DCTERMS fallback when Wikidata has no match
 PREDICATE_ALIGNMENT_FALLBACK = {
     "locate": (DCTERMS["spatial"], "equivalent"), "locatedIn": (DCTERMS["spatial"], "equivalent"),
     "build": (DC["creator"], "equivalent"), "design": (DC["creator"], "equivalent"),
@@ -61,6 +64,7 @@ PREDICATE_ALIGNMENT_FALLBACK = {
 
 
 def sparql_wikidata_property(search_term: str, limit: int = 10) -> list[str]:
+    """Search Wikidata for properties matching the given term."""
     query = """
     SELECT ?property ?propertyLabel WHERE {
       ?property a wikibase:Property .
@@ -91,6 +95,7 @@ def sparql_wikidata_property(search_term: str, limit: int = 10) -> list[str]:
 
 
 def main():
+    # Build predicate alignment: owl:equivalentProperty or rdfs:subPropertyOf
     alignment = Graph()
     alignment.bind("lh", str(NS))
     alignment.bind("wdt", str(WDT))
@@ -109,6 +114,7 @@ def main():
                     continue
             alignment.add((s, p, o))
 
+    # Add predicate alignments: Wikidata first, then EDM fallback
     for pred, search_term in PREDICATE_SEARCH_TERMS.items():
         lh_pred = URIRef(NS[pred])
         wd_uri = None

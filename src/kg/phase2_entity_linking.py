@@ -21,15 +21,18 @@ from rdflib.namespace import OWL, RDF, RDFS
 
 import config
 
+# Local ontology namespace and Wikidata search endpoint
 NS = Namespace("http://example.org/localhistory/")
 WIKIDATA_API = "https://www.wikidata.org/w/api.php"
 
+# Keywords to boost confidence when Wikidata description matches entity type
 ENTITY_TYPE_DESCRIPTION_HINTS = {
     "GPE": ("city", "country", "place", "location", "capital"),
     "PERSON": ("person", "human", "politician", "scientist", "artist"),
     "ORG": ("organization", "company", "university", "institution"),
 }
 
+# Non-entities (common words, partial phrases) to skip linking
 ENTITY_BLACKLIST = {
     "architectuur", "neoclassicistisch", "architectuur.", "d'anatomie",
     "des galeries de minéralogie et", "et de la vallée suisse",
@@ -38,6 +41,7 @@ ENTITY_BLACKLIST = {
     "kupferstich", "architectuur en", "exposition universelle de 19001245",
 }
 
+# Override entity type for known false positives (e.g. architectural terms)
 ENTITY_TYPE_CORRECTIONS = {
     "architectuur": "EXCLUDE",
     "neoclassicistisch": "EXCLUDE",
@@ -91,11 +95,13 @@ def search_wikidata_entity(label: str, entity_type: str | None = None) -> list[t
 
 
 def _to_uri_safe(entity: str) -> str:
+    """Normalize entity string for use as URI local name."""
     s = str(entity).replace(" ", "_").replace("-", "_").replace("'", "")
     return "".join(c for c in s if c.isalnum() or c == "_")
 
 
 def _add_new_entity_to_ontology(ontology, NS, entity: str, entity_type: str):
+    """Create a new local entity in the ontology when no LOD match exists."""
     lh_name = _to_uri_safe(entity)
     if not lh_name:
         return
@@ -105,11 +111,13 @@ def _add_new_entity_to_ontology(ontology, NS, entity: str, entity_type: str):
 
 
 def main():
+    # Load extracted entities and their types
     entities_df = pd.read_csv(config.EXTRACTED_KNOWLEDGE)
     entity_types = entities_df.drop_duplicates("entity").set_index("entity")["entity_type"].to_dict()
     unique_entities = entities_df["entity"].drop_duplicates().dropna().astype(str).tolist()
 
     mapping_rows = []
+    # RDF graphs: alignment (owl:sameAs links) and ontology (new entities)
     alignment = Graph()
     alignment.bind("lh", str(NS))
     alignment.bind("owl", OWL)
@@ -119,6 +127,7 @@ def main():
     ontology.bind("rdf", RDF)
     ontology.bind("rdfs", RDFS)
 
+    # Define local ontology classes and properties
     ontology.add((NS["Person"], RDF.type, RDFS.Class))
     ontology.add((NS["Organization"], RDF.type, RDFS.Class))
     ontology.add((NS["Place"], RDF.type, RDFS.Class))
@@ -132,6 +141,7 @@ def main():
     for entity in unique_entities:
         etype = entity_types.get(entity, "Thing")
         etype = ENTITY_TYPE_CORRECTIONS.get(entity.lower().strip(), etype)
+        # Skip blacklisted or corrected entities
         if etype == "EXCLUDE" or entity.lower().strip() in ENTITY_BLACKLIST:
             mapping_rows.append({
                 "Private_Entity": entity,
@@ -143,6 +153,7 @@ def main():
 
         if results:
             uri, score = results[0]
+            # Reject Europeana URIs (not SPARQL-queryable per spec)
             if "europeana.eu" in str(uri).lower():
                 uri, score = "NEW", 0.0
             mapping_rows.append({
@@ -150,6 +161,7 @@ def main():
                 "External_URI": uri,
                 "Confidence": score,
             })
+            # Add owl:sameAs only for Wikidata/DBpedia (SPARQL expansion)
             if uri != "NEW" and ("wikidata.org/entity/" in str(uri) or "dbpedia.org" in str(uri)):
                 lh_name = _to_uri_safe(entity)
                 if lh_name:
@@ -168,6 +180,7 @@ def main():
             if lh_name:
                 _add_new_entity_to_ontology(ontology, NS, entity, etype)
 
+    # Persist mapping table, alignment graph, and ontology
     pd.DataFrame(mapping_rows).to_csv(config.MAPPING_TABLE, index=False)
     alignment.serialize(destination=config.ALIGNMENT_FILE, format="turtle")
     ontology.serialize(destination=config.ONTOLOGY_FILE, format="turtle")

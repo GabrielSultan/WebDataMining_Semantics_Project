@@ -19,7 +19,7 @@ import spacy
 
 import config
 
-# Entity types we care about (graph nodes)
+# Entity types from spaCy NER (graph nodes)
 ENTITY_LABELS = {"PERSON", "ORG", "GPE", "DATE"}
 
 # Common nouns / generic terms to filter out (NER sometimes mislabels these)
@@ -232,7 +232,7 @@ def main():
             entities.extend(extract_entities(doc, url))
             relations.extend(extract_relations(doc, url))
 
-    # Build CSV: entity, entity_type, source_url (and optionally triples)
+    # Build CSVs: entities and triples for Phase 2
     df_entities = pd.DataFrame(entities)
     if not df_entities.empty:
         df_entities = df_entities.drop_duplicates(subset=["entity", "entity_type", "source_url"])
