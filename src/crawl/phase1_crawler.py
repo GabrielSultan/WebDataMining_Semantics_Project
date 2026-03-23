@@ -110,17 +110,11 @@ def fetch_europeana_via_api() -> list[dict]:
         timeout=30.0,
     ) as client:
         robots_cache = {}
+        rows_per_page = 100
         for query in config.EUROPEANA_QUERIES:
             cursor = "*"
             while True:
-                params = {
-                    "wskey": config.EUROPEANA_API_KEY,
-                    "query": query,
-                    "rows": 100,
-                    "cursor": cursor,
-                    "profile": "rich",
-                    "reusability": "open",
-                }
+                params = config.europeana_search_params(query, cursor, rows=rows_per_page)
                 resp = client.get(config.EUROPEANA_SEARCH_URL, params=params)
 
                 if resp.status_code != 200:
@@ -163,7 +157,7 @@ def fetch_europeana_via_api() -> list[dict]:
                         return results
 
                 next_cursor = data.get("nextCursor")
-                if not next_cursor or len(items) < params["rows"]:
+                if not next_cursor or len(items) < rows_per_page:
                     break
                 cursor = next_cursor
 

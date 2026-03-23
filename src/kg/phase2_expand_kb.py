@@ -67,14 +67,8 @@ def fetch_europeana_records_cursor(
             cursor = "*"
             page = 0
             while len(all_items) < target_total:
-                params = {
-                    "wskey": config.EUROPEANA_API_KEY,
-                    "query": query,
-                    "rows": min(rows_per_request, 100),
-                    "cursor": cursor,
-                    "profile": "rich",
-                    "reusability": "open",
-                }
+                rows = min(rows_per_request, 100)
+                params = config.europeana_search_params(query, cursor, rows=rows)
                 resp = client.get(config.EUROPEANA_SEARCH_URL, params=params)
                 if resp.status_code != 200:
                     break
@@ -88,7 +82,7 @@ def fetch_europeana_records_cursor(
                         seen.add(iid)
                         all_items.append(item)
                 next_cursor = data.get("nextCursor")
-                if not next_cursor or len(items) < params["rows"]:
+                if not next_cursor or len(items) < rows:
                     break
                 cursor = next_cursor
                 page += 1

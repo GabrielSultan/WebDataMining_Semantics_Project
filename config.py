@@ -31,26 +31,68 @@ USER_AGENT = "WebMiningSemanticsStudent/1.0 (Educational project; Python/httpx)"
 EUROPEANA_API_KEY = os.environ.get("EUROPEANA_API_KEY", "")  # e.g. "abc123xyz"
 EUROPEANA_SEARCH_URL = "https://api.europeana.eu/record/v2/search.json"
 
-# Search queries for Local History domain (Paris, monuments, heritage)
-EUROPEANA_QUERIES = [
-    "Paris history",
-    "Notre-Dame Paris",
-    "Eiffel Tower",
-    "Louvre Museum",
-    "Palace of Versailles",
-    "Arc de Triomphe Paris",
-    "Bastille Paris",
-    "Sainte-Chapelle Paris",
+# Europeana query refinements (repeatable `qf` parameter). LANGUAGE:en keeps English metadata/text.
+# Optional: append "COUNTRY:france" to bias toward France-based providers (can reduce recall).
+EUROPEANA_QUERY_FILTERS = [
+    "LANGUAGE:en",
 ]
 
+# Search queries: English wording, France and/or Paris local history (avoids ambiguous "Paris" matches).
+EUROPEANA_QUERIES = [
+    "Paris France history",
+    "French history Paris monuments",
+    "Notre-Dame cathedral Paris France",
+    "Eiffel Tower Paris France",
+    "Louvre Museum Paris France",
+    "Palace of Versailles France history",
+    "Arc de Triomphe Paris France",
+    "Bastille Paris French history",
+    "Sainte-Chapelle Paris France",
+    "Versailles palace France history",
+]
+
+
+def europeana_search_params(
+    query: str,
+    cursor: str,
+    *,
+    rows: int = 100,
+) -> list[tuple[str, str]]:
+    """Build Europeana Search API params (multiple `qf` filters)."""
+    pairs: list[tuple[str, str]] = [
+        ("wskey", EUROPEANA_API_KEY),
+        ("query", query),
+        ("rows", str(rows)),
+        ("cursor", cursor),
+        ("profile", "rich"),
+        ("reusability", "open"),
+    ]
+    for qf in EUROPEANA_QUERY_FILTERS:
+        pairs.append(("qf", qf))
+    return pairs
+
 # Expansion: many queries to reach 50k-200k triplets (InstructionPhase2)
-# Cursor-based pagination allows >1000 results per query
+# English + France/Paris themes; same LANGUAGE filter as phase 1 (see EUROPEANA_QUERY_FILTERS).
 EUROPEANA_EXPANSION_QUERIES = [
-    "Paris", "France", "monument", "museum", "cathedral", "palace", "tower",
-    "history", "château", "church", "abbey", "castle", "fortress", "statue",
-    "painting", "sculpture", "archaeology", "heritage", "medieval", "renaissance",
-    "Louis XIV", "Napoleon", "Versailles", "Louvre", "Notre-Dame", "Eiffel",
-    "art", "architecture", "photograph", "manuscript", "archive",
+    "Paris France history",
+    "France history museum",
+    "French Revolution Paris",
+    "Versailles France palace",
+    "Louvre Paris France",
+    "Notre-Dame Paris France",
+    "Eiffel Tower Paris",
+    "French heritage monument",
+    "medieval France Paris",
+    "Napoleon France history",
+    "Louis XIV Versailles",
+    "French cathedral history",
+    "Bastille Paris history",
+    "Normandy France history",
+    "French castle heritage",
+    "Paris archaeological France",
+    "French art history museum",
+    "Versailles garden history",
+    "French Renaissance architecture",
 ]
 
 # Target records for expansion (InstructionPhase2: 50k-200k triplets, 5k-30k entities)

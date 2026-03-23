@@ -97,7 +97,7 @@ Run commands from the **repository root** (`project-root/`).
 
 ### Seed URLs / data sources (Phase 1)
 
-We use the **Europeana Search API** with queries: `Paris history`, `Notre-Dame Paris`, `Eiffel Tower`, `Louvre Museum`, `Palace of Versailles`, `Arc de Triomphe Paris`, `Bastille Paris`, `Sainte-Chapelle Paris`. Items with ≥500 words are kept.
+We use the **Europeana Search API** with English queries focused on **France and/or Paris** (see `EUROPEANA_QUERIES` in `config.py`). Requests include the refinement **`LANGUAGE:en`** so records are English-language. Items with ≥500 words are kept.
 
 ## How to run the RAG demo
 
@@ -114,7 +114,7 @@ We use the **Europeana Search API** with queries: `Paris history`, `Notre-Dame P
    ```
    Follow the script’s prompts. Ensure KB / SPARQL-related paths expected by `src/rag/` match your local `kg_artifacts/` (see `src/rag/README.md` if present).
 
-**Note** : here is an example of a question to enter : "Which items are linked to Romania?"
+**Note** : example question: `Which places in France are mentioned in the knowledge base?`
 
 ## Statistics
 
