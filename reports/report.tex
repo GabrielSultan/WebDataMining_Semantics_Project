@@ -250,7 +250,7 @@ def sparql_2hop(qid, limit=500):
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.95\textwidth]{../screenshots/phase2_Last_Part.jpg}
-\caption{Phase 2 KB expansion output: SPARQL 1-Hop and 2-Hop on Wikidata (572 triples merged), Europeana complement (700 records), cleaning; final KB: 109,474 triples, 7,310 entities, 50 relations.}
+\caption{Phase 2 KB expansion output: SPARQL 1-Hop and 2-Hop on Wikidata, Europeana complement, cleaning; final KB statistics (current \texttt{statistics\_report.txt}): 75,549 triples, 7,602 entities, 55 relations.}
 \end{figure}
 
 \subsection{Final KB Statistics}
@@ -258,13 +258,13 @@ def sparql_2hop(qid, limit=500):
 From \texttt{kg\_artifacts/statistics\_report.txt}:
 
 \begin{itemize}
-\item \textbf{Triplets:} 109,474
-\item \textbf{Entities:} 7,310
-\item \textbf{Relations:} 50
-\item \textbf{Connected components:} 16; largest component: 6,904; isolated entities: 0
+\item \textbf{Triplets:} 75,549
+\item \textbf{Entities:} 7,602
+\item \textbf{Relations:} 55
+\item \textbf{Connected components:} 26; largest component: 6,707; isolated entities: 0
 \end{itemize}
 
-These values satisfy the target (50k--200k triplets, 5k--30k entities, 50--200 relations). Europeana contributes substantially: without it, the volume would drop to $\sim$1,600 triplets. Predicate whitelisting and consolidation ensure the relation count stays within 50--200.
+These values satisfy the target (50k--200k triplets, 5k--30k entities, 50--200 relations). Europeana contributes substantially: without it, the volume would drop to $\sim$1,600 triplets. Predicate whitelisting and consolidation keep the relation count within the 50--200 band.
 
 \subsection{Challenges and Refinements}
 
@@ -319,7 +319,7 @@ We design a conceptual SWRL rule for the expanded KB: \texttt{Thing(?x), type(?x
 
 \subsection{Data Preparation and Splits}
 
-Input: \texttt{kb\_expanded.nt} (109,474 triples). Cleaning: (1)~remove triples whose object is a literal; (2)~filter literal-heavy predicates (\texttt{dcterms:temporal}, \texttt{dc:language}, \texttt{dc:title}, etc.); (3)~normalize URIs (remove trailing slashes). After deduplication: 91,955 entity-relation-entity triples. Split: 80\% train, 10\% valid, 10\% test. Critical: no entity appears only in valid/test; orphan entities are moved to train. Final: 73,781 train, 9,060 valid, 9,114 test; 7,327 entities, 36 relations.
+Raw graph: \texttt{kb\_expanded.nt} (75,549 triples in the current export; see \texttt{statistics\_report.txt}). \textbf{PyKEEN input} is produced in the notebook by cleaning: (1)~drop triples whose object is a literal; (2)~filter literal-heavy predicates (\texttt{dcterms:temporal}, \texttt{dc:language}, \texttt{dc:title}, etc.); (3)~normalize URIs (remove trailing slashes); then deduplicate and split 80/10/10 with orphan entities moved to train. \textbf{Saved split files} (\texttt{kge\_splits/}): 91,706 entity-relation-entity triples (73,565 train, 9,057 valid, 9,084 test); 7,310 entities; 37 relations---re-run the notebook after large KB changes so metrics and splits align with the current \texttt{.nt} file.
 
 \textbf{Execution:} Notebook \texttt{src/kge/phase3\_knowledge\_reasoning.ipynb}. Data: \texttt{kg\_artifacts/kge\_splits/train.txt}, \texttt{valid.txt}, \texttt{test.txt}. Metrics: \texttt{transe\_result/results.json}, \texttt{complex\_result/results.json}.
 
@@ -355,7 +355,7 @@ ComplEx outperforms TransE (MRR 0.525 vs 0.184). TransE struggles with symmetric
 
 \subsection{KB Size Sensitivity}
 
-TransE on 20k, 50k, and full 91,955 triples:
+TransE on 20k, 50k, and full cleaned split (91,706 triples in the saved \texttt{kge\_splits/}):
 
 \begin{table}[ht]
 \centering
@@ -366,12 +366,12 @@ TransE on 20k, 50k, and full 91,955 triples:
 \midrule
 20,000 & 0.0511 & 0.1169 \\
 50,000 & 0.0695 & 0.1752 \\
-91,955 & 0.1843 & 0.3443 \\
+91,706 & 0.1843 & 0.3443 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-The row for 91,955 triples matches \texttt{kg\_artifacts/kge\_splits/transe\_result/results.json} (\texttt{metrics.both.optimistic.inverse\_harmonic\_mean\_rank} = MRR). Subsample rows are from separate training runs in the notebook. Performance increases with KB size; small KBs produce unstable embeddings. The grader can verify the metrics in \texttt{complex\_result/results.json} and \texttt{transe\_result/results.json}.
+The row for the full split matches an earlier training run recorded in \texttt{kg\_artifacts/kge\_splits/transe\_result/results.json} (\texttt{metrics.both.optimistic.inverse\_harmonic\_mean\_rank} as MRR); re-training may shift values slightly. Subsample rows are from separate runs in the notebook. Performance increases with KB size; small KBs produce unstable embeddings. Verify current metrics in \texttt{complex\_result/results.json} and \texttt{transe\_result/results.json}.
 
 \subsection{Embedding Analysis}
 
@@ -399,7 +399,7 @@ For the SWRL rule \texttt{hasSpatialContext} (Section~3.2), we check if the embe
 
 \subsection{Setup}
 
-\textbf{Model:} \texttt{gemma:2b} via Ollama (REST API, \texttt{stream: false}). \textbf{Graph:} \texttt{kg\_artifacts/kb\_expanded.nt} (109,474 triples). Predicates: \texttt{dcterms:spatial}, \texttt{dc:subject}, \texttt{dc:creator}, \texttt{edm:provider}, aligned Wikidata properties.
+\textbf{Model:} \texttt{gemma:2b} via Ollama (REST API, \texttt{stream: false}). \textbf{Graph:} \texttt{kg\_artifacts/kb\_expanded.nt}. Loading the graph prints the live triple count (e.g.\ \textbf{75,549} triples in a recent run, consistent with \texttt{statistics\_report.txt}). Predicates include \texttt{dcterms:spatial}, \texttt{dc:subject}, \texttt{dc:creator}, \texttt{edm:provider}, and aligned Wikidata properties.
 
 \subsection{Schema Summary and NL$\rightarrow$SPARQL Prompt}
 
@@ -433,6 +433,8 @@ def answer_with_sparql_generation(g, schema_summary, question, try_repair=True):
 
 We evaluate five questions. For each: (1)~\textbf{LLM only}---direct answer (often hallucinated); (2)~\textbf{RAG}---SPARQL on KB, grounded results.
 
+\paragraph{Observed run (terminal).} For \emph{Which items are linked to France?}, the baseline (no RAG) listed generic cultural stereotypes (Eiffel Tower, Louvre, Versailles, French flag, cuisine, fashion)---not URIs from the KB. The RAG path produced a SPARQL query using \texttt{dcterms:spatial} and \texttt{FILTER(REGEX(STR(?place), "France|French|Fran\c{c}ais|Paris|Gaul", "i"))}. On Gemma~2B the emitted query can be \textbf{syntactically messy} (e.g.\ duplicated \texttt{SELECT} / repeated triple patterns); \texttt{rdflib} still executed it in our run (\texttt{[Repaired?] False}), returning \textbf{1,093} variable bindings---Europeana item URIs such as \texttt{https://www.europeana.eu/item/\ldots}. The interface showed 20 rows with ``\ldots (showing 20 of 1093)''. Thus grounding in the graph works even when the small model's SPARQL surface form is imperfect; a stricter validator or always-on repair could normalize the query.
+
 \begin{table}[ht]
 \centering
 \caption{LLM only vs.\ RAG.}
@@ -442,8 +444,8 @@ We evaluate five questions. For each: (1)~\textbf{LLM only}---direct answer (oft
 \textbf{Question} & \textbf{LLM only} & \textbf{RAG} & \textbf{OK?} \\
 \midrule
 Which items are linked to France? &
-Hallucinated (generic landmarks\ldots) &
-Grounded Europeana URIs via \texttt{dcterms:spatial} &
+Generic list (Eiffel Tower, Louvre, Versailles, flag, cuisine, fashion) &
+1,093 Europeana item URIs via \texttt{dcterms:spatial} + regex (20 shown) &
 Yes \\
 What places are associated with Paris? &
 Invented or vague places &
@@ -492,7 +494,7 @@ RAG yields grounded results; the baseline hallucinates for domain-specific quest
 \section{Conclusion}
 %=============================================================================
 
-We implemented a complete pipeline from unstructured web data (Europeana API) to a structured KB aligned with Wikidata/DBpedia. Phase~1: transformer-based NER, dependency-based relation extraction. Phase~2: entity/predicate alignment, SPARQL expansion (1-hop, 2-hop, predicate-controlled), Europeana complement---109,474 triplets, 7,310 entities, 50 relations. Phase~3: OWL~DL + HermiT on \texttt{family.owl} (equivalent to the targeted SWRL rule), KGE with TransE and ComplEx (MRR 0.525 with ComplEx on the saved PyKEEN run). Phase~4: RAG with Ollama, NL$\rightarrow$SPARQL, self-repair, baseline vs RAG evaluation on five questions.
+We implemented a complete pipeline from unstructured web data (Europeana API) to a structured KB aligned with Wikidata/DBpedia. Phase~1: transformer-based NER, dependency-based relation extraction. Phase~2: entity/predicate alignment, SPARQL expansion (1-hop, 2-hop, predicate-controlled), Europeana complement---\textbf{75,549} triplets, 7,602 entities, 55 relations (current \texttt{statistics\_report.txt}). Phase~3: OWL~DL + HermiT on \texttt{family.owl} (equivalent to the targeted SWRL rule), KGE with TransE and ComplEx (metrics in \texttt{kge\_splits/*/results.json}). Phase~4: RAG with Ollama, NL$\rightarrow$SPARQL, self-repair, baseline vs RAG evaluation on five questions; a logged France query returned 1,093 grounded item URIs despite imperfect SPARQL formatting from the small LM.
 
 %=============================================================================
 \section{Appendix: Code Mapping}
