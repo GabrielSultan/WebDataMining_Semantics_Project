@@ -5,8 +5,6 @@ Phase 1: Europeana API (requires EUROPEANA_API_KEY).
 Phase 2: Entity linking (Wikidata), predicate alignment (SPARQL),
          KB expansion (SPARQL 1-Hop on Wikidata + Europeana complement).
 
-Phase 3 (SWRL + KGE): run src/kge/phase3_knowledge_reasoning.ipynb
-Phase 4 (RAG): run src/rag/lab_rag_sparql_gen.py (requires Ollama)
 """
 
 import subprocess
