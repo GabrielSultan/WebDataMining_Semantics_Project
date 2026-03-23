@@ -176,12 +176,12 @@ SPARQL_INSTRUCTIONS = """
 You are a SPARQL generator. Convert the user QUESTION into a valid SPARQL 1.1 SELECT query.
 CRITICAL: Your response MUST include a complete query: PREFIX (only dc, dcterms, lh) + SELECT + WHERE {{ ... }}.
 The local-history namespace is PREFIX lh: <http://example.org/localhistory/> — use exactly the prefix lh:, never rh: or localhistory:.
-Example for "Which items are linked to Romania?":
+Example for "Which items are linked to France?":
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX lh: <http://example.org/localhistory/>
 SELECT ?item WHERE {{
   ?item dcterms:spatial ?place .
-  FILTER(REGEX(STR(?place), "Romania|Roumanie|Roménia|Romunija|Rumunija|Errumania", "i"))
+  FILTER(REGEX(STR(?place), "France|French|Français|Paris|Gaul", "i"))
 }}
 - Use ONLY predicates from the schema: dcterms:spatial (location), dc:subject, dc:creator.
 - Do NOT use Wikidata (wdt:). Return ONLY the SPARQL in a ```sparql code block.
@@ -264,10 +264,10 @@ REPAIR_INSTRUCTIONS = """
 Return a COMPLETE corrected query (PREFIX + SELECT + WHERE).
 If the error says "found end of text" or "Expected SelectQuery", the query was INCOMPLETE — you MUST add the full SELECT ... WHERE {{ ... }}.
 Local-history resources use PREFIX lh: <http://example.org/localhistory/> only — never rh:.
-Example for "items linked to Romania":
+Example for "items linked to France":
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX lh: <http://example.org/localhistory/>
-SELECT ?item WHERE {{ ?item dcterms:spatial ?place . FILTER(REGEX(STR(?place), "Romania|Roumanie|Roménia|Romunija|Rumunija|Errumania", "i")) }}
+SELECT ?item WHERE {{ ?item dcterms:spatial ?place . FILTER(REGEX(STR(?place), "France|French|Français|Paris|Gaul", "i")) }}
 - Use dcterms:spatial for locations. Do NOT use wdt:. Return ONLY the SPARQL in a ```sparql code block.
 """
 

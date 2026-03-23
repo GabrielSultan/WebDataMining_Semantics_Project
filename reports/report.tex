@@ -57,14 +57,15 @@ This report describes a complete pipeline for building a Knowledge Base (KB) in 
 
 \subsection{Domain and Seed URLs}
 
-Domain: \textbf{Local History} (cultural heritage objects). Per Phase~1 instructions (5--10 seed URLs), we use the Europeana Search API with queries as equivalent ``seeds'': \texttt{Paris history}, \texttt{Notre-Dame Paris}, \texttt{Eiffel Tower}, \texttt{Louvre Museum}, \texttt{Palace of Versailles}, \texttt{Arc de Triomphe Paris}, \texttt{Bastille Paris}, \texttt{Sainte-Chapelle Paris}. Each query returns multiple records, items with $\geq$500 words are kept.
+Domain: \textbf{Local History} (cultural heritage objects), focused on \textbf{French and Parisian history in English}. Per Phase~1 instructions (5--10 seed URLs), we use the Europeana Search API with \textbf{English} search strings as equivalent ``seeds'' (e.g.\ \texttt{Paris France history}, \texttt{French history Paris monuments}, \texttt{Palace of Versailles France history}). Each request adds the refinement \texttt{LANGUAGE:en} so retrieved records are English-language. Items with $\geq$500 words are kept.
 
-\textbf{Execution.} From the project root: \texttt{python src/crawl/phase1\_crawler.py}. Queries are defined in \texttt{config.py}:
+\textbf{Execution.} From the project root: \texttt{python src/crawl/phase1\_crawler.py}. Queries and filters are defined in \texttt{config.py}:
 
-\begin{lstlisting}[caption={\texttt{config.py} (excerpt) -- seeds and User-Agent}]
+\begin{lstlisting}[caption={\texttt{config.py} (excerpt) -- seeds, language filter, User-Agent}]
+EUROPEANA_QUERY_FILTERS = ["LANGUAGE:en"]
 EUROPEANA_QUERIES = [
-    "Paris history", "Notre-Dame Paris", "Eiffel Tower",
-    "Louvre Museum", "Palace of Versailles", ...
+    "Paris France history", "French history Paris monuments",
+    "Notre-Dame cathedral Paris France", ...
 ]
 USER_AGENT = "WebMiningSemanticsStudent/1.0 (Educational project; Python/httpx)"
 MIN_WORD_COUNT_API = 500
@@ -131,7 +132,7 @@ for sent in doc.sents:
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.95\textwidth]{../screenshots/phase1.jpg}
-\caption{Phase 1 pipeline output: Europeana API crawling (10 records saved to \texttt{data/crawler\_output.jsonl}) and NER + relation extraction (797 entities to \texttt{extracted\_knowledge.csv}, 18 triples to \texttt{extracted\_triples.csv}).}
+\caption{Phase 1 pipeline output: Europeana API crawling (English, France/Paris queries; 10 records in \texttt{data/crawler\_output.jsonl}) and NER + relation extraction to \texttt{extracted\_knowledge.csv} and \texttt{extracted\_triples.csv} (counts depend on the crawl run).}
 \end{figure}
 
 \begin{figure}[ht]
@@ -402,7 +403,7 @@ For the SWRL rule \texttt{hasSpatialContext} (Section~3.2), we check if the embe
 
 \subsection{Schema Summary and NL$\rightarrow$SPARQL Prompt}
 
-We build a compact schema summary: (1)~8 PREFIX declarations (\texttt{dc}, \texttt{dcterms}, \texttt{edm}, \texttt{lh}, \texttt{rdf}, \texttt{rdfs}, \texttt{owl}, \texttt{xsd}); (2)~distinct predicates (up to 80); (3)~distinct classes (up to 40); (4)~sample triples (up to 20). The prompt includes the schema, the user question, and a concrete example for location questions (e.g.\ ``Which items are linked to Romania?'' using \texttt{dcterms:spatial} and \texttt{FILTER(REGEX(...))} for multilingual place names). The LLM is instructed to return only a valid SPARQL SELECT query in a fenced \texttt{sparql} block. We extract the query with a regex and strip schema lines if present.
+We build a compact schema summary: (1)~8 PREFIX declarations (\texttt{dc}, \texttt{dcterms}, \texttt{edm}, \texttt{lh}, \texttt{rdf}, \texttt{rdfs}, \texttt{owl}, \texttt{xsd}); (2)~distinct predicates (up to 80); (3)~distinct classes (up to 40); (4)~sample triples (up to 20). The prompt includes the schema, the user question, and a concrete example for location questions (e.g.\ ``Which items are linked to France?'' using \texttt{dcterms:spatial} and \texttt{FILTER(REGEX(...))} for variant place spellings). The LLM is instructed to return only a valid SPARQL SELECT query in a fenced \texttt{sparql} block. We extract the query with a regex and strip schema lines if present.
 
 \textbf{Execution:} \texttt{ollama run gemma:2b} then \texttt{python src/rag/lab\_rag\_sparql\_gen.py}. File: \texttt{src/rag/lab\_rag\_sparql\_gen.py}.
 
@@ -440,13 +441,13 @@ We evaluate five questions. For each: (1)~\textbf{LLM only}---direct answer (oft
 \toprule
 \textbf{Question} & \textbf{LLM only} & \textbf{RAG} & \textbf{OK?} \\
 \midrule
-Which items are linked to Romania? &
-Hallucinated (Bran Castle, Danube\ldots) &
-2,130 Europeana URIs via \texttt{dcterms:spatial} &
+Which items are linked to France? &
+Hallucinated (generic landmarks\ldots) &
+Grounded Europeana URIs via \texttt{dcterms:spatial} &
 Yes \\
-What places are associated with Bucharest? &
-Invented places &
-Items linked to \texttt{lh:Bucharest} &
+What places are associated with Paris? &
+Invented or vague places &
+Items linked to \texttt{lh:Paris} (or matching spatial literals) &
 Yes \\
 How many items have subject archaeology? &
 Approximate/false &

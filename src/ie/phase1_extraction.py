@@ -32,7 +32,7 @@ FILTER_ENTITIES = {
     # Europeana metadata labels (not named entities)
     "creatie/bouw", "movement/style", "creation/building", "creation/construction",
     "techniek/materiaal", "movement/style: classicism",
-    # Multilingual false positives (Polish, German, Danish, Romanian)
+    # Multilingual false positives (Polish, German, Danish, other European metadata)
     "prawdopodobnie", "bild", "fundet", "nedatat", "unternehmen", "meisterstück",
     "anliegen", "litografia", "francuska", "papier", "alles",
 }
@@ -43,7 +43,7 @@ FILTER_FRAGMENTS = {
     "architectuur", "glasdia", "tussen", "jusqu", "authentiques", "par",
     "def", "ozn", "z", "de", "la", "le", "du", "des", "en", "et", "mm",
     "stroming", "huidige", "locatie", "creatie", "gebouw", "straat", "brug",
-    # Polish, German, Danish, Romanian
+    # Polish, German, Danish, other non-English fragments
     "prawdopodobnie", "fundet", "nedatat", "litografia", "graf", "r.m",
     "der", "das", "und", "oder", "für", "von", "mit", "auf", "aus",
     "country", "caption", "movement/style", "creation/building",

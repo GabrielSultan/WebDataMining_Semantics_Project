@@ -1,6 +1,6 @@
 """
-Set the static variables 
-Domain: Local History (monuments, historical figures, places).
+Project configuration.
+Domain: Local History — French / Parisian heritage, English-language Europeana records (see EUROPEANA_QUERIES, EUROPEANA_QUERY_FILTERS).
 """
 
 import os

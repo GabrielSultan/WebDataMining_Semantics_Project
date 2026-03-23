@@ -1,9 +1,9 @@
 """
 Phase 1: Web Crawling and Cleaning
-Domain: Local History
+Domain: Local History (France / Paris, English records via LANGUAGE:en + queries in config).
 
 Uses Europeana API only (instructions: use APIs when anti-robot checking occurs).
-text is extracted directly from the API response.
+Text is extracted directly from the API response.
 """
 
 import sys

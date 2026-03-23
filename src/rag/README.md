@@ -18,8 +18,8 @@ python src/rag/lab_rag_sparql_gen.py
 
 ## Example Questions
 
-- Which items are linked to Romania?
-- What places are associated with Bucharest?
+- Which items are linked to France?
+- What places are associated with Paris?
 - How many items have subject archaeology?
 - What entity types exist in the KB?
 - What creators appear in the base?
