@@ -104,7 +104,7 @@ def fetch_europeana_via_api() -> list[dict]:
     results = []
     seen_ids = set()
 
-    # Paginate via cursor (allows >1000 results per query)
+    # allows >1000 results per query
     with httpx.Client(
         headers={"User-Agent": config.USER_AGENT},
         timeout=30.0,
