@@ -49,7 +49,6 @@ This report describes a complete pipeline for building a Knowledge Base (KB) in 
 
 \textbf{Data source.} We use the \textbf{Europeana API} (and Wikidata) as the primary source. Europeana provides metadata for millions of digitized cultural heritage items; extracting text from the Search API JSON response avoids anti-robot issues and simplifies content extraction compared to HTML scraping.
 
-\textbf{Running the full pipeline.} From the project root: \texttt{python run\_pipeline.py} runs Phases~1--2 (crawler $\rightarrow$ IE $\rightarrow$ build KB $\rightarrow$ entity linking $\rightarrow$ predicate alignment $\rightarrow$ expansion). Phase~3: open \texttt{src/kge/phase3\_knowledge\_reasoning.ipynb}. Phase~4: \texttt{python src/rag/lab\_rag\_sparql\_gen.py} (Ollama required).
 
 %=============================================================================
 \section{Data Acquisition \& Information Extraction}
@@ -57,7 +56,7 @@ This report describes a complete pipeline for building a Knowledge Base (KB) in 
 
 \subsection{Domain and Seed URLs}
 
-Domain: \textbf{Local History} (cultural heritage objects), focused on \textbf{French and Parisian history in English}. Per Phase~1 instructions (5--10 seed URLs), we use the Europeana Search API with \textbf{English} search strings as equivalent ``seeds'' (e.g.\ \texttt{Paris France history}, \texttt{French history Paris monuments}, \texttt{Palace of Versailles France history}). Each request adds the refinement \texttt{LANGUAGE:en} so retrieved records are English-language. Items with $\geq$500 words are kept.
+Domain: \textbf{Local History} (cultural heritage objects), focused on \textbf{French and Parisian history in English}. Per Phase~1 instructions (10 seed URLs), we use the Europeana Search API with \textbf{English} search strings as equivalent ``seeds'' (e.g.\ \texttt{Paris France history}, \texttt{French history Paris monuments}, \texttt{Palace of Versailles France history}). Each request adds the refinement \texttt{LANGUAGE:en} so retrieved records are English-language. Items with $\geq$500 words are kept.
 
 \textbf{Execution.} From the project root: \texttt{python src/crawl/phase1\_crawler.py}. Queries and filters are defined in \texttt{config.py}:
 
@@ -73,7 +72,7 @@ MIN_WORD_COUNT_API = 500
 
 \subsection{Crawler Design and Ethics}
 
-Per instructions, we use APIs when anti-robot checking occurs. The crawler respects web ethics:
+We use APIs when anti-robot checking occurs. The crawler respects web ethics:
 \begin{itemize}
 \item identifiable \texttt{User-Agent} (\texttt{WebMiningSemanticsStudent/1.0})
 \item robots.txt check via \texttt{urllib.robotparser} before fetching
@@ -94,7 +93,7 @@ def _is_allowed_by_robots(url, user_agent, robots_cache):
 
 \subsection{Cleaning Pipeline}
 
-The extraction pipeline: First, flatten text from nested API payloads; Second, filter URL literals (not useful for NLP); Then, normalize whitespace; Finally, apply a useful-page threshold ($\geq$500 words). Results are stored in JSONL format (\texttt{url}, \texttt{text}, \texttt{title}, \texttt{word\_count}). Implementation in \texttt{src/crawl/phase1\_crawler.py}:
+The extraction pipeline: First, flatten text from nested API payloads; Second, filter URL literals (not useful for NLP); Then, normalize whitespace; Finally, apply a useful-page threshold ($\geq$500 words). Results are stored in JSONL format in the data folder (\texttt{url}, \texttt{text}, \texttt{title}, \texttt{word\_count}). Implementation in \texttt{src/crawl/phase1\_crawler.py}:
 
 \begin{lstlisting}[caption={\texttt{src/crawl/phase1\_crawler.py} -- cleaning: flatten, filter URLs, 500-word threshold}]
 def _build_text_from_item(item):
@@ -133,28 +132,6 @@ for sent in doc.sents:
 \centering
 \includegraphics[width=0.95\textwidth]{../screenshots/phase1.jpg}
 \caption{Phase 1 pipeline output: Europeana API crawling (English, France/Paris queries; 10 records in \texttt{data/crawler\_output.jsonl}) and NER + relation extraction to \texttt{extracted\_knowledge.csv} and \texttt{extracted\_triples.csv} (counts depend on the crawl run).}
-\end{figure}
-
-\begin{figure}[ht]
-\centering
-\resizebox{\linewidth}{!}{%
-\begin{tikzpicture}[
-  node distance=0.6cm,
-  box/.style={rectangle, draw, minimum width=1.8cm, minimum height=0.5cm, font=\small},
-  arrow/.style={-Stealth}
-]
-  \node[box] (api) {Europeana API};
-  \node[box, right=of api] (extract) {Extraction};
-  \node[box, right=of extract] (ner) {spaCy NER};
-  \node[box, right=of ner] (re) {Relation Ext.};
-  \node[box, right=of re] (kb) {Initial KB};
-  \node[box, right=of kb] (el) {Entity Link};
-  \node[box, right=of el] (pa) {Pred. Align};
-  \node[box, right=of pa] (exp) {Expansion};
-  \draw[arrow] (api) -- (extract) -- (ner) -- (re) -- (kb) -- (el) -- (pa) -- (exp);
-\end{tikzpicture}%
-}
-\caption{Global pipeline: Phase~1 (Crawling $\rightarrow$ NER $\rightarrow$ RE) and Phase~2 (KB $\rightarrow$ alignment $\rightarrow$ expansion).}
 \end{figure}
 
 \subsection{Entity Ambiguity: Three Examples}
@@ -251,6 +228,28 @@ def sparql_2hop(qid, limit=500):
 \centering
 \includegraphics[width=0.95\textwidth]{../screenshots/phase2_Last_Part.jpg}
 \caption{Phase 2 KB expansion output: SPARQL 1-Hop and 2-Hop on Wikidata, Europeana complement, cleaning; final KB statistics (current \texttt{statistics\_report.txt}): 75,549 triples, 7,602 entities, 55 relations.}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\resizebox{\linewidth}{!}{%
+\begin{tikzpicture}[
+  node distance=0.6cm,
+  box/.style={rectangle, draw, minimum width=1.8cm, minimum height=0.5cm, font=\small},
+  arrow/.style={-Stealth}
+]
+  \node[box] (api) {Europeana API};
+  \node[box, right=of api] (extract) {Extraction};
+  \node[box, right=of extract] (ner) {spaCy NER};
+  \node[box, right=of ner] (re) {Relation Ext.};
+  \node[box, right=of re] (kb) {Initial KB};
+  \node[box, right=of kb] (el) {Entity Link};
+  \node[box, right=of el] (pa) {Pred. Align};
+  \node[box, right=of pa] (exp) {Expansion};
+  \draw[arrow] (api) -- (extract) -- (ner) -- (re) -- (kb) -- (el) -- (pa) -- (exp);
+\end{tikzpicture}%
+}
+\caption{Global pipeline: Phase~1 (Crawling $\rightarrow$ NER $\rightarrow$ RE) and Phase~2 (KB $\rightarrow$ alignment $\rightarrow$ expansion).}
 \end{figure}
 
 \subsection{Final KB Statistics}
